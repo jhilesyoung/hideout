@@ -1,1 +1,1 @@
-hideout - Discord Clone - Fullstack Project 
+hideout - Discord Clone 
