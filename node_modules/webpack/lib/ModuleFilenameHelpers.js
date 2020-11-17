@@ -2,7 +2,6 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-
 "use strict";
 
 const createHash = require("./util/createHash");
@@ -16,7 +15,6 @@ ModuleFilenameHelpers.REGEXP_LOADERS_RESOURCE = /\[loaders\]\[resource\]/gi;
 ModuleFilenameHelpers.RESOURCE = "[resource]";
 ModuleFilenameHelpers.REGEXP_RESOURCE = /\[resource\]/gi;
 ModuleFilenameHelpers.ABSOLUTE_RESOURCE_PATH = "[absolute-resource-path]";
-// cSpell:words olute
 ModuleFilenameHelpers.REGEXP_ABSOLUTE_RESOURCE_PATH = /\[abs(olute)?-?resource-?path\]/gi;
 ModuleFilenameHelpers.RESOURCE_PATH = "[resource-path]";
 ModuleFilenameHelpers.REGEXP_RESOURCE_PATH = /\[resource-?path\]/gi;
@@ -57,20 +55,18 @@ const asRegExp = test => {
 	return test;
 };
 
-ModuleFilenameHelpers.createFilename = (
-	module,
-	options,
-	{ requestShortener, chunkGraph }
-) => {
-	const opts = {
-		namespace: "",
-		moduleFilenameTemplate: "",
-		...(typeof options === "object"
+ModuleFilenameHelpers.createFilename = (module, options, requestShortener) => {
+	const opts = Object.assign(
+		{
+			namespace: "",
+			moduleFilenameTemplate: ""
+		},
+		typeof options === "object"
 			? options
 			: {
 					moduleFilenameTemplate: options
-			  })
-	};
+			  }
+	);
 
 	let absoluteResourcePath;
 	let hash;
@@ -87,8 +83,11 @@ ModuleFilenameHelpers.createFilename = (
 	} else {
 		shortIdentifier = module.readableIdentifier(requestShortener);
 		identifier = requestShortener.shorten(module.identifier());
-		moduleId = chunkGraph.getModuleId(module);
-		absoluteResourcePath = module.identifier().split("!").pop();
+		moduleId = module.id;
+		absoluteResourcePath = module
+			.identifier()
+			.split("!")
+			.pop();
 		hash = getHash(identifier);
 	}
 	const resource = shortIdentifier.split("!").pop();
