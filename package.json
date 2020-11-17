@@ -2,7 +2,7 @@
   "name": "hideout",
   "private": true,
   "scripts": {
-    "webpack": "webpack --mode=development"
+    "webpack": "webpack --watch --mode=development"
   },
   "dependencies": {
     "@babel/core": "^7.12.3",
