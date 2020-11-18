@@ -1,8 +1,12 @@
 import React from "react";
+import SplashContainer from './splash/splash_container.js'
+
 
 const App = () => (
   <div>
-    <h1>Heyyyyy</h1>
+
+      <SignUpFormContainer />
+      <SplashContainer />
   </div>
 );
 

@@ -1,34 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {configureStore} from 'react';
-// import { login, logout, signup } from "./util/session_api_util";
+import configureStore from './store/store';
+import Root from './components/root';
+import { login, logout, signup } from './actions/session_actions'
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  
-  const root = document.getElementById("root");
-  ReactDOM.render(
-  <div>
-    <h1>Welcome To Hideout</h1>
-    <button>Sign Up</button>
-    <button>Log In</button>
-    <ul>
-      <li>
-        <button>Jhiles' Github</button>
-      </li>
-      <li>
-      <button>Jhiles' LinkedIn</button>
-      </li>
-      <li>
-      <button>Jhiles' Resume</button>
-      </li>
-    </ul>
-  </div>, root);
   const store = configureStore();
+  const root = document.getElementById("root");
+  ReactDOM.render(<Root store={store}/>, root);
+  window.dispatch = store.dispatch
+  window.setState = store.getState
+  window.login = login;
+  window.signup = signup;
+  window.logout = logout;
 });
 
-// window.login = login;
-// window.logout = logout;
-// window.signup = signup;
 
-// window.getState = store.getState;
-// window.dispatch = store.dispatch;
+/* <Root store={store}/> */
