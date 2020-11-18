@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./frontend/app.jsx");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./frontend/entry.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./frontend/app.jsx":
-/*!**************************!*\
-  !*** ./frontend/app.jsx ***!
-  \**************************/
+/***/ "./frontend/entry.jsx":
+/*!****************************!*\
+  !*** ./frontend/entry.jsx ***!
+  \****************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99,56 +99,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util/session_api_util */ "./frontend/util/session_api_util.js");
 
 
+ // import { login, logout, signup } from "./util/session_api_util";
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("root");
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to Hideout"), root);
-});
-window.login = _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__["login"];
-window.logout = _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__["logout"];
-window.signup = _util_session_api_util__WEBPACK_IMPORTED_MODULE_2__["signup"];
-
-/***/ }),
-
-/***/ "./frontend/util/session_api_util.js":
-/*!*******************************************!*\
-  !*** ./frontend/util/session_api_util.js ***!
-  \*******************************************/
-/*! exports provided: signup, login, logout */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "signup", function() { return signup; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
-var signup = function signup(user) {
-  return $.ajax({
-    method: "POST",
-    url: "api/users",
-    data: {
-      user: user
-    }
-  });
-};
-var login = function login(user) {
-  return $.ajax({
-    method: "POST",
-    url: "api/session",
-    data: {
-      user: user
-    }
-  });
-};
-var logout = function logout() {
-  return $.ajax({
-    method: "DELETE",
-    url: "api/session"
-  });
-};
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome To Hideout"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Sign Up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Log In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Jhiles' Github")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Jhiles' LinkedIn")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Jhiles' Resume")))), root);
+  var store = Object(react__WEBPACK_IMPORTED_MODULE_0__["configureStore"])();
+}); // window.login = login;
+// window.logout = logout;
+// window.signup = signup;
+// window.getState = store.getState;
+// window.dispatch = store.dispatch;
 
 /***/ }),
 

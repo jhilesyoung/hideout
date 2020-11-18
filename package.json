@@ -1,7 +1,7 @@
 {
   "name": "hideout",
   "private": true,
-  "main": "./frontend/app.jsx",
+  "main": "./frontend/entry.jsx",
   "scripts": {
     "webpack": "webpack --watch --mode=development",
     "postinstall": "webpack"
