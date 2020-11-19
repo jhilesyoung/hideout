@@ -3,3 +3,29 @@
     margin: auto;
     color: white;
 }
+
+html {
+    background-color: #7289da;
+}
+
+.login-button {
+    
+}
+
+.splash-title {
+    display: flex;
+    justify-content: center;
+}
+
+.splash-description {
+    display: flex;
+    justify-content: center;
+}
+
+.background-left {
+    
+}
+
+.background-right {
+
+}

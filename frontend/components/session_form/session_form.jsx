@@ -1,13 +1,21 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 class SessionForm extends React.Component {
 
     constructor(props) {
         super(props)
 
-        this.props = {
+        this.state = {
+            email: '',
             username: '',
             password: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    update(field) {
+        return e => this.setState({[field]: e.target.value})
     }
 
     handleSubmit(e) {
@@ -16,14 +24,11 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     }
 
+    
+
     render() {
-        const { user } = this.props;
-        const submitButtonText = '';
-        if (this.props.formType === 'login') {
-            submitButtonText = 'Jump In'
-        } else {
-            submitButtonText = 'Register'
-        }
+        const { user } = this.state;
+        
 
         return (
         <div className="login-form-container">
@@ -32,20 +37,31 @@ class SessionForm extends React.Component {
                 <br/>
                 <h2>We're so excited to see you again!</h2>
                 <h1>{this.props.formType}</h1>
+                <label>Email
+                    <input
+                        type="text"
+                        value={this.state.email}
+                        onChange={this.update("email")}>
+                    </input>
+                <br/>
+                </label>
                 <label>Username
                     <input 
                         type="text"
-                        value={user.username}>
+                        value={this.state.username}
+                        onChange={this.update("username")}>
                     </input>
                 </label>
-
+                <br/>
                 <label>Password
                     <input
                         type="password"
-                        value={user.password}>
+                        value={this.state.password}
+                        onChange={this.update("password")}>
                     </input>
                 </label>
-                <button type="submit" value={this.props.formType}>{submitButtonText}</button>
+                <br/>
+                <button type="submit" value={this.props.formType}>Submit</button>
             </form>
             <h3>Need an account? <Link to="/signup">Register</Link></h3>
         </div>
