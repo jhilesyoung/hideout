@@ -5,25 +5,13 @@ import { Link } from 'react-router-dom';
 class Splash extends React.Component{
         constructor(props) {
             super(props)
-
-
-            this.handleDemoSubmit = this.handleDemoSubmit.bind(this)
         }
 
 // if user is logged_in, pressing login button will take them to their list of joined servers
 // if user is NOT logged_in, pressing login will render login and page to input
 
-
-    handleDemoSubmit() {
-        const user = {
-            username: 'demo',
-            password: 'password'
-        };
-        this.props.login(user)
-    }
-
     render() {
-        const {login, logout, dispatch} = this.props;
+        const { logout, currentUser }  = this.props;
 
         return (
             <div className="homepage">
@@ -32,24 +20,6 @@ class Splash extends React.Component{
                         Login
                     </button>
                 </li>  */}
-
-                <div className="auth-buttons">
-                <Link to="/login">
-                    Login
-                </Link>
-
-                <Link to="/login" className="demo-button">
-                    <button onClick={this.handleDemoSubmit}>
-                        Demo User
-                    </button>
-                </Link>
-
-                <Link to="/" className="logout-button" onClick={()=> logout()}>
-                    <button>
-                        Logout
-                    </button>
-                </Link>
-                </div>
 
                 <h1 className="splash-title">Your place to talk</h1>
 

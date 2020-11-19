@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { signup } from '../../actions/session_actions'
-import SessionForm from './session_form.jsx'
+import SignUp from './signup'
 
 const mSTP = ({errors}) => {
     return {
@@ -11,8 +11,8 @@ const mSTP = ({errors}) => {
 
 const mDTP = (dispatch) => {
     return {
-        processForm: (user) => dispatch(signup(user))
+        signup: (user) => dispatch(signup(user))
     }
 }
 
-export default connect(mSTP, mDTP)(SessionForm)
+export default connect(mSTP, mDTP)(SignUp)

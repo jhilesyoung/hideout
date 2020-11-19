@@ -3,6 +3,7 @@ import {Route, Link, Switch} from 'react-router-dom';
 import SplashContainer from './splash/splash_container.js';
 import SignUpFormContainer from './session_form/signup_form_container.jsx';
 import LogInFormContainer from './session_form/login_form_container.jsx';
+import NavBarContainer from './nav_bar/nav_bar_container.jsx'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 
@@ -12,6 +13,7 @@ const App = () => (
         <Link to="/" className="header-link">
             <img src={window.logourl} className="logo" width="125px"/>
         </Link>
+        <NavBarContainer />
       </header>
     <Switch>
       <AuthRoute path="/login" component={LogInFormContainer} />
