@@ -32,6 +32,7 @@ class SessionForm extends React.Component {
 
         return (
         <div className="login-form-container">
+            <img src={window.authurl} width="500px"/>
             <form onSubmit={this.handleSubmit}>
                 <h1>Welcome back!</h1>
                 <br/>

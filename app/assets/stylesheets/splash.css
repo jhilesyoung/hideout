@@ -1,5 +1,4 @@
 .homepage {
-    background-color: #7289da;
     margin: auto;
     color: white;
 }
@@ -8,24 +7,28 @@ html {
     background-color: #7289da;
 }
 
-.login-button {
-    
-}
-
 .splash-title {
     display: flex;
     justify-content: center;
 }
 
 .splash-description {
+    position: absolute;
+    text-align: center;
+    text-shadow: 2px 2px #504545
+}
+
+.background-pics {
+    position: relative;
+    z-index: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: row;
+
 }
 
-.background-left {
-    
-}
-
-.background-right {
-
+.background-pics > img {
+    z-index: -1;
+    width: 85%;
+    transform: translateX(-200px);
 }
