@@ -1,0 +1,36 @@
+.auth-buttons {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.nav-login {
+    border-radius: 40px;
+    background-color: white;
+    margin: 0px 16px 0px 0px;
+    padding: 7px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+
+}
+
+.nav-logout {
+    border-radius: 40px;
+    background-color: white;
+    margin: 0px 16px 0px 0px;
+    padding: 7px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.nav-right {
+    margin-right: 10%;
+    margin-top: 3%;
+}
+
+.nav-left {
+    margin-left: 10%; 
+    margin-top: 3%;
+}

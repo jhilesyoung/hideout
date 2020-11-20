@@ -8,18 +8,30 @@ class NavBar extends React.Component {
     }
 
     render() {
+
+        const { logout} = this.props
+        if (this.props.currentUser) { 
+            
+         return null }
+
         return (
-
+            
             <div className="auth-buttons">
-                <Link to="/login">
-                    <button>Login</button>
+
+                <Link to="/" className="nav-left">
+                    <img src={window.logourl} className="logo" width="125px"/>
                 </Link>
 
-                <Link to="/" className="logout-button" onClick={()=> logout()}>
-                    <button>
-                        Logout
-                    </button>
-                </Link>
+                <div className="nav-right">
+                    <Link className="nav-login"to="/login">
+                        Login
+                    </Link>
+
+                    <Link to="/" className="nav-logout" onClick={()=> logout()}>
+                            Logout
+                    </Link>
+                </div>
+
             </div>
         )
     }

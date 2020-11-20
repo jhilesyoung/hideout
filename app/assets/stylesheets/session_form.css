@@ -1,11 +1,173 @@
-.login-form-container {
-    border-color: rgb(26, 24, 24);
-    background-color:  rgb(26, 24, 24);
+.login-form-box {
+    background-color: rgb(54,57,63);
+    border-radius: 5px;
+    display: flex;
+    position: absolute;
+    right: 35%;
+    top: 14%;
+    flex-direction: column;
+    padding: 10px 30px 20px 30px;
+    color: white;
+    width: 350px;
+    border-radius: 5px;
+    height: 350px;
+}
+
+.auth-background {
+    position: absolute;
+    height: 930px;
+    width: 100%;
+    margin-left: -.75%;
+    margin-top: -8.5%;
+}
+
+.welcome-text {
+    color: white;
     display: flex;
     justify-content: center;
 }
 
-.session-form {
-    
+.excited-text {
+    color: white;
+    display: flex;
+    justify-content: center;
 }
 
+.session-submit-button {
+    background-color: rgb(114,137,218);
+    width: 345px;
+    height: 31px;
+    border-radius: 6px;
+    color: white;
+    border: solid;
+    border: black;
+    border-width: 18px;
+}
+
+.login-username-text {
+    color: rgb(171,172,176);
+    font-size: small;
+}
+
+.login-password-text {
+    color: rgb(171,172,176);
+    font-size: small;
+}
+
+.login-username-input {
+    width: 345px;
+    height: 31px;
+    background-color: rgb(49,52,57);
+    border-radius: 6px;
+    color: white;
+    border: solid;
+    border: black;
+    border-width: 18px;
+}
+
+
+.login-password-input {
+    width: 345px;
+    height: 31px;
+    background-color: rgb(231,241,254);
+    border-radius: 6px;
+    color: rgb(49,52,57);
+    border: solid;
+    border: black;
+    border-width: 18px;
+}
+
+.need-account-text {
+    color: rgb(171,172,176);
+    text-decoration: none;
+}
+
+.register-link {
+    text-decoration: none;
+    color: rgb(114,137,218);
+}
+
+.demo-button {
+    background-color: rgb(114,137,218);
+    width: 345px;
+    height: 31px;
+    border-radius: 6px;
+    color: white;
+    border: solid;
+    border: black;
+    border-width: 18px;
+}
+
+.signup-form-box {
+    background-color: rgb(54,57,63);
+    border-radius: 5px;
+    display: flex;
+    position: absolute;
+    right: 35%;
+    top: 14%;
+    flex-direction: column;
+    padding: 10px 30px 20px 30px;
+    color: white;
+    width: 350px;
+    border-radius: 5px;
+    height: 350px;
+}
+
+.create-text {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.register-username-text {
+    color: rgb(171,172,176);
+    font-size: small;
+}
+
+.register-username-and-email-input {
+    width: 345px;
+    height: 31px;
+    background-color: rgb(49,52,57);
+    border-radius: 6px;
+    color: white;
+    border: solid;
+    border: black;
+    border-width: 18px;
+}
+
+.register-email-text {
+    color: rgb(171,172,176);
+    font-size: small;
+}
+
+.register-password-text {
+    color: rgb(171,172,176);
+    font-size: small;
+}
+
+.register-password-input {
+    width: 345px;
+    height: 31px;
+    background-color: rgb(231,241,254);
+    border-radius: 6px;
+    color: rgb(49,52,57);
+    border: solid;
+    border: black;
+    border-width: 18px;
+}
+
+.register-submit-button {
+    background-color: rgb(114,137,218);
+    width: 345px;
+    height: 31px;
+    border-radius: 6px;
+    color: white;
+    border: solid;
+    border: black;
+    border-width: 18px;
+}   
+
+.have-an-account-text {
+    color: rgb(171,172,176);
+    text-decoration: none;
+}

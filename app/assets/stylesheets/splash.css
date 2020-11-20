@@ -4,32 +4,67 @@
 }
 
 html {
-    background-color: #7289da;
+    background-color: rgb(41,95,231);
 }
 
-.splash-title {
-    display: flex;
-    justify-content: center;
+body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .splash-description {
     position: absolute;
     text-align: center;
-    text-shadow: 2px 2px #504545
+    width: 700px;
+    z-index: 2;
+    margin: 0 auto;
+    left: 25%;
+    top: -20%;
+    font-size: x-large;
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.github {
+    border-radius: 40px;
+    background-color: white;
+    margin: 0px 16px 0px 0px;
+    padding: 7px 16px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: bolder;
 }
 
 .background-pics {
     position: relative;
     z-index: 1;
+    height: 400px;
+    top: 70%;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-
+    margin-top: 15%;
 }
 
-.background-pics > img {
-    z-index: -1;
-    width: 85%;
-    transform: translateX(-200px);
+.background-pic-left {
+    margin-left: -250px;
+    width: 700px;
+}
+
+.background-pic-right {
+    margin-right: -200px;
+    width: 700px;
+}
+
+.footer-splash {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    z-index: 1;
+    height: 100px;
+    width: 2000px;
+    margin-left: -10%;
+
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+// import SessionErrors from './session_errors.jsx'
 
 class Login extends React.Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
-      .then(() => this.props.history.push('/chirps'));
   }
 
   handleDemoSubmit() {
@@ -33,33 +33,55 @@ class Login extends React.Component {
     this.props.login(user)
 }
 
+        renderErrors() {
+            return(
+            <ul>
+                {this.props.errors.map((error, i) => (
+                <li key={`error-${i}`}>
+                    {error}
+                </li>
+                ))}
+            </ul>
+            );
+        }
+
   render() {
  
     return (
-      <div className="session-form">
-        <h2>Welcome back!</h2>
-        <h3>We're so excited to see you again!</h3>
+      <div className="login-form">
+          <img className="auth-background" src={window.loginurl}/>
+          <div className="login-form-box">
+        <h2 className="welcome-text">Welcome back!</h2>
+        <h3 className="excited-text">We're so excited to see you again!</h3>
         <form>
 
-          <label>Username:
+        
+        {this.renderErrors()}
+
+          <label className="login-username-text">USERNAME
+              <br/>
           <input
             type="text"
             value={this.state.username}
             onChange={this.handleInput('username')}
+            className="login-username-input"
           />
           </label>
-
-          <label>Password:
+        <br/>
+          <label className="login-password-text">PASSWORD
+              <br/>
           <input
             type="password"
             value={this.state.password}
             onChange={this.handleInput('password')}
+            className="login-password-input"
           />
+          <br/>
+          <br/>
             <button className="session-submit-button" onClick={this.handleSubmit}>Login</button>
           </label>
           <br/>
-          <Link to="/signup">Already have an account?</Link>
-        <br/>
+          <p className="need-account-text">Need an account? <Link to="/signup" className="register-link">Register</Link></p>
             <Link to={`/`} className="demo-button">
                         <button onClick={this.handleDemoSubmit}>
                             Demo User
@@ -67,6 +89,7 @@ class Login extends React.Component {
             </Link>
 
         </form>
+        </div>
       </div>
     );
   }

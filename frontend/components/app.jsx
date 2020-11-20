@@ -10,9 +10,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
     <div>
       <header>
-        <Link to="/" className="header-link">
-            <img src={window.logourl} className="logo" width="125px"/>
-        </Link>
+        
         <NavBarContainer />
       </header>
     <Switch>

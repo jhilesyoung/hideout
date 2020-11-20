@@ -20,20 +20,24 @@ class Splash extends React.Component{
                         Login
                     </button>
                 </li>  */}
-
-                <h1 className="splash-title">Your place to talk</h1>
-
-
+                
                 <div className="background-pics" >
-                    <h2 className="splash-description">
+                <p className="splash-description">
+                    <h1>Your place to talk</h1>
+                    <br/>
                         Whether you’re part of a school club, gaming group, worldwide art community, 
                         or just a handful of friends that want to spend time together, hideout makes it 
                         easy to talk every day and hang out more often.
-                    </h2>
-                    <img src={window.backlefturl} width="500px"/>
-                    <img src={window.backrightlurl} width="500px"/>
+                    <br/>
+                    <br/>
+                    <Link className="github" to="https://github.com/jhilesyoung">
+                        ReadME
+                    </Link>
+                    </p>
+                    <img className="background-pic-left" src={window.backlefturl} width="500px"/>
+                    <img className="background-pic-right" src={window.backrightlurl} width="500px"/>
                 </div>
-
+                <footer className="footer-splash">Anyone can be a programmer &hearts; - Jhiles Young</footer>
             </div>
         )
     }
