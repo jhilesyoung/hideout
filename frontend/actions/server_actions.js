@@ -4,24 +4,24 @@ export const RECEIVE_SERVERS = 'RECEIVE_SERVER';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const REMOVE_SERVER = 'REMOVE_SERVER';
 
-export const requestServers = () => dispatch => {
-    return ServerApiUtil.gettServers()
+export const getServers = () => dispatch => {
+    return ServerApiUtil.getServers()
         .then((server) => dispatch({
             type: RECEIVE_SERVERS,
             server
         }));
 };
 
-export const requestServer = (serverId) => dispatch => {
-    return ServerApiUtil.fetchServer(serverId)
+export const getServer = (serverId) => dispatch => {
+    return ServerApiUtil.getServer(serverId)
         .then((server) => dispatch({
-            type: REMOVE_SERVER,
+            type: RECEIVE_SERVER,
             server
         }));
 };
 
 export const createServer = (server) => dispatch => {
-    return ServerApiUtil.fetchServer(server)
+    return ServerApiUtil.createServer(server)
         .then((server) => dispatch({
             type: RECEIVE_SERVER,
             server

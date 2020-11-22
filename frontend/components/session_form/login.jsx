@@ -82,7 +82,7 @@ class Login extends React.Component {
           </label>
           <br/>
           <p className="need-account-text">Need an account? <Link to="/signup" className="register-link">Register</Link></p>
-            <Link to={`/`} className="demo-button">
+            <Link to={`/servers`} className="demo-button">
                         <button onClick={this.handleDemoSubmit}>
                             Demo User
                         </button>

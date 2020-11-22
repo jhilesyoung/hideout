@@ -22,7 +22,7 @@ class Splash extends React.Component{
                 </li>  */}
                 
                 <div className="background-pics" >
-                <p className="splash-description">
+                <div className="splash-description">
                     <h1>Your place to talk</h1>
                     <br/>
                         Whether you’re part of a school club, gaming group, worldwide art community, 
@@ -33,7 +33,7 @@ class Splash extends React.Component{
                     <Link className="github" to="https://github.com/jhilesyoung">
                         ReadME
                     </Link>
-                    </p>
+                    </div>
                     <img className="background-pic-left" src={window.backlefturl} width="500px"/>
                     <img className="background-pic-right" src={window.backrightlurl} width="500px"/>
                 </div>

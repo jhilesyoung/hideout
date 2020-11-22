@@ -13,7 +13,7 @@ export const createServer = (server) => {
     });
 };
 
-export const fetchServer = (serverId) => {
+export const getServer = (serverId) => {
     return $.ajax({
         method: "GET",
         url: `/api/servers/${serverId}`
