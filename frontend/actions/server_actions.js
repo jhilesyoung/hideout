@@ -6,9 +6,9 @@ export const REMOVE_SERVER = 'REMOVE_SERVER';
 
 export const getServers = () => dispatch => {
     return ServerApiUtil.getServers()
-        .then((server) => dispatch({
+        .then((servers) => dispatch({
             type: RECEIVE_SERVERS,
-            server
+            servers
         }));
 };
 

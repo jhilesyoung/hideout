@@ -8,7 +8,7 @@ class Api::ServersController < ApplicationController
     end
 
     def create
-        @server = Server.create(server_params)
+        @server = current_user.Server.create(server_params)
 
         if @server.save
             render :show
@@ -37,7 +37,7 @@ class Api::ServersController < ApplicationController
     private
 
     def server_params
-        params.require(:server).permit(:title, :author_id)
+        params.require(:server).permit(:title)
     end
 
 end

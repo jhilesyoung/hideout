@@ -1,4 +1,4 @@
-import { connect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import ServerForm from './server_form';
 import { createServer } from '../../actions/server_actions';
 

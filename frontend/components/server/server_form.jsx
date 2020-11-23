@@ -20,7 +20,7 @@ class ServerForm extends React.Component {
     render() {
         return (
             <div>
-                <h1>Create Server</h1>
+                <h1>Add Server</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label> Server Title
                             <input
@@ -29,7 +29,8 @@ class ServerForm extends React.Component {
                                 onChange={this.update('title')}
                                 />
                         </label>
-                    <button type="submit" value={this.props.formType}/>
+                        <br/>
+                    <button type="submit" value={this.props.formType}>Add Server</button>
                 </form>
             </div>
         );
