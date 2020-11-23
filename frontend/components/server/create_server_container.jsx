@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ServerForm from './server_form';
-import { createServer } from '../../actions/server_actions';
+import { createServer, getServers } from '../../actions/server_actions';
 
 const mSTP = (state) => {
     return {
@@ -13,7 +13,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return {
-        action: (server) => dispatch(createServer(server))
+        action: (server) => dispatch(createServer(server)),
+        getServers: () => dispatch(getServers())
     }
 }
 

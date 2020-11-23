@@ -1,4 +1,5 @@
 import React from 'react';
+import { getServers } from '../../util/server_api_util';
 
 class ServerForm extends React.Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class ServerForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state);
+        this.props.action(this.state)
+        .then(() => this.props.getServers())
     };
 
     update(field) {
@@ -30,7 +32,7 @@ class ServerForm extends React.Component {
                                 />
                         </label>
                         <br/>
-                    <button type="submit" value={this.props.formType}>Add Server</button>
+                    <button type="submit" value={this.props.formType} >Add Server</button>
                 </form>
             </div>
         );

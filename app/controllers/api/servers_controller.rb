@@ -8,7 +8,7 @@ class Api::ServersController < ApplicationController
     end
 
     def create
-        @server = current_user.Server.create(server_params)
+        @server = current_user.servers.create(server_params)
 
         if @server.save
             render :show
@@ -31,6 +31,15 @@ class Api::ServersController < ApplicationController
     def show
         @server = Server.find(params[:id])
         render :show
+    end
+
+    def destroy
+        @server = Server.find(params[:id])
+        if @server.destroy
+            render :index
+        else
+            render plain: "You are trying to destroy an invisible server"
+        end
     end
 
 
