@@ -1,3 +1,7 @@
+.entire-splash {
+    height: 10px;
+}
+
 .homepage {
     margin: auto;
     color: white;
@@ -5,7 +9,6 @@
 
 html {
     background-color: rgb(41,95,231);
-
 }
 
 body {
@@ -16,7 +19,9 @@ body {
 .splash-description {
     position: absolute;
     text-align: center;
-    width: 700px;
+    font-size: 80px;
+    width: 50vw;
+    height: 50vh;
     z-index: 2;
     margin: 0 auto;
     left: 25%;
@@ -48,24 +53,26 @@ body {
 }
 
 .background-pic-left {
+    display: block;
     margin-left: -250px;
     width: 700px;
 }
 
 .background-pic-right {
+    display: block;
     margin-right: -200px;
     width: 700px;
 }
 
-.footer-splash {
+/* .footer-splash {
     display: flex;
     justify-content: center;
     text-align: center;
     background-color: white;
     z-index: 1;
-    height: 100px;
+    height: 60px;
     width: 2000px;
     margin-left: -10%;
 
-}
+} */
 

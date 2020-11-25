@@ -1,5 +1,6 @@
 import React from 'react';
 import { getServers } from '../../util/server_api_util';
+import '@fortawesome/fontawesome-free/js/all.js'
 
 class ServerForm extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class ServerForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state)
+        this.props.processForm(this.state)
         .then(() => this.props.getServers())
     };
 
@@ -22,17 +23,18 @@ class ServerForm extends React.Component {
     render() {
         return (
             <div>
-                <h1>Add Server</h1>
+                {/* <h1><i class="fas fa-plus"></i></h1> */}
                     <form onSubmit={this.handleSubmit}>
+                    <div onClick={this.props.closeModal} className="close-x"><i className="fas fa-times-circle"></i></div>
                         <label> Server Title
-                            <input
+                            <input className="add-server-input"
                                 type="text"
                                 value={this.state.server}
                                 onChange={this.update('title')}
                                 />
                         </label>
                         <br/>
-                    <button type="submit" value={this.props.formType} >Add Server</button>
+                    <button className="add-server-button"type="submit" value={this.props.formType}>Add Server</button>
                 </form>
             </div>
         );

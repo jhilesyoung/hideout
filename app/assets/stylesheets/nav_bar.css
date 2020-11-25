@@ -34,3 +34,24 @@
     margin-left: 10%; 
     margin-top: 3%;
 }
+
+.nav-middle {
+    position: absolute;
+    color: white;
+    text-decoration: none;
+}
+
+.github {
+    text-decoration: none;
+    color: white;
+}
+
+.linkedin {
+    text-decoration: none;
+    color: white;
+}
+
+.discord {
+    text-decoration: none;
+    color: white;
+}

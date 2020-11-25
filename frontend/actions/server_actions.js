@@ -1,6 +1,6 @@
 import * as ServerApiUtil from '../util/server_api_util'
 
-export const RECEIVE_SERVERS = 'RECEIVE_SERVER';
+export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const REMOVE_SERVER = 'REMOVE_SERVER';
 

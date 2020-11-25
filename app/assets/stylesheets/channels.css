@@ -1,0 +1,9 @@
+.channel-title {
+    display: flex;
+    justify-content: center;
+}
+
+.channel-container {
+    display: flex;
+    justify-content: center;
+}

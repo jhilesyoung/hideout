@@ -15,6 +15,21 @@ class NavBar extends React.Component {
          return null }
 
         return (
+
+            <div>
+                {/* <div className="nav-middle">
+                    <Link className="github" to="https://github.com/jhilesyoung">
+                        Github
+                    </Link>
+
+                    <Link className="linkedin" to="https://github.com/jhilesyoung">
+                        LinkedIn
+                    </Link>
+
+                    <Link className="discord" to="https://github.com/jhilesyoung">
+                        Discord
+                    </Link>
+                </div> */}
             
             <div className="auth-buttons">
 
@@ -32,6 +47,7 @@ class NavBar extends React.Component {
                     </Link>
                 </div>
 
+            </div>
             </div>
         )
     }

@@ -36,7 +36,7 @@ class Api::ServersController < ApplicationController
     def destroy
         @server = Server.find(params[:id])
         if @server.destroy
-            render :index
+            render :show
         else
             render plain: "You are trying to destroy an invisible server"
         end

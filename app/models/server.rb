@@ -6,4 +6,8 @@ class Server < ApplicationRecord
     primary_key: :id,
     foreign_key: :author_id,
     class_name: :User
+
+    has_many :channels,
+    foreign_key: :server_id,
+    class_name: :Channel
 end

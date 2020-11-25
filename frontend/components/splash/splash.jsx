@@ -1,4 +1,5 @@
 import React from 'react'
+import NavBarContainer from '../nav_bar/nav_bar_container'
 import { Link } from 'react-router-dom';
 
 
@@ -14,7 +15,12 @@ class Splash extends React.Component{
         const { logout, currentUser }  = this.props;
 
         return (
+            <div className="entire-splash">
+                <header>
+                    <NavBarContainer />
+                </header>
             <div className="homepage">
+
                 {/* <li>
                     <button type="button" className="login-button" onClick={}>
                         Login
@@ -37,7 +43,8 @@ class Splash extends React.Component{
                     <img className="background-pic-left" src={window.backlefturl} width="500px"/>
                     <img className="background-pic-right" src={window.backrightlurl} width="500px"/>
                 </div>
-                <footer className="footer-splash">Anyone can be a programmer &hearts; - Jhiles Young</footer>
+                {/* <footer className="footer-splash">Anyone can be a programmer &hearts; - Jhiles Young</footer> */}
+            </div>
             </div>
         )
     }

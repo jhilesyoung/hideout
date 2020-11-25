@@ -1,0 +1,35 @@
+.server-container {
+    background-color: rgb(32,34,37);
+    width: 94px;
+    height: 665px;
+    margin-top: 0%;
+}
+
+.html {
+    background-color: rgb(32,34,37);
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.server-icon {
+    list-style-type: none;
+    margin-left: -19%;
+}
+
+.server-container ul {
+    overflow:hidden; 
+    overflow-y:scroll;
+}
+
+.add-server-input {
+    width: 86px;
+}
+
+.add-server-button {
+    width: 85px;
+    display: block;
+    align-self: center;
+    margin-left: 3%;
+}

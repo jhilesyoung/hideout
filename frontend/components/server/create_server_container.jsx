@@ -1,6 +1,8 @@
+import React from 'react'
 import { connect } from 'react-redux';
 import ServerForm from './server_form';
 import { createServer, getServers } from '../../actions/server_actions';
+import '@fortawesome/fontawesome-free/js/all.js'
 
 const mSTP = (state) => {
     return {
@@ -11,11 +13,17 @@ const mSTP = (state) => {
     }
 }
 
-const mDTP = (dispatch) => {
+const mDTP = dispatch => {
     return {
-        action: (server) => dispatch(createServer(server)),
-        getServers: () => dispatch(getServers())
-    }
-}
+      processForm: (server) => dispatch(createServer(server)),
+      otherForm: (
+        <button onClick={() => dispatch(openModal('Add Server'))}>
+          Submit
+        </button>
+      ),
+      closeModal: () => dispatch(closeModal()),
+      getServers: () => dispatch(getServers())
+    };
+  };
 
 export default connect(mSTP, mDTP)(ServerForm);
