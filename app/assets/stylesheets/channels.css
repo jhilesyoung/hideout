@@ -1,9 +1,20 @@
 .channel-title {
-    display: flex;
-    justify-content: center;
 }
 
 .channel-container {
     display: flex;
-    justify-content: center;
+    position: relative;
+    left: 94px;
+    align-items: baseline;
+    width: 239px;
+    height: 588px;
+    overflow: scroll;
+    flex-direction: column;
+    background-color: rgb(47,49,54);
+    color: rgb(137,141,146);
+    font-family: serif;
+}
+
+.channel-items {
+    list-style: none;
 }

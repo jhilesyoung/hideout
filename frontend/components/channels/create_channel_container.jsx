@@ -1,22 +1,25 @@
 import React from 'react';
-import { createChannel } from '../../util/channel_api_util';
+import { createChannel } from '../../actions/channel_actions';
 import ChannelForm from './channel_form';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
    return { 
        channel: {
-           title: ''
+           title: '',
+           serverId: ownProps.match.params.serverId,
+           authorId: ownProps.match.params.authorId
        }
     }
 }
 
 const mDTP = (dispatch) => {
     return {
-        createChannel: (channel) => dispatch(createChannel(channel))
+        createChannel: (channel, serverId) => dispatch(createChannel(channel, serverId))
     }
 }
 
 
-export default connect(mSTP, mDTP)(ChannelForm)
+export default withRouter(connect(mSTP, mDTP)(ChannelForm))

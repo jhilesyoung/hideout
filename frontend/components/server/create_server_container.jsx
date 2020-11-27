@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import ServerForm from './server_form';
 import { createServer, getServers } from '../../actions/server_actions';
+import { closeModal } from '../../actions/modal_actions';
 import '@fortawesome/fontawesome-free/js/all.js'
 
 const mSTP = (state) => {

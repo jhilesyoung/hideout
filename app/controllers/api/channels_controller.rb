@@ -1,6 +1,6 @@
 class Api::ChannelsController < ApplicationController
 
-    before_action :current_user, only: [:create, :index, :destroy]
+    before_action :current_user, only: [:create, :show, :index, :destroy]
 
     def index
         @channels = Server.find(params[:server_id]).channels
@@ -8,9 +8,12 @@ class Api::ChannelsController < ApplicationController
     end
 
     def create
-        @channel = Channel.create(channel_params)
-
-        if @channel.save
+        @channel = Channel.new(channel_params)
+        @channel.server_id = params[:server_id]
+        @channel.author_id = params[:author_id]
+        # @channel = current_user.server.Channel.create(channel_params)
+        debugger
+        if @channel.save!
             render :show 
         else
             render json: @channel.errors.full_messages, status: 401
@@ -18,7 +21,7 @@ class Api::ChannelsController < ApplicationController
     end
 
     def show
-        @channel = Serv3er.find(params[:server_id]).channels
+        @channel = Server.find(params[:server_id]).channels
     end
 
     def destroy
@@ -31,6 +34,6 @@ class Api::ChannelsController < ApplicationController
     end
 
     def channel_params
-        params.require(:channel).permit(:title)
+        params.require(:channel).permit(:title, :server_id, :author_id)
     end
 end

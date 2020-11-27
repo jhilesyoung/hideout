@@ -1,8 +1,11 @@
 .server-container {
     background-color: rgb(32,34,37);
     width: 94px;
-    height: 665px;
+    height: 588px;
     margin-top: 0%;
+    position: absolute;
+    overflow: scroll;
+    left: 0px;
 }
 
 .html {

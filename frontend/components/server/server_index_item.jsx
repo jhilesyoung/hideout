@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '@fortawesome/fontawesome-free/js/all.js'
-import { render } from 'react-dom';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 class ServerIndexItem extends React.Component {
 
@@ -15,10 +14,6 @@ class ServerIndexItem extends React.Component {
         e.preventDefault()
         this.props.deleteServer(this.props.server.id)
     }
-
-    // handleClick() {
-
-    // }
 
     render() {
         const { server } = this.props;

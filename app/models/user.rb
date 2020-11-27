@@ -16,10 +16,6 @@ class User < ApplicationRecord
     has_many :channels,
     foreign_key: :author_id,
     class_name: :Channel
-
-    # has_many: :channels,
-    # through: :servers,
-    # source: :???
     
 
     def self.find_by_credentials(username, password) 
