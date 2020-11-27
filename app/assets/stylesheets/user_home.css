@@ -4,4 +4,8 @@
 
 .user-home {
     position: relative;
+    height: 97vh;
+    flex-direction: row;
+    display: flex;
 }
+

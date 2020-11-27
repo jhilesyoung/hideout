@@ -1,12 +1,25 @@
 .server-container {
-    background-color: rgb(32,34,37);
+    display: flex;
+    position: absolute;
+    left: -8px;
+    top: -8px;
+    align-items: baseline;
+    width: 100px;
+    height: 100vh;
+    overflow: scroll;
+    flex-direction: column;
+    background-color: rgb(33,36,39);
+    /* color: rgb(137,141,146); */
+    font-family: serif;
+}
+
+/* background-color: rgb(32,34,37);
     width: 94px;
     height: 588px;
     margin-top: 0%;
     position: absolute;
     overflow: scroll;
-    left: 0px;
-}
+    left: 0px; */
 
 .html {
     background-color: rgb(32,34,37);

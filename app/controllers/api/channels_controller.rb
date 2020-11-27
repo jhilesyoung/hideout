@@ -12,7 +12,7 @@ class Api::ChannelsController < ApplicationController
         @channel.server_id = params[:server_id]
         @channel.author_id = params[:author_id]
         # @channel = current_user.server.Channel.create(channel_params)
-        debugger
+        
         if @channel.save!
             render :show 
         else

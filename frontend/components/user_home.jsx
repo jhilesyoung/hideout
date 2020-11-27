@@ -2,6 +2,7 @@ import ServerIndexContainer from './server/server_index_container';
 import React from 'react';
 import ChannelBarContainer from './channels/channel_bar_container';
 import { Route } from 'react-router-dom';
+import ChatRoom from '../ChatRoom';
 // import ChannelMessageContainer from '../messages/message_bar
 
 
@@ -15,6 +16,7 @@ class UserHome extends React.Component {
             <div className="user-home">
                 <ServerIndexContainer />
                 <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
+                <ChatRoom />
                 {/* <ChannelMessageContainer /> */}
             </div>
         )
