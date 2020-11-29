@@ -17,25 +17,27 @@ class NavBar extends React.Component {
         return (
 
             <div>
-                {/* <div className="nav-middle">
-                    <Link className="github" to="https://github.com/jhilesyoung">
+            <div className="auth-buttons">
+
+                <div>
+                    <Link to="/" className="nav-left">
+                        <img src={window.logourl} className="logo" width="125px"/>
+                    </Link>
+                </div>
+
+                <div className="nav-middle">
+                    <Link to="https://github.com/jhilesyoung">
                         Github
                     </Link>
 
-                    <Link className="linkedin" to="https://github.com/jhilesyoung">
+                    <Link  to="https://github.com/jhilesyoung">
                         LinkedIn
                     </Link>
 
-                    <Link className="discord" to="https://github.com/jhilesyoung">
+                    <Link  to="https://github.com/jhilesyoung">
                         Discord
                     </Link>
-                </div> */}
-            
-            <div className="auth-buttons">
-
-                <Link to="/" className="nav-left">
-                    <img src={window.logourl} className="logo" width="125px"/>
-                </Link>
+                </div>
 
                 <div className="nav-right">
                     <Link className="nav-login"to="/login">
@@ -48,7 +50,7 @@ class NavBar extends React.Component {
                 </div>
 
             </div>
-            </div>
+        </div>
         )
     }
 }

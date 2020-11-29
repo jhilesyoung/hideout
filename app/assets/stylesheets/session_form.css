@@ -3,34 +3,41 @@
     border-radius: 5px;
     display: flex;
     position: absolute;
-    right: 35%;
+    right: 23%;
     top: 14%;
     flex-direction: column;
     padding: 10px 30px 20px 30px;
     color: white;
-    width: 350px;
+    width: 653px;
     border-radius: 5px;
-    height: 380px;
+    height: 423px;
 }
 
 .auth-background {
     position: absolute;
-    height: 930px;
-    width: 100%;
+    height: 117vh;
+    width: 110vw;
     margin-left: -.75%;
+    left: -1px;
     margin-top: -8.5%;
 }
 
 .welcome-text {
     color: white;
     display: flex;
-    justify-content: center;
+    position: relative;
+    left: 85px;
+    top: 37px;
+    font-family: 'Catamaran';
 }
 
 .excited-text {
-    color: white;
+    color: rgb(171,172,176);
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    left: 36px;
+    position: relative;
+    font-family: 'Catamaran';
 }
 
 .session-submit-button {
@@ -87,15 +94,20 @@
     color: rgb(114,137,218);
 }
 
-.demo-button {
+.demo-button > button {
     background-color: rgb(114,137,218);
-    width: 345px;
-    height: 31px;
+    width: 258px;
+    height: 43px;
     border-radius: 6px;
     color: white;
     border: solid;
     border: black;
     border-width: 18px;
+    position: relative;
+    left: 389px;
+    height: 139px;
+    font-size: xx-large;
+    bottom: 248px;
 }
 
 .signup-form-box {

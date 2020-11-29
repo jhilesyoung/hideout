@@ -7,38 +7,67 @@
     color: white;
 }
 
-html {
-    /* background-color: rgb(41,95,231); */
-}
+/* html {
+    background-color: rgb(41,95,231);
+} */
 
 body {
     max-width: 100%;
     overflow-x: hidden;
+    background-color: rgb(41,95,231);
 }
 
 .splash-description {
     position: absolute;
     text-align: center;
-    font-size: 80px;
     width: 50vw;
     height: 50vh;
     z-index: 2;
     margin: 0 auto;
     left: 25%;
     top: -20%;
-    font-size: x-large;
-    font-family: Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    font-size: 19px;
+}
+
+.description-title {
+    font-size: 54px;
+    margin: 1px;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: 700;
+}
+
+.bottom-buttons {
+    position: relative;
+    left: 118px;
 }
 
 .github {
     border-radius: 40px;
     background-color: white;
     margin: 0px 16px 0px 0px;
-    padding: 7px 16px;
+    padding: 19px 47px;
     text-decoration: none;
     color: black;
-    font-size: 14px;
+    font-size: 21px;
     font-weight: bolder;
+    top: 33px;
+    left: -113px;
+    position: relative;
+}
+
+.other-splash-link {
+    border-radius: 40px;
+    background-color: black;
+    margin: 0px 16px 0px 0px;
+    padding: 19px 47px;
+    text-decoration: none;
+    color: white;
+    font-size: 21px;
+    font-weight: bolder;
+    top: 33px;
+    left: -113px;
+    position: relative;
 }
 
 .background-pics {
@@ -64,15 +93,20 @@ body {
     width: 700px;
 }
 
-/* .footer-splash {
+.footer-splash {
     display: flex;
     justify-content: center;
     text-align: center;
     background-color: white;
+    color: black;
     z-index: 1;
-    height: 60px;
+    height: 18vh;
     width: 2000px;
     margin-left: -10%;
+}
 
-} */
+.footer-text {
+    position: relative;
+    left: -9.5%;
+}
 
