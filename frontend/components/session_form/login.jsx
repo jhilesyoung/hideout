@@ -85,7 +85,7 @@ class Login extends React.Component {
           <p className="need-account-text">Need an account? <Link to="/signup" className="register-link">Register</Link></p>
             <Link to={`/servers`} className="demo-button">
                         <button onClick={this.handleDemoSubmit}>
-                        <img src={window.logourl} className="logo" width="125px"/>
+                        <img src={window.demourl} className="logo" width="125px"/>
                         <br /> Demo User
                         </button>
             </Link>

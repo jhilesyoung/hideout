@@ -26,7 +26,7 @@ class ServerForm extends React.Component {
                 {/* <h1><i class="fas fa-plus"></i></h1> */}
                     <form onSubmit={this.handleSubmit}>
                     <div onClick={this.props.closeModal} className="close-x"><i className="fas fa-times-circle"></i></div>
-                        <label> Server Title
+                        <label className="modal-title"> Server Title
                             <input className="add-server-input"
                                 type="text"
                                 value={this.state.server}
@@ -34,7 +34,7 @@ class ServerForm extends React.Component {
                                 />
                         </label>
                         <br/>
-                    <button className="add-server-button"type="submit" value={this.props.formType}>Add Server</button>
+                    <button className="add-server-modal"type="submit" value={this.props.formType}>Add Server</button>
                 </form>
             </div>
         );

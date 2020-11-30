@@ -19,13 +19,14 @@ class ServerIndexItem extends React.Component {
         const { server } = this.props;
     return (
             <li>
-                <Link to={`/servers/${server.id}/channels`}>
-                    <img src ={window.servericonurl} className="server-icon" width="75px"/>
+                <Link className="server-li"to={`/servers/${server.id}/channels`}>
+                    {/* <img src ={window.servericonurl} className="server-icon" width="75px"/> */}
+                    <button className="server-button">{server.title}</button>
                 </Link>
                 {/* <Link to={`/servers/${server.id}/edit`}>Edit Server</Link> */}
-                <button onClick={this.handleDelete}><i className="fas fa-trash-alt" ></i>
+                {/* <button onClick={this.handleDelete}><i className="fas fa-trash-alt" ></i>
                 
-                </button>
+                </button> */}
             </li>
     )
     }

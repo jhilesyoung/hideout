@@ -29,7 +29,7 @@ class ServerIndex extends React.Component {
                      {serverItem}
                 </ul>
                 <Modal />
-                <button onClick={() => this.props.openModal('Add Server')}>
+                <button className="server-additional" onClick={() => this.props.openModal('Add Server')}>
                     <i className="fas fa-plus"></i>
                 </button>
                 {/* <CreateServerContainer /> */}

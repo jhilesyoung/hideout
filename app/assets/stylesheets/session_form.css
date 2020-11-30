@@ -26,7 +26,7 @@
     color: white;
     display: flex;
     position: relative;
-    left: 85px;
+    left: 93px;
     top: 37px;
     font-family: 'Catamaran';
 }
@@ -105,9 +105,13 @@
     border-width: 18px;
     position: relative;
     left: 389px;
-    height: 139px;
+    height: 211px;
     font-size: xx-large;
-    bottom: 248px;
+    bottom: 277px;
+}
+
+.demo-button > button:hover {
+    cursor: pointer;
 }
 
 .signup-form-box {

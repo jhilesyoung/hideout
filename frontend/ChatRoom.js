@@ -40,9 +40,10 @@ class ChatRoom extends React.Component {
   }
   
   render() {
+    const { users } = this.props;
     const messageList = this.state.messages.map((message, idx) => {
       return (
-        <li key={message.id}>
+        <li className="chat-messages" key={message.id}>
           {message} 
           <div ref={this.bottom} />
         </li>
@@ -53,7 +54,7 @@ class ChatRoom extends React.Component {
         <div>ChatRoom</div>
         <button className="load-button" 
           onClick={this.loadChat.bind(this)}>
-          Load Chat History
+          Launch Hideout
         </button>
         <div className="message-list">{messageList}</div>
         <MessageForm />

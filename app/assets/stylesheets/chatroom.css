@@ -2,20 +2,60 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
+    position: relative;
     left: 331px;
 }
 
   .message-list {
     overflow-y: scroll;
-    height: 92.9vh;
-    width: 76vw;
-    /* left: -29px; */
-    border: solid gray 1px;
+    height: 95.9vh;
+    width: 1068px;
+    left: 39px;
+    border: solid black 1px;
+    background-color: rgb(55,58,63);
+    position: relative;
+    bottom: 47px;
+    color: white;
+    font-size: large;
 }
 
 .load-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    position: unset;
+    top: 678px;
+    z-index: 1;
+    right: 555px;
+    border-radius: 10px;
+    background-color: #383B40;
 }
+
+.chat-messages {
+    list-style: none;
+}
+
+.chat-submit {
+    position: relative;
+    bottom: 57px;
+    display: flex;
+    height: 0px;
+}
+
+.message-box {
+    height: 9vh;
+    width: 984px;
+    font-size: x-large;
+    position: relative;
+    left: 39px;
+    color: white;
+    background-color: rgb(55,58,63);
+}
+
+.message-submit {
+    height: 70px;
+    width: 78px;
+    font-size: x-large;
+    position: relative;
+    right: -38px;
+    background-color: rgb(55,58,63);
+    color: springgreen;
+}
+

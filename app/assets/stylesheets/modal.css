@@ -13,8 +13,35 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: solid;
+    border-radius: 13px;
+    height: 133px;
+    width: 200px;
+    color: rgb(114,137,218);
   }
 
   .fas fa-plus {
       
+  }
+
+  .modal-title {
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    flex-direction: column;
+  }
+
+  .add-server-input {
+    width: 124px;
+  }
+
+  .add-server-modal {
+    width: 183px;
+    display: block;
+    align-self: center;
+    margin-left: 3%;
+    color: white;
+    background-color: rgb(114,137,218);
+    border-radius: 7px;
+    height: 42px;
   }
