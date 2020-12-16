@@ -34,7 +34,8 @@ class Splash extends React.Component{
                     <br/>
                         Whether you’re part of a school club, gaming group, worldwide art community, 
                         or just a handful of friends that want to spend time together, hideout makes it 
-                        easy to talk every day and hang out more often :-]
+                        easy to talk every day and hang out more often. 
+                        {/* :-) */}
                     <br/>
                     <br/>
                     <br/>
