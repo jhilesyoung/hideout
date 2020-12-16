@@ -2176,13 +2176,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         width: "500px"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
         className: "footer-splash"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
-        className: "footer-text"
-      }, "2020 - Hideout", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-trademark"
-      }), " by Jhiles Young ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-brain"
-      })))));
+      })));
     }
   }]);
 

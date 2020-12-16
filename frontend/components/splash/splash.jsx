@@ -34,7 +34,7 @@ class Splash extends React.Component{
                     <br/>
                         Whether you’re part of a school club, gaming group, worldwide art community, 
                         or just a handful of friends that want to spend time together, hideout makes it 
-                        easy to talk every day and hang out more often.
+                        easy to talk every day and hang out more often :-]
                     <br/>
                     <br/>
                     <br/>
@@ -51,8 +51,7 @@ class Splash extends React.Component{
                     <img className="background-pic-right" src={window.backrightlurl} width="500px"/>
                 </div>
                 <footer className="footer-splash">
-                    <h3 className="footer-text">2020 - Hideout<i class="fas fa-trademark"></i> by Jhiles Young <i class="fas fa-brain"></i>
-                    </h3>
+                    
                 </footer>
             </div>
             </div>
