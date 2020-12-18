@@ -3,7 +3,7 @@
 }
 
 .user-home {
-    position: relative;
+    position: fixed;
     height: 97vh;
     flex-direction: row;
     display: flex;

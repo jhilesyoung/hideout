@@ -31,7 +31,7 @@ class ServerForm extends React.Component {
                                 type="text"
                                 value={this.state.server}
                                 onChange={this.update('title')}
-                                />
+                            />
                         </label>
                         <br/>
                     <button className="add-server-modal"type="submit" value={this.props.formType}>Add Server</button>

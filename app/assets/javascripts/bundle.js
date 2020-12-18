@@ -183,6 +183,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
+      // debugger
       this.bottom.current.scrollIntoView();
     }
   }, {
@@ -190,7 +191,9 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var users = this.props.users;
+      var users = this.props.users; // let messageList = <div ref={this.bottom} />
+      // debugger
+
       var messageList = this.state.messages.map(function (message, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "chat-messages",
@@ -198,7 +201,16 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
         }, message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
         }));
-      });
+      }); // debugger
+
+      if (messageList.length === 0) {
+        // debugger
+        messageList = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          ref: this.bottom
+        }); // debugger
+      } // debugger
+
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1126,12 +1138,15 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
         width: "125px"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-middle"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "https://github.com/jhilesyoung"
-      }, "Github"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "https://github.com/jhilesyoung"
-      }, "LinkedIn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "https://github.com/jhilesyoung"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/jhilesyoung",
+        target: "_blank"
+      }, "Github"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://linkedin.com/in/jhilesyoung",
+        target: "_blank"
+      }, "LinkedIn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://discord.com",
+        target: "_blank"
       }, "Discord")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-right"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -2160,13 +2175,15 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "description-title"
       }, "Your place to talk"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Whether you\u2019re part of a school club, gaming group, worldwide art community, or just a handful of friends that want to spend time together, hideout makes it easy to talk every day and hang out more often.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottom-buttons"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/jhilesyoung/hideout/wiki",
         className: "github",
-        to: "https://github.com/jhilesyoung"
-      }, "ReadME"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        target: "_blank"
+      }, "ReadME"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://jhilesyoung.github.io",
         className: "other-splash-link",
-        to: "https://github.com/jhilesyoung"
-      }, "Important Link"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        target: "_blank"
+      }, "Portfolio"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "background-pic-left",
         src: window.backlefturl,
         width: "500px"

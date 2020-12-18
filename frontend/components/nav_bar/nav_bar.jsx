@@ -26,17 +26,20 @@ class NavBar extends React.Component {
                 </div>
 
                 <div className="nav-middle">
-                    <Link to="https://github.com/jhilesyoung">
+                    {/* <Link to="https://github.com/jhilesyoung">
                         Github
-                    </Link>
+                    </Link> */}
+                    <a href="https://github.com/jhilesyoung" target="_blank">Github</a>
 
-                    <Link  to="https://github.com/jhilesyoung">
+                    {/* <Link  to="https://github.com/jhilesyoung">
                         LinkedIn
-                    </Link>
+                    </Link> */}
+                    <a href="https://linkedin.com/in/jhilesyoung" target="_blank">LinkedIn</a>
 
-                    <Link  to="https://github.com/jhilesyoung">
+                    {/* <Link  to="https://discord.com/">
                         Discord
-                    </Link>
+                    </Link> */}
+                    <a href="https://discord.com" target="_blank">Discord</a>
                 </div>
 
                 <div className="nav-right">

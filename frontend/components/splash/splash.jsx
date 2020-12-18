@@ -40,12 +40,14 @@ class Splash extends React.Component{
                     <br/>
                     <br/>
                     <div className="bottom-buttons">
-                    <Link className="github" to="https://github.com/jhilesyoung">
+                    {/* <Link target="_blank" className="github" to="https://github.com/jhilesyoung">
                         ReadME
-                    </Link>
-                    <Link className="other-splash-link" to="https://github.com/jhilesyoung">
+                    </Link> */}
+                    <a href="https://github.com/jhilesyoung/hideout/wiki" className="github" target="_blank">ReadME</a>
+                    {/* <Link className="other-splash-link" to="https://github.com/jhilesyoung">
                         Important Link
-                    </Link>
+                    </Link> */}
+                    <a href="https://jhilesyoung.github.io" className="other-splash-link" target="_blank">Portfolio</a>
                     </div>
                     </div>
                     <img className="background-pic-left" src={window.backlefturl} width="500px"/>

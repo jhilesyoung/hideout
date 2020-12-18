@@ -36,12 +36,15 @@ class ChatRoom extends React.Component {
   }
   
   componentDidUpdate() {
+    // debugger
     this.bottom.current.scrollIntoView();
   }
   
   render() {
     const { users } = this.props;
-    const messageList = this.state.messages.map((message, idx) => {
+    // let messageList = <div ref={this.bottom} />
+    // debugger
+    let messageList = this.state.messages.map((message, idx) => {
       return (
         <li className="chat-messages" key={message.id}>
           {message} 
@@ -49,6 +52,13 @@ class ChatRoom extends React.Component {
         </li>
       );
     });
+    // debugger
+    if (messageList.length === 0) {
+      // debugger
+      messageList = <div ref={this.bottom} />
+      // debugger
+    }
+    // debugger
     return (
       <div className="chatroom-container">
         <div>ChatRoom</div>
