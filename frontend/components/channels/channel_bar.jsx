@@ -28,7 +28,7 @@ class ChannelBar extends React.Component {
         
         const {channels, createChannel} = this.props;
         const channelItems = channels.map((channel) => {
-           return <ChannelItem channel={channel} key={channel.id} createChannel={createChannel} />
+           return <ChannelItem channel={channel} key={channel.id} createChannel={createChannel}/>
         })
         
         return (

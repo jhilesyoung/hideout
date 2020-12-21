@@ -853,7 +853,8 @@ var ChannelForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var channel = this.state;
-      this.props.createChannel(channel);
+      this.props.createChannel(channel); // this.props.createChannel(serverId);
+
       this.setState({
         title: ''
       }); // .then(() => this.props.getServers())
