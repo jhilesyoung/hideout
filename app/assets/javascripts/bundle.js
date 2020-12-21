@@ -772,7 +772,7 @@ var mDTP = function mDTP(dispatch) {
       return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__["getChannels"])(serverId));
     },
     createChannel: function (_createChannel) {
-      function createChannel(_x) {
+      function createChannel(_x, _x2) {
         return _createChannel.apply(this, arguments);
       }
 
@@ -781,8 +781,8 @@ var mDTP = function mDTP(dispatch) {
       };
 
       return createChannel;
-    }(function (channel) {
-      return dispatch(createChannel(channel));
+    }(function (channel, serverId) {
+      return dispatch(createChannel(channel, serverId));
     })
   };
 };
