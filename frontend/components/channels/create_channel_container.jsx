@@ -10,7 +10,8 @@ const mSTP = (state, ownProps) => {
        channel: {
            title: '',
            serverId: ownProps.match.params.serverId,
-           authorId: ownProps.match.params.authorId
+        //    authorId: ownProps.match.params.authorId
+            authorId: state.session.id
        }
     }
 }

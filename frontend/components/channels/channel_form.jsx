@@ -10,14 +10,17 @@ class ChannelForm extends React.Component{
             serverId: this.props.channel.serverId,
             authorId: this.props.channel.authorId
         }
-
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
     handleSubmit(e) {
         e.preventDefault();
-        const channel = this.state;
-        this.props.createChannel(channel);
+        const channel = {
+            title : this.state.title,
+            server_id: this.state.serverId,
+            author_id: this.state.authorId
+        };
+        this.props.createChannel(channel, this.props.channel.serverId);
         // this.props.createChannel(serverId);
         this.setState({ title: '' });
             // .then(() => this.props.getServers())
@@ -29,7 +32,7 @@ class ChannelForm extends React.Component{
     
 
     render() {
-
+        
         return(
             <form onSubmit={this.handleSubmit}>
                 <label>
@@ -43,8 +46,11 @@ class ChannelForm extends React.Component{
                     <button>Submit</button>
                 </label>
             </form>
+           
         );
     };
+
+    
 };
 
 export default ChannelForm;

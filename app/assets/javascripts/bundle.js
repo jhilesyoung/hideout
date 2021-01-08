@@ -852,8 +852,12 @@ var ChannelForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var channel = this.state;
-      this.props.createChannel(channel); // this.props.createChannel(serverId);
+      var channel = {
+        title: this.state.title,
+        server_id: this.state.serverId,
+        author_id: this.state.authorId
+      };
+      this.props.createChannel(channel, this.props.channel.serverId); // this.props.createChannel(serverId);
 
       this.setState({
         title: ''
@@ -987,7 +991,8 @@ var mSTP = function mSTP(state, ownProps) {
     channel: {
       title: '',
       serverId: ownProps.match.params.serverId,
-      authorId: ownProps.match.params.authorId
+      //    authorId: ownProps.match.params.authorId
+      authorId: state.session.id
     }
   };
 };

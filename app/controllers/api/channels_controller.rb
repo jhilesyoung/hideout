@@ -8,9 +8,10 @@ class Api::ChannelsController < ApplicationController
     end
 
     def create
+        
         @channel = Channel.new(channel_params)
-        @channel.server_id = params[:server_id]
-        @channel.author_id = params[:author_id]
+        # @channel.server_id = params[:server_id]
+        # @channel.author_id = params[:author_id]
         # @channel = current_user.server.Channel.create(channel_params)
         
         if @channel.save!
