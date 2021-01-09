@@ -8,6 +8,8 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     attr_reader :password
+    
+    has_one_attached :photo
 
     has_many :servers,
     foreign_key: :author_id,
