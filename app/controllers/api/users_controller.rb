@@ -6,8 +6,8 @@ class Api::UsersController < ApplicationController
     end
     
     def create
+        # debugger
         @user = User.create(user_params)
-
         if @user.save
             login!(@user)
             render "api/users/show"
@@ -24,7 +24,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :password, :photo)
     end
 
 end

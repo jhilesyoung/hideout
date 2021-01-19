@@ -1,6 +1,7 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/js/all.js'
 import { Link } from 'react-router-dom';
+import ChatRoom from '../../ChatRoom'
 
 
 class ChannelItem extends React.Component{
@@ -10,14 +11,20 @@ class ChannelItem extends React.Component{
         
     }
 
+    loadChat(e) {
+        e.preventDefault();
+        App.cable.subscriptions.subscriptions[0].load();
+    }
+
 
     render() {
         const {channel} = this.props;
         return (
             <li className="channel-items">
-                <div className="channel-title">
+                <button className="channel-title" onClick={this.loadChat}>
                     <i className="fas fa-hashtag"></i> {channel.title}
-                </div>
+                    
+                </button>
             </li>
         )
     }

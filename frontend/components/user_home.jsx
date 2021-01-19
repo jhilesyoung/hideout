@@ -3,6 +3,7 @@ import React from 'react';
 import ChannelBarContainer from './channels/channel_bar_container';
 import { Route } from 'react-router-dom';
 import ChatRoom from '../ChatRoom';
+import ProfileForm from './profile/profile_form'
 // import ChannelMessageContainer from '../messages/message_bar
 
 
@@ -17,6 +18,7 @@ class UserHome extends React.Component {
                 <ServerIndexContainer />
                 <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
                 <ChatRoom />
+                <ProfileForm />
                 {/* <ChannelMessageContainer /> */}
             </div>
         )

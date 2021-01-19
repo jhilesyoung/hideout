@@ -6,8 +6,8 @@
     position: absolute;
     left: 131px;
     align-items: baseline;
-    width: 239px;
-    height: 100vh;
+    width: 254px;
+    height: 102vh;
     overflow: scroll;
     flex-direction: column;
     background-color: rgb(47,49,54);

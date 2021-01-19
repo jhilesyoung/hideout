@@ -62,10 +62,10 @@ class ChatRoom extends React.Component {
     return (
       <div className="chatroom-container">
         <div>ChatRoom</div>
-        <button className="load-button" 
+        {/* <button className="load-button" 
           onClick={this.loadChat.bind(this)}>
           Launch Hideout
-        </button>
+        </button> */}
         <div className="message-list">{messageList}</div>
         <MessageForm />
       </div>

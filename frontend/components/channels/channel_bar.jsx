@@ -1,6 +1,7 @@
 import React from 'react';
 import ChannelItem from './channel_item';
 import CreateChannelContainer from './create_channel_container'
+import { loadChat } from '../../ChatRoom';
 
 
 class ChannelBar extends React.Component {
@@ -11,6 +12,7 @@ class ChannelBar extends React.Component {
         this.state = {
             title: '',
         }
+        
     }
 
     componentDidMount() {
@@ -25,7 +27,7 @@ class ChannelBar extends React.Component {
     }
 
     render() {
-        
+        const { loadChat } = this.props
         const {channels, createChannel} = this.props;
         const channelItems = channels.map((channel) => {
            return <ChannelItem channel={channel} key={channel.id} createChannel={createChannel}/>
@@ -34,10 +36,7 @@ class ChannelBar extends React.Component {
         return (
 
             <div className="channel-container">
-               
-                    <div>
                         {channelItems}
-                    </div>
                     <CreateChannelContainer />
             </div>
 
