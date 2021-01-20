@@ -5,6 +5,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 const mSTP = (state) => {
   return {
       formType: 'Change Icon',
+      currentUser: state.entities.users.id
       // photo: ??
   }
 }

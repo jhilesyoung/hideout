@@ -1289,8 +1289,8 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
 
       reader.onloadend = function () {
         return _this2.setState({
-          imageUrl: reader.result,
-          imageFile: file
+          photoUrl: reader.result,
+          photoFile: file
         });
       };
 
@@ -1298,8 +1298,8 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
         reader.readAsDataURL(file);
       } else {
         this.setState({
-          imageUrl: "",
-          imageFile: null
+          photoUrl: "",
+          photoFile: null
         });
       }
     }
@@ -1314,12 +1314,13 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
       }
 
       $.ajax({
-        url: '/api/users',
-        method: 'POST',
-        // /rails/active_storage/direct_uploads    ????
+        url: "api/users/".concat(this.state.currentUser),
+        method: 'PATCH',
         data: formData,
         contentType: false,
-        processData: false
+        processData: false,
+        enctype: 'multipart/form-data',
+        cache: false
       });
     }
   }, {

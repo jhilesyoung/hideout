@@ -6,11 +6,20 @@ class Api::UsersController < ApplicationController
     end
     
     def create
-        # debugger
+        debugger
         @user = User.create(user_params)
         if @user.save
             login!(@user)
-            render "api/users/show"
+            render :show
+        else
+            render json: @user.errors.full_messages, status: 422
+        end
+    end
+
+    def update
+        @user.attach(params[:photo])
+        if @current_user.save
+            render :show
         else
             render json: @user.errors.full_messages, status: 422
         end

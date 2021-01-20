@@ -8,20 +8,24 @@ class ProfileForm extends React.Component {
 
         this.state = {
             photoFile: null,
-            photoUrl: null
+            photoUrl: null,
         };
     }
 
       handleFile(e) {
+        
         const reader = new FileReader();
         const file = e.currentTarget.files[0];
-        reader.onloadend = () =>
-            this.setState({ imageUrl: reader.result, imageFile: file });
+    
+        reader.onloadend = () => {
+          
+          return this.setState({ photoUrl: reader.result, photoFile: file });
+        }
 
         if (file) {
             reader.readAsDataURL(file);
         } else {
-            this.setState({ imageUrl: "", imageFile: null });
+            this.setState({ photoUrl: "", photoFile: null });
         }
       }
 
@@ -33,12 +37,15 @@ class ProfileForm extends React.Component {
       
           formData.append('user[photo]', this.state.photoFile);
         }
+      
         $.ajax({
-          url: '/api/users',
-          method: 'POST', // /rails/active_storage/direct_uploads    ????
+          url: `api/users/${this.state.currentUser}`,
+          method: 'PATCH', 
           data: formData,
           contentType: false,
-          processData: false
+          processData: false,
+          enctype: 'multipart/form-data',
+          cache: false
         });
       }
 
