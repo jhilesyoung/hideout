@@ -17,8 +17,8 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @user.attach(params[:photo])
-        if @current_user.save
+        @user.photo.attach(params[:photo])
+        if @user.save
             render :show
         else
             render json: @user.errors.full_messages, status: 422
