@@ -1,23 +1,26 @@
 import { connect } from 'react-redux';
 import ProfileForm from './profile_form';
-import { openModal, closeModal } from '../../actions/modal_actions';
+// import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
+  console.log(state)
   return {
       formType: 'Change Icon',
-      currentUser: state.entities.users.id
-      // photo: ??
+      username: state.entities.users[state.session.id].username,
+   
   }
+
+
 }
 
 const mDTP = (dispatch) => {
     return {
-        otherForm: (
-            <button onClick={() => dispatch(openModal('Change Icon'))}>
-              Submit
-            </button>
-          ),
-          closeModal: () => dispatch(closeModal()),
+        // otherForm: (
+        //     <button onClick={() => dispatch(openModal('Change Icon'))}>
+        //       Submit
+        //     </button>
+        //   ),
+        //   closeModal: () => dispatch(closeModal()),
     }
 }
 

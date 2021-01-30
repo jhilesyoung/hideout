@@ -5,7 +5,7 @@ class ProfileForm extends React.Component {
 
     constructor(props) {
         super(props);
-
+      
         this.state = {
             photoFile: null,
             photoUrl: null,
@@ -49,18 +49,22 @@ class ProfileForm extends React.Component {
         });
       }
 
-    render() {
-        // const username = this.props.
-        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+      render() {
+        console.log(this.props)
+        const { username } = this.props
+        // const { currentUser } = this.props
+        const  preview  = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+       
         return (
         <div className="icon-change">
-          <form onSubmit={this.handleSubmit.bind(this)}>
-              <label>User</label>
+          <form className="icon-form" onSubmit={this.handleSubmit.bind(this)}>
+              <label>preview</label>
                   <input type="file"
                       onChange={this.handleFile.bind(this)}/>
-                  <h3>Image preview </h3>
                       {preview}
-                      <Modal />
+                      
+                      
+                      {/* <Modal /> */}
               <button className="icon-submit" value={this.props.formType}> 
               {/* /* onClick={() => this.props.openModal('Change Icon')} */}
                 Change Icon
