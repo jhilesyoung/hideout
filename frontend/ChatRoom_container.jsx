@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import  ChatRoom  from './ChatRoom';
-import { login, logout } from '../../actions/session_actions'
+// import { login, logout } from '../../actions/session_actions'
 
-const mSTP = ({ session, entities: { users }}) => {
+const mSTP = ({ state }) => {
     return {
-        currentUser: users[session.id] 
+        channelId: state.entities.channels.id
       };
 };
 

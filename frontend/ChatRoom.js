@@ -4,7 +4,10 @@ import MessageForm from "./MessageForm.js";
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { messages: [] };
+    this.state = { 
+      messages: [],
+      channelId: ''
+     };
     this.bottom = React.createRef();
   }
   
