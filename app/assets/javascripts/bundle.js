@@ -136,7 +136,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       messages: [],
-      channelId: ''
+      channelId: _this.props.channelId
     };
     _this.bottom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     return _this;
@@ -170,16 +170,16 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
         speak: function speak(data) {
           return this.perform("speak", data);
         },
-        load: function load() {
-          return this.perform("load");
+        load: function load(channelId) {
+          return this.perform("load", channelId);
         }
       });
     }
   }, {
     key: "loadChat",
-    value: function loadChat(e) {
+    value: function loadChat(e, channelId) {
       e.preventDefault();
-      App.cable.subscriptions.subscriptions[0].load();
+      App.cable.subscriptions.subscriptions[0].load(channelId);
     }
   }, {
     key: "componentDidUpdate",
@@ -192,7 +192,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var users = this.props.users; // let messageList = <div ref={this.bottom} />
+      var username = this.props.username; // let messageList = <div ref={this.bottom} />
       // debugger
 
       var messageList = this.state.messages.map(function (message, idx) {
@@ -216,7 +216,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
         className: "chatroom-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
-      }, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageForm_js__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }, username, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageForm_js__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 
@@ -862,7 +862,8 @@ var ChannelForm = /*#__PURE__*/function (_React$Component) {
 
       this.setState({
         title: ''
-      }); // .then(() => this.props.getServers())
+      });
+      this.props.getChannels(serverId); // .then(() => this.props.getServers())
     }
   }, {
     key: "update",
@@ -971,7 +972,32 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   return ChannelItem;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ChannelItem);
+/* harmony default export */ __webpack_exports__["default"] = (ChannelItem); // import React from 'react';
+// import '@fortawesome/fontawesome-free/js/all.js'
+// import { Link } from 'react-router-dom';
+// import ChatRoom from '../../ChatRoom'
+// class ChannelItem extends React.Component{
+//     constructor(props) {
+//         super(props)
+//     }
+//     loadChat(e) {
+//         e.preventDefault();
+//         App.cable.subscriptions.subscriptions[0].load();
+//     }
+//     render() {
+//         const {channels, servers} = this.props;
+//         return (
+//             <Link to={`/servers/${servers.id}/channels/${channels.id}`}>
+//                 <li className="channel-items">
+//                     <button className="channel-title" onClick={this.loadChat}>
+//                         <i className="fas fa-hashtag"></i> {channel.title}
+//                     </button>
+//                 </li>
+//             </Link>
+//         )
+//     }
+// }
+// export default ChannelItem
 
 /***/ }),
 
@@ -1011,7 +1037,20 @@ var mDTP = function mDTP(dispatch) {
   return {
     createChannel: function createChannel(channel, serverId) {
       return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["createChannel"])(channel, serverId));
-    }
+    },
+    getChannels: function (_getChannels) {
+      function getChannels(_x) {
+        return _getChannels.apply(this, arguments);
+      }
+
+      getChannels.toString = function () {
+        return _getChannels.toString();
+      };
+
+      return getChannels;
+    }(function (serverId) {
+      return dispatch(getChannels(serverId));
+    })
   };
 };
 
@@ -1225,6 +1264,41 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/profile/profile_container.jsx":
+/*!***********************************************************!*\
+  !*** ./frontend/components/profile/profile_container.jsx ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _profile_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile_form */ "./frontend/components/profile/profile_form.jsx");
+
+ // import { openModal, closeModal } from '../../actions/modal_actions';
+
+var mSTP = function mSTP(state) {
+  return {
+    formType: 'Change Icon',
+    username: state.entities.users[state.session.id].username
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {// otherForm: (
+    //     <button onClick={() => dispatch(openModal('Change Icon'))}>
+    //       Submit
+    //     </button>
+    //   ),
+    //   closeModal: () => dispatch(closeModal()),
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_profile_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./frontend/components/profile/profile_form.jsx":
 /*!******************************************************!*\
   !*** ./frontend/components/profile/profile_form.jsx ***!
@@ -1236,7 +1310,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modal */ "./frontend/components/modal.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1258,7 +1331,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 
 
 
@@ -1327,7 +1399,7 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
+      // console.log(this.props)
       var username = this.props.username; // const { currentUser } = this.props
 
       var preview = this.state.photoUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1341,7 +1413,7 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "preview"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
         onChange: this.handleFile.bind(this)
-      }), preview, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, username), preview, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "icon-submit",
         value: this.props.formType
       }, "Change Icon")));
@@ -1988,6 +2060,9 @@ var Login = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "auth-background",
         src: window.loginurl
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "blob-background",
+        src: window.bloburl
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -2168,6 +2243,9 @@ var Signup = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "auth-background",
         src: window.loginurl
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "blob-background",
+        src: window.bloburl
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "signup-form-box"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
@@ -2404,7 +2482,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _channels_channel_bar_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./channels/channel_bar_container */ "./frontend/components/channels/channel_bar_container.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ChatRoom */ "./frontend/ChatRoom.js");
-/* harmony import */ var _profile_profile_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./profile/profile_form */ "./frontend/components/profile/profile_form.jsx");
+/* harmony import */ var _profile_profile_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./profile/profile_container */ "./frontend/components/profile/profile_container.jsx");
+/* harmony import */ var _video_VideoCall__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./video/VideoCall */ "./frontend/components/video/VideoCall.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2432,7 +2511,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // import ChannelMessageContainer from '../messages/message_bar
+
+ // import OnlineContainer from './online/online__container';
+// import ChannelMessageContainer from '../messages/message_bar
 
 var UserHome = /*#__PURE__*/function (_React$Component) {
   _inherits(UserHome, _React$Component);
@@ -2453,7 +2534,7 @@ var UserHome = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_server_server_index_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/servers/:serverId/channels",
         component: _channels_channel_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_form__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
   }]);
 
@@ -2504,6 +2585,264 @@ var mDTP = function mDTP(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_user_home_jsx__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/video/VideoCall.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/video/VideoCall.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util_video_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/video_util */ "./frontend/util/video_util.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var VideoCall = /*#__PURE__*/function (_React$Component) {
+  _inherits(VideoCall, _React$Component);
+
+  var _super = _createSuper(VideoCall);
+
+  function VideoCall(props) {
+    var _this;
+
+    _classCallCheck(this, VideoCall);
+
+    _this = _super.call(this, props);
+    _this.pcPeers = {};
+    _this.userId = Math.floor(Math.random() * 10000);
+    return _this;
+  }
+
+  _createClass(VideoCall, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.remoteVideoContainer = document.getElementById("remote-video-container");
+      navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: true
+      }).then(function (stream) {
+        _this2.localStream = stream;
+        document.getElementById("local-video").srcObject = stream;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "joinCall",
+    value: function joinCall(e) {
+      var _this3 = this;
+
+      App.cable.subscriptions.create({
+        channel: "CallChannel"
+      }, {
+        connected: function connected() {
+          console.log('CONNECTED');
+          Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
+            type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["JOIN_CALL"],
+            from: _this3.userId
+          });
+        },
+        received: function received(data) {
+          console.log("RECEIVED: ", data);
+          if (data.from === _this3.userId) return;
+
+          switch (data.type) {
+            case _util_video_util__WEBPACK_IMPORTED_MODULE_1__["JOIN_CALL"]:
+              return _this3.join(data);
+
+            case _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"]:
+              if (data.to !== _this3.userId) return;
+              return _this3.exchange(data);
+
+            case _util_video_util__WEBPACK_IMPORTED_MODULE_1__["LEAVE_CALL"]:
+              return _this3.removeUser(data);
+
+            default:
+              return;
+          }
+        }
+      });
+    }
+  }, {
+    key: "join",
+    value: function join(data) {
+      this.createPC(data.from, true);
+    }
+  }, {
+    key: "removeUser",
+    value: function removeUser(data) {
+      var video = document.getElementById("remoteVideoContainer+".concat(data.from));
+      video && video.remove();
+      var peers = this.pcPeers;
+      delete peers[data.from];
+    }
+  }, {
+    key: "createPC",
+    value: function createPC(userId, offerBool) {
+      var _this4 = this;
+
+      var pc = new RTCPeerConnection(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["ice"]);
+      this.pcPeers[userId] = pc;
+      this.localStream.getTracks().forEach(function (track) {
+        return pc.addTrack(track, _this4.localStream);
+      });
+
+      if (offerBool) {
+        pc.createOffer().then(function (offer) {
+          pc.setLocalDescription(offer).then(function () {
+            setTimeout(function () {
+              Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
+                type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"],
+                from: _this4.userId,
+                to: userId,
+                sdp: JSON.stringify(pc.localDescription)
+              });
+            }, 0);
+          });
+        });
+      }
+
+      pc.onicecandidate = function (e) {
+        Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
+          type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"],
+          from: _this4.userId,
+          to: userId,
+          sdp: JSON.stringify(e.candidate)
+        });
+      };
+
+      pc.ontrack = function (e) {
+        var remoteVid = document.createElement("video");
+        remoteVid.id = "remoteVideoContainer+".concat(userId);
+        remoteVid.autoplay = "autoplay";
+        remoteVid.srcObject = e.streams[0];
+
+        _this4.remoteVideoContainer.appendChild(remoteVid);
+      };
+
+      pc.oniceconnectionstatechange = function (e) {
+        if (pc.iceConnectionState === 'disconnected') {
+          Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
+            type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["LEAVE_CALL"],
+            from: userId
+          });
+        }
+      };
+
+      return pc;
+    }
+  }, {
+    key: "leaveCall",
+    value: function leaveCall(e) {
+      var pcKeys = Object.keys(this.pcPeers);
+
+      for (var i = 0; i < pcKeys.length; i++) {
+        this.pcPeers[pcKeys[i]].close();
+      }
+
+      this.pcPeers = {};
+      this.localVideo.srcObject.getTracks().forEach(function (track) {
+        track.stop();
+      });
+      this.localVideo.srcObject = null;
+      App.cable.subscriptions.subscriptions = [];
+      this.remoteVideoContainer.innerHTML = "";
+      Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
+        type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["LEAVE_CALL"],
+        from: this.userId
+      });
+    }
+  }, {
+    key: "exchange",
+    value: function exchange(data) {
+      var _this5 = this;
+
+      var pc;
+
+      if (this.pcPeers[data.from]) {
+        pc = this.pcPeers[data.from];
+      } else {
+        pc = this.createPC(data.from, false);
+      }
+
+      if (data.candidate) {
+        var candidate = JSON.parse(data.candidate);
+        pc.addIceCandidate(new RTCIceCandidate(candidate));
+      }
+
+      if (data.sdp) {
+        var sdp = JSON.parse(data.sdp);
+
+        if (sdp && !sdp.candidate) {
+          pc.setRemoteDescription(sdp).then(function () {
+            if (sdp.type === 'offer') {
+              pc.createAnswer().then(function (answer) {
+                pc.setLocalDescription(answer).then(function () {
+                  Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
+                    type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"],
+                    from: _this5.userId,
+                    to: data.from,
+                    sdp: JSON.stringify(pc.localDescription)
+                  });
+                });
+              });
+            }
+          });
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "VideoCall"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "remote-video-container"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
+        id: "local-video",
+        autoPlay: true
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.joinCall.bind(this)
+      }, "Join Call"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.leaveCall.bind(this)
+      }, "Leave Call"));
+    }
+  }]);
+
+  return VideoCall;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (VideoCall);
 
 /***/ }),
 
@@ -3081,6 +3420,40 @@ var logout = function logout() {
   return $.ajax({
     method: "DELETE",
     url: "/api/session"
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/video_util.js":
+/*!*************************************!*\
+  !*** ./frontend/util/video_util.js ***!
+  \*************************************/
+/*! exports provided: JOIN_CALL, EXCHANGE, LEAVE_CALL, ice, broadcastData */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JOIN_CALL", function() { return JOIN_CALL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EXCHANGE", function() { return EXCHANGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LEAVE_CALL", function() { return LEAVE_CALL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ice", function() { return ice; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "broadcastData", function() { return broadcastData; });
+var JOIN_CALL = "JOIN_CALL";
+var EXCHANGE = "EXCHANGE";
+var LEAVE_CALL = "LEAVE_CALL";
+var ice = {
+  iceServers: [{
+    urls: "stun:stun2.l.google.com:19302"
+  }]
+};
+var broadcastData = function broadcastData(data) {
+  fetch("calls", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "content-type": "application/json"
+    }
   });
 };
 

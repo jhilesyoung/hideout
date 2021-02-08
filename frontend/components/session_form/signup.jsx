@@ -42,6 +42,7 @@ class Signup extends React.Component {
     return (
       <div className="session-form">
           <img className="auth-background" src={window.loginurl}/>
+          <img className="blob-background" src={window.bloburl}/>
           <div className="signup-form-box">
         <h2 className="create-text">Create an account</h2>
         <form>  

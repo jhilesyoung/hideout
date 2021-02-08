@@ -11,6 +11,7 @@
     width: 653px;
     border-radius: 5px;
     height: 423px;
+    border: solid black 2px;
 }
 
 .auth-background {
@@ -20,6 +21,17 @@
     margin-left: -.75%;
     left: -1px;
     margin-top: -8.5%;
+}
+
+.blob-background {
+    display: flex;
+    position: absolute;
+    /* justify-content: flex-start; */
+    z-index: 0;
+    top: -8px;
+    left: -5px;
+    height: auto;
+    overflow: hidden;
 }
 
 .welcome-text {
@@ -38,6 +50,7 @@
     left: 36px;
     position: relative;
     font-family: 'Catamaran';
+    bottom: 9px;
 }
 
 .session-submit-button {

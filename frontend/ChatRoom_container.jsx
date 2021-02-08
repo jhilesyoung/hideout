@@ -4,7 +4,8 @@ import  ChatRoom  from './ChatRoom';
 
 const mSTP = ({ state }) => {
     return {
-        channelId: state.entities.channels.id
+        channelId: state.entities.channels.id,
+        username: state.entities.users.id.username
       };
 };
 

@@ -3,7 +3,6 @@ import ProfileForm from './profile_form';
 // import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
-  console.log(state)
   return {
       formType: 'Change Icon',
       username: state.entities.users[state.session.id].username,

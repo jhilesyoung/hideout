@@ -3,7 +3,9 @@ import React from 'react';
 import ChannelBarContainer from './channels/channel_bar_container';
 import { Route } from 'react-router-dom';
 import ChatRoom from '../ChatRoom';
-import ProfileForm from './profile/profile_form'
+import ProfileFormContainer from './profile/profile_container';
+import VideoCall from './video/VideoCall';
+// import OnlineContainer from './online/online__container';
 // import ChannelMessageContainer from '../messages/message_bar
 
 
@@ -18,7 +20,9 @@ class UserHome extends React.Component {
                 <ServerIndexContainer />
                 <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
                 <ChatRoom />
-                <ProfileForm />
+                <ProfileFormContainer />
+                {/* <VideoCall /> */}
+                {/* <OnlineList /> */}
                 {/* <ChannelMessageContainer /> */}
             </div>
         )

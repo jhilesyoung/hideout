@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user, :ensure_logged_in?, :logged_in
+    protect_from_forgery unless: -> { request.format.json? }
 
     def current_user 
         return nil unless session[:session_token]

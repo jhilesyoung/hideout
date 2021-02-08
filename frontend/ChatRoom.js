@@ -6,7 +6,7 @@ class ChatRoom extends React.Component {
     super(props);
     this.state = { 
       messages: [],
-      channelId: ''
+      channelId: this.props.channelId
      };
     this.bottom = React.createRef();
   }
@@ -28,14 +28,14 @@ class ChatRoom extends React.Component {
           }
         },
         speak: function(data) {return this.perform("speak", data)},
-        load: function() {return this.perform("load")}
+        load: function(channelId) {return this.perform("load", channelId)}
       }
     );
   }
   
-  loadChat(e) {
+  loadChat(e, channelId) {
     e.preventDefault();
-    App.cable.subscriptions.subscriptions[0].load();
+    App.cable.subscriptions.subscriptions[0].load(channelId);
   }
   
   componentDidUpdate() {
@@ -44,7 +44,7 @@ class ChatRoom extends React.Component {
   }
   
   render() {
-    const { users } = this.props;
+    const { username } = this.props;
     // let messageList = <div ref={this.bottom} />
     // debugger
     let messageList = this.state.messages.map((message, idx) => {
@@ -69,7 +69,7 @@ class ChatRoom extends React.Component {
           onClick={this.loadChat.bind(this)}>
           Launch Hideout
         </button> */}
-        <div className="message-list">{messageList}</div>
+        <div className="message-list">{username}{messageList}</div>
         <MessageForm />
       </div>
     );

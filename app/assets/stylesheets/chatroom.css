@@ -1,22 +1,27 @@
+
+
 .chatroom-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    left: 331px;
+    left: 370px;
+    background-color: rgb(55,58,63);
+    height: fit-content;
 }
 
   .message-list {
     overflow-y: scroll;
     height: 95.9vh;
-    width: 1068px;
-    left: 39px;
+    width: 701px;
+    left: 0px;
     border: solid black 1px;
     background-color: rgb(55,58,63);
     position: relative;
     bottom: 47px;
     color: white;
     font-size: large;
+    border-bottom-style: none;
 }
 
 .load-button {
@@ -40,22 +45,27 @@
 }
 
 .message-box {
-    height: 9vh;
-    width: 984px;
-    font-size: x-large;
+    height: 7vh;
+    width: 618px;
+    font-size: inherit;
     position: relative;
-    left: 39px;
+    left: -11px;
     color: white;
-    background-color: rgb(55,58,63);
+    background-color: rgb(65,69,75);
+    border-radius: 14px;
+    border: 0px;
 }
 
 .message-submit {
-    height: 70px;
-    width: 78px;
+    height: 46px;
+    width: 55px;
     font-size: x-large;
     position: relative;
-    right: -38px;
-    background-color: rgb(55,58,63);
+    /* right: -33px; */
+    background-color: rgb(65,69,75);
     color: springgreen;
+    border: rgb(65,69,75);
+    border-radius: 14px;
+    left: -7px;
 }
 

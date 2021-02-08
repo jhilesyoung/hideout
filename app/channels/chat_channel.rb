@@ -9,16 +9,15 @@ class ChatChannel < ApplicationCable::Channel
       ChatChannel.broadcast_to('chat_channel', socket)
     end
   end
-  def load(channel_id)
-    messages = Message.find_by(channel_id).collect(&:body)
+  def load
+    messages = Message.all.collect(&:body)
     socket = { messages: messages, type: 'messages' }
     ChatChannel.broadcast_to('chat_channel', socket)
   end
   def unsubscribed; end
 
-
-  #messages = Message.find_by(params[:channel_id])
 end
+#messages = Message.find_by(params)
 
 #define a method called speak. 
 #This method will receive data, 

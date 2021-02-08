@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../modal';
+
 
 class ProfileForm extends React.Component {
 
@@ -50,7 +50,7 @@ class ProfileForm extends React.Component {
       }
 
       render() {
-        console.log(this.props)
+        // console.log(this.props)
         const { username } = this.props
         // const { currentUser } = this.props
         const  preview  = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
@@ -61,9 +61,12 @@ class ProfileForm extends React.Component {
               <label>preview</label>
                   <input type="file"
                       onChange={this.handleFile.bind(this)}/>
-                      {preview}
+                      <div>
+                        {username}
+                      </div>
+                        {preview}
                       
-                      
+                    
                       {/* <Modal /> */}
               <button className="icon-submit" value={this.props.formType}> 
               {/* /* onClick={() => this.props.openModal('Change Icon')} */}

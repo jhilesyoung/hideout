@@ -18,7 +18,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        createChannel: (channel, serverId) => dispatch(createChannel(channel, serverId))
+        createChannel: (channel, serverId) => dispatch(createChannel(channel, serverId)),
+        getChannels: (serverId) => dispatch(getChannels(serverId)),
     }
 }
 

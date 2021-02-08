@@ -1,0 +1,11 @@
+.VideoCall {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 99px;
+    width: 239px;
+    left: 131px;
+    justify-content: center;
+    height: 22vh;
+    background-color: violet;
+}
