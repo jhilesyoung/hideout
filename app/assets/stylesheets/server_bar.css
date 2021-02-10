@@ -4,13 +4,26 @@
     left: -8px;
     top: -8px;
     align-items: baseline;
-    width: 154px;
-    height: 102vh;
+    width: 145px;
+    height: 103vh;
     overflow: scroll;
     flex-direction: column;
     background-color: rgb(33,36,39);
     /* color: rgb(137,141,146); */
     font-family: serif;
+}
+
+.server-icon::-webkit-scrollbar {
+    width: 6px;               /* width of the entire scrollbar */
+}
+
+.server-icon::-webkit-scrollbar-track {
+    background: rgb(47,49,54);        /* color of the tracking area */
+}
+  
+.server-icon::-webkit-scrollbar-thumb {
+    background-color: rgb(66,69,75);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */  /* creates padding around scroll thumb */
 }
 
 /* background-color: rgb(32,34,37);
@@ -40,18 +53,19 @@
     background: rgb(114,137,218);
     padding: 20px;
     border: 4px solid rgb(114,137,218) !important;
-    border-radius: 6px;
+    border-radius: 50%;
     display: flex;
     transition: all 0.3s ease 0s;
-    width: 100px;
+    width: 81px;
     justify-content: center;
+    height: 70px;
     align-items: center;
 }
 
 .server-li {
     text-decoration: none;
 }
-
+/*ok*/
 .server-button:hover {
     color: #494949 !important;
     border-radius: 50px;
@@ -60,8 +74,11 @@
 }
 
 .server-container ul {
-    overflow:hidden; 
-    overflow-y:scroll;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 112px;
+    position: relative;
+    left: 10px;
 }
 
 /* .add-server-input {
@@ -80,9 +97,11 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    left: 13px;
-    width: 100px;
+    bottom: 10px;
+    left: 43px;
+    width: 45px;
     height: 100px;
     background-color: rgb(47,49,54);
     color: springgreen;
+    border-radius: 50%;
 }

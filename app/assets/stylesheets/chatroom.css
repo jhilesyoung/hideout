@@ -11,6 +11,7 @@
 }
 
   .message-list {
+    border-left-style: none;
     overflow-y: scroll;
     height: 95.9vh;
     width: 701px;
@@ -22,6 +23,7 @@
     color: white;
     font-size: large;
     border-bottom-style: none;
+    border-color: rgb(55,58,63);
 }
 
 .load-button {

@@ -3,9 +3,23 @@
     flex-direction: column;
     position: absolute;
     bottom: 99px;
-    width: 239px;
-    left: 131px;
+    width: 250px;
+    left: 120px;
     justify-content: center;
-    height: 22vh;
-    background-color: violet;
+    height: 18vh;
+    background-color: rgb(47,49,54);
+}
+
+.join-call {
+    display: flex;
+    position: absolute;
+    right: -73px;
+    top: -67px;
+}
+
+.leave-call {
+    display: flex;
+    position: absolute;
+    right: 1px;
+    top: -6px;
 }

@@ -1707,7 +1707,7 @@ var ServerIndex = /*#__PURE__*/function (_React$Component) {
         className: "server-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "server-icon"
-      }, serverItem), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, serverItem, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "server-additional",
         onClick: function onClick() {
           return _this.props.openModal('Add Server');
@@ -2534,7 +2534,7 @@ var UserHome = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_server_server_index_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/servers/:serverId/channels",
         component: _channels_channel_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_video_VideoCall__WEBPACK_IMPORTED_MODULE_6__["default"], null));
     }
   }]);
 
@@ -2832,8 +2832,10 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
         id: "local-video",
         autoPlay: true
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "join-call",
         onClick: this.joinCall.bind(this)
       }, "Join Call"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "leave-call",
         onClick: this.leaveCall.bind(this)
       }, "Leave Call"));
     }

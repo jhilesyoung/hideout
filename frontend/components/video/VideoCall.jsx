@@ -161,8 +161,8 @@ class VideoCall extends React.Component{
           return(<div className="VideoCall">
                       <div id="remote-video-container"></div>
                       <video id="local-video" autoPlay></video>
-                      <button onClick={this.joinCall.bind(this)}>Join Call</button>
-                      <button onClick={this.leaveCall.bind(this)}>Leave Call</button>
+                      <button className="join-call" onClick={this.joinCall.bind(this)}>Join Call</button>
+                      <button className="leave-call" onClick={this.leaveCall.bind(this)}>Leave Call</button>
                   </div>)
       }
   }
