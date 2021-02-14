@@ -10,12 +10,29 @@ class OnlineList extends React.Component {
 
         return (
             
-            <div>
+            <div className="online">
+                <li >
+                pic - user089789
+                </li>
                 <li>
-
+                pic - user87654567
+                </li>
+                <li>
+                pic - user87654
+                </li>
+                <li>
+                pic - user876545
+                </li>
+                <li>
+                pic - user1234567
+                </li>
+                <li>
+                pic - user4567
                 </li>
             </div>
         )
     }
 
 }
+
+export default OnlineList

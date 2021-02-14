@@ -6,7 +6,8 @@ class ChatRoom extends React.Component {
     super(props);
     this.state = { 
       messages: [],
-      channelId: this.props.channelId
+      channelId: this.props.channelId,
+      username: ''
      };
     this.bottom = React.createRef();
   }

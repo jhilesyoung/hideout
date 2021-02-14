@@ -2,9 +2,10 @@ import ServerIndexContainer from './server/server_index_container';
 import React from 'react';
 import ChannelBarContainer from './channels/channel_bar_container';
 import { Route } from 'react-router-dom';
-import ChatRoom from '../ChatRoom';
+import ChatRoomContainer from '../ChatRoom_container';
 import ProfileFormContainer from './profile/profile_container';
 import VideoCall from './video/VideoCall';
+import OnlineContainer from './online/online__container';
 // import OnlineContainer from './online/online__container';
 // import ChannelMessageContainer from '../messages/message_bar
 
@@ -19,9 +20,10 @@ class UserHome extends React.Component {
             <div className="user-home">
                 <ServerIndexContainer />
                 <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
-                <ChatRoom />
+                <ChatRoomContainer />
                 <ProfileFormContainer />
                 <VideoCall />
+                <OnlineContainer />
                 {/* <OnlineList /> */}
                 {/* <ChannelMessageContainer /> */}
             </div>

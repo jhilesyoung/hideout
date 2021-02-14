@@ -1,0 +1,11 @@
+.online {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    right: -655px;
+    color: rgb(137,141,146);
+    background-color: rgb(47,49,53);
+    height: 92vh;
+    bottom: -10px;
+    width: 22vw;
+}

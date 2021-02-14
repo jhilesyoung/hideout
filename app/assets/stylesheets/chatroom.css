@@ -7,13 +7,14 @@
     position: relative;
     left: 370px;
     background-color: rgb(55,58,63);
-    height: fit-content;
+    height: 88vh;
+    top: 68px;
 }
 
   .message-list {
     border-left-style: none;
     overflow-y: scroll;
-    height: 95.9vh;
+    height: 88.9vh;
     width: 701px;
     left: 0px;
     border: solid black 1px;

@@ -1,16 +1,15 @@
-import { connect } from 'react-dom';
+import { connect } from 'react-redux';
 import OnlineList from './online_list';
 
 const mSTP = (state) => {
     return {
-        users: Object.values(state.entities.servers),
-        channels: Object.values(state.entities.channels)
+        
     };
 };
 
 const mDTP = (dispatch) => {
     return {
-        getChannels: () => dispatch(getChannels())
+       
     }
 };
 
