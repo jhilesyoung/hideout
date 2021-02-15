@@ -1,2 +1,2 @@
 # hideout
-Discord Clone - App Academy Fullstack Project 
+Discord Clone - Fullstack Project 
