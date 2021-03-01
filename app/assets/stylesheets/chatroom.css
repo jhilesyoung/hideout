@@ -7,7 +7,7 @@
     position: relative;
     left: 370px;
     background-color: rgb(55,58,63);
-    height: 88vh;
+    height: 90.1vh;
     top: 68px;
 }
 
@@ -42,10 +42,11 @@
 
 .chat-submit {
     position: relative;
-    bottom: 57px;
+    bottom: 65px;
     display: flex;
-    height: 0px;
+    height: 1px;
 }
+
 
 .message-box {
     height: 7vh;
@@ -60,8 +61,8 @@
 }
 
 .message-submit {
-    height: 46px;
-    width: 55px;
+    height: 7.5vh;
+    width: 4vw;
     font-size: x-large;
     position: relative;
     /* right: -33px; */

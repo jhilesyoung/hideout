@@ -8,7 +8,6 @@ class Api::ChannelsController < ApplicationController
     end
 
     def create
-        
         @channel = Channel.new(channel_params)
         # @channel.server_id = params[:server_id]
         # @channel.author_id = params[:author_id]

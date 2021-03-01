@@ -5,7 +5,11 @@
     right: -655px;
     color: rgb(137,141,146);
     background-color: rgb(47,49,53);
-    height: 92vh;
-    bottom: -10px;
-    width: 22vw;
+    height: 93.9vh;
+    bottom: -15px;
+    width: 23.6vw;
+}
+
+.online > li {
+    list-style: none;
 }

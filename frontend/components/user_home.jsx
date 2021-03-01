@@ -6,6 +6,7 @@ import ChatRoomContainer from '../ChatRoom_container';
 import ProfileFormContainer from './profile/profile_container';
 import VideoCall from './video/VideoCall';
 import OnlineContainer from './online/online__container';
+import SearchBarContainer from './search/search_container'
 // import OnlineContainer from './online/online__container';
 // import ChannelMessageContainer from '../messages/message_bar
 
@@ -22,8 +23,9 @@ class UserHome extends React.Component {
                 <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
                 <ChatRoomContainer />
                 <ProfileFormContainer />
-                <VideoCall />
+                {/* <VideoCall /> */}
                 <OnlineContainer />
+                <SearchBarContainer />
                 {/* <OnlineList /> */}
                 {/* <ChannelMessageContainer /> */}
             </div>

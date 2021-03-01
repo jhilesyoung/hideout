@@ -2,11 +2,11 @@
     display: flex;
     position: absolute;
     align-items: center;
-    bottom: -14px;
+    bottom: -15px;
     left: 122px;
-    height: 81px;
+    height: 12vh;
     width: 248px;
-    background-color: rgb(47,49,54);
+    background-color: rgb(41,44,48);
 }
 
 .icon-change > form > img {

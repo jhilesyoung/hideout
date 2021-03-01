@@ -50,9 +50,9 @@
 .server-button {
     color: #FFFFFF !important;
     text-transform: uppercase;
-    background: rgb(114,137,218);
+    background: rgb(55,58,63);
     padding: 20px;
-    border: 4px solid rgb(114,137,218) !important;
+    border: 4px solid rgb(55,58,63) !important;
     border-radius: 50%;
     display: flex;
     transition: all 0.3s ease 0s;
@@ -60,6 +60,7 @@
     justify-content: center;
     height: 70px;
     align-items: center;
+    font-size: x-small;
 }
 
 .server-li {

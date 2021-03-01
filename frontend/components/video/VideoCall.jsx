@@ -1,4 +1,5 @@
 import React from 'react';
+import '@fortawesome/fontawesome-free/js/all.js'
 import { broadcastData, JOIN_CALL, LEAVE_CALL, EXCHANGE, ice } from '../../util/video_util';
 
 class VideoCall extends React.Component{
@@ -161,8 +162,8 @@ class VideoCall extends React.Component{
           return(<div className="VideoCall">
                       <div id="remote-video-container"></div>
                       <video id="local-video" autoPlay></video>
-                      <button className="join-call" onClick={this.joinCall.bind(this)}>Join Call</button>
-                      <button className="leave-call" onClick={this.leaveCall.bind(this)}>Leave Call</button>
+                      <button className="join-call" onClick={this.joinCall.bind(this)}><i className="fas fa-plus"></i></button>
+                      <button className="leave-call" onClick={this.leaveCall.bind(this)}><i className="fas fa-plus"></i></button>
                   </div>)
       }
   }

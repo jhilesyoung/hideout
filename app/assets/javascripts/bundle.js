@@ -134,6 +134,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ChatRoom);
 
     _this = _super.call(this, props);
+    var channelId = parseInt(channelId);
     _this.state = {
       messages: [],
       channelId: _this.props.channelId,
@@ -179,6 +180,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "loadChat",
     value: function loadChat(e, channelId) {
+      console.log(subscriptions);
       e.preventDefault();
       App.cable.subscriptions.subscriptions[0].load(channelId);
     }
@@ -244,7 +246,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(_ref) {
   var state = _ref.state;
-  return {};
+  return {// channels: Object.values(state.entities.channels)
+  };
 };
 
 var mDTP = function mDTP(dispatch) {
@@ -936,8 +939,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
 /* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ChatRoom */ "./frontend/ChatRoom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -963,8 +964,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
-
 var ChannelItem = /*#__PURE__*/function (_React$Component) {
   _inherits(ChannelItem, _React$Component);
 
@@ -973,24 +972,30 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   function ChannelItem(props) {
     _classCallCheck(this, ChannelItem);
 
-    return _super.call(this, props);
+    return _super.call(this, props); //    const {channel} = this.props;
   }
 
   _createClass(ChannelItem, [{
     key: "loadChat",
-    value: function loadChat(e) {
+    value: function loadChat(e, channelId) {
       e.preventDefault();
-      App.cable.subscriptions.subscriptions[0].load();
+      console.log(channelId);
+      App.cable.subscriptions.subscriptions[0].load(channelId);
+      console.log(App.cable.subscriptions);
     }
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var channel = this.props.channel;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "channel-items"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-title",
-        onClick: this.loadChat
+        onClick: function onClick(e) {
+          _this.loadChat(e, channel.id);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-hashtag"
       }), " ", channel.title));
@@ -1570,6 +1575,105 @@ var Root = function Root(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Root);
+
+/***/ }),
+
+/***/ "./frontend/components/search/search_bar.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/search/search_bar.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var SearchBar = /*#__PURE__*/function (_React$Component) {
+  _inherits(SearchBar, _React$Component);
+
+  var _super = _createSuper(SearchBar);
+
+  function SearchBar(props) {
+    _classCallCheck(this, SearchBar);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(SearchBar, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-name"
+      }, "Channels"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search-icons"
+      }, "Icons"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search-bar"
+      }, "Bar goes here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "users-list"
+      }, "Online Users"));
+    }
+  }]);
+
+  return SearchBar;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (SearchBar);
+
+/***/ }),
+
+/***/ "./frontend/components/search/search_container.jsx":
+/*!*********************************************************!*\
+  !*** ./frontend/components/search/search_container.jsx ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _search_bar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search_bar */ "./frontend/components/search/search_bar.jsx");
+
+
+
+var mSTP = function mSTP(state) {
+  return {};
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {};
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_search_bar__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -2601,6 +2705,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_profile_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./profile/profile_container */ "./frontend/components/profile/profile_container.jsx");
 /* harmony import */ var _video_VideoCall__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./video/VideoCall */ "./frontend/components/video/VideoCall.jsx");
 /* harmony import */ var _online_online_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./online/online__container */ "./frontend/components/online/online__container.jsx");
+/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./search/search_container */ "./frontend/components/search/search_container.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2622,6 +2727,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2652,7 +2758,7 @@ var UserHome = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_server_server_index_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/servers/:serverId/channels",
         component: _channels_channel_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_video_VideoCall__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_online_online_container__WEBPACK_IMPORTED_MODULE_7__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_online_online_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
@@ -2717,7 +2823,9 @@ var mDTP = function mDTP(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _util_video_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/video_util */ "./frontend/util/video_util.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _util_video_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/video_util */ "./frontend/util/video_util.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2739,6 +2847,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2785,8 +2894,8 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
       }, {
         connected: function connected() {
           console.log('CONNECTED');
-          Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
-            type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["JOIN_CALL"],
+          Object(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["broadcastData"])({
+            type: _util_video_util__WEBPACK_IMPORTED_MODULE_2__["JOIN_CALL"],
             from: _this3.userId
           });
         },
@@ -2795,14 +2904,14 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
           if (data.from === _this3.userId) return;
 
           switch (data.type) {
-            case _util_video_util__WEBPACK_IMPORTED_MODULE_1__["JOIN_CALL"]:
+            case _util_video_util__WEBPACK_IMPORTED_MODULE_2__["JOIN_CALL"]:
               return _this3.join(data);
 
-            case _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"]:
+            case _util_video_util__WEBPACK_IMPORTED_MODULE_2__["EXCHANGE"]:
               if (data.to !== _this3.userId) return;
               return _this3.exchange(data);
 
-            case _util_video_util__WEBPACK_IMPORTED_MODULE_1__["LEAVE_CALL"]:
+            case _util_video_util__WEBPACK_IMPORTED_MODULE_2__["LEAVE_CALL"]:
               return _this3.removeUser(data);
 
             default:
@@ -2829,7 +2938,7 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
     value: function createPC(userId, offerBool) {
       var _this4 = this;
 
-      var pc = new RTCPeerConnection(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["ice"]);
+      var pc = new RTCPeerConnection(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["ice"]);
       this.pcPeers[userId] = pc;
       this.localStream.getTracks().forEach(function (track) {
         return pc.addTrack(track, _this4.localStream);
@@ -2839,8 +2948,8 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
         pc.createOffer().then(function (offer) {
           pc.setLocalDescription(offer).then(function () {
             setTimeout(function () {
-              Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
-                type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"],
+              Object(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["broadcastData"])({
+                type: _util_video_util__WEBPACK_IMPORTED_MODULE_2__["EXCHANGE"],
                 from: _this4.userId,
                 to: userId,
                 sdp: JSON.stringify(pc.localDescription)
@@ -2851,8 +2960,8 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
       }
 
       pc.onicecandidate = function (e) {
-        Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
-          type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"],
+        Object(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["broadcastData"])({
+          type: _util_video_util__WEBPACK_IMPORTED_MODULE_2__["EXCHANGE"],
           from: _this4.userId,
           to: userId,
           sdp: JSON.stringify(e.candidate)
@@ -2870,8 +2979,8 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
 
       pc.oniceconnectionstatechange = function (e) {
         if (pc.iceConnectionState === 'disconnected') {
-          Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
-            type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["LEAVE_CALL"],
+          Object(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["broadcastData"])({
+            type: _util_video_util__WEBPACK_IMPORTED_MODULE_2__["LEAVE_CALL"],
             from: userId
           });
         }
@@ -2895,8 +3004,8 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
       this.localVideo.srcObject = null;
       App.cable.subscriptions.subscriptions = [];
       this.remoteVideoContainer.innerHTML = "";
-      Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
-        type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["LEAVE_CALL"],
+      Object(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["broadcastData"])({
+        type: _util_video_util__WEBPACK_IMPORTED_MODULE_2__["LEAVE_CALL"],
         from: this.userId
       });
     }
@@ -2926,8 +3035,8 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
             if (sdp.type === 'offer') {
               pc.createAnswer().then(function (answer) {
                 pc.setLocalDescription(answer).then(function () {
-                  Object(_util_video_util__WEBPACK_IMPORTED_MODULE_1__["broadcastData"])({
-                    type: _util_video_util__WEBPACK_IMPORTED_MODULE_1__["EXCHANGE"],
+                  Object(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["broadcastData"])({
+                    type: _util_video_util__WEBPACK_IMPORTED_MODULE_2__["EXCHANGE"],
                     from: _this5.userId,
                     to: data.from,
                     sdp: JSON.stringify(pc.localDescription)
@@ -2952,10 +3061,14 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "join-call",
         onClick: this.joinCall.bind(this)
-      }, "Join Call"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "leave-call",
         onClick: this.leaveCall.bind(this)
-      }, "Leave Call"));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus"
+      })));
     }
   }]);
 

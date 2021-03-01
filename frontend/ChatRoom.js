@@ -4,6 +4,7 @@ import MessageForm from "./MessageForm.js";
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
+    let channelId = parseInt(channelId)
     this.state = { 
       messages: [],
       channelId: this.props.channelId,
@@ -35,6 +36,7 @@ class ChatRoom extends React.Component {
   }
   
   loadChat(e, channelId) {
+    console.log(subscriptions)
     e.preventDefault();
     App.cable.subscriptions.subscriptions[0].load(channelId);
   }
