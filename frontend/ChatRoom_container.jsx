@@ -4,7 +4,7 @@ import  ChatRoom  from './ChatRoom';
 
 const mSTP = ({ state }) => {
     return {
-        channelId: 
+        // channelId: 
       };
 };
 
