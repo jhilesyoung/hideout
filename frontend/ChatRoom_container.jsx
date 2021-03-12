@@ -4,7 +4,7 @@ import  ChatRoom  from './ChatRoom';
 
 const mSTP = ({ state }) => {
     return {
-        // channels: Object.values(state.entities.channels)
+        channelId: 
       };
 };
 
