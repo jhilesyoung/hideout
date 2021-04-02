@@ -35,7 +35,7 @@ class ChannelBar extends React.Component {
     render() {
         // const { loadChat } = this.props
         const {channels} = this.state;
-        console.log(channels);
+        // console.log(channels);
         const {createChannel} = this.props;
         const channelItems = channels.map((channel) => {
            return <ChannelItem channel={channel} serverId={this.props.serverId} key={channel.id} createChannel={createChannel}/>

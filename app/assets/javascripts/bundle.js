@@ -756,8 +756,8 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       // const { loadChat } = this.props
-      var channels = this.state.channels;
-      console.log(channels);
+      var channels = this.state.channels; // console.log(channels);
+
       var createChannel = this.props.createChannel;
       var channelItems = channels.map(function (channel) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channel_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -805,8 +805,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  var serverId = parseInt(ownProps.match.params.serverId);
-  debugger;
+  var serverId = parseInt(ownProps.match.params.serverId); // debugger
+
   return {
     serverId: ownProps.match.params.serverId,
     channels: Object.values(state.entities.channels).filter(function (channel) {
@@ -1005,7 +1005,7 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
     value: function loadChat(e, channelId) {
       e.preventDefault();
       console.log(channelId);
-      App.cable.subscriptions.subscriptions[0].load(channelId);
+      App.cable.subscriptions.subscriptions[0].load(+channelId);
       console.log(App.cable.subscriptions);
     }
   }, {
@@ -1013,7 +1013,7 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       // console.log("test", prevProps, this.props);
       if (prevProps.channel != this.props.channel) {
-        debugger;
+        // debugger
         this.setState({
           channel: this.props.channel
         });
@@ -1025,6 +1025,8 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var channel = this.state.channel;
       console.log(channel);
       var serverId = this.props.serverId;
@@ -1038,7 +1040,10 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/servers/".concat(serverId, "/channels/").concat(channel.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "channel-title"
+        className: "channel-title",
+        onClick: function onClick(e) {
+          _this2.loadChat(e, +channel.id);
+        }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-hashtag"
       }), " ", channel.title)));
@@ -1048,8 +1053,7 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   return ChannelItem;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ChannelItem); // onClick={(e) => {this.loadChat(e, channel.id)}}
-// import React from 'react';
+/* harmony default export */ __webpack_exports__["default"] = (ChannelItem); // import React from 'react';
 // import '@fortawesome/fontawesome-free/js/all.js'
 // import { Link } from 'react-router-dom';
 // import ChatRoom from '../../ChatRoom'
