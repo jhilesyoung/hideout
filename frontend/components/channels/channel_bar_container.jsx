@@ -5,6 +5,7 @@ import ChannelBar from './channel_bar'
 
 const mSTP = (state, ownProps) => {
     const serverId = parseInt(ownProps.match.params.serverId)
+    // debugger
     return {
         serverId: ownProps.match.params.serverId,
         channels: Object.values(state.entities.channels).filter(channel => {
