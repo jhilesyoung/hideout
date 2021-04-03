@@ -180,7 +180,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "loadChat",
     value: function loadChat(e, channelId) {
-      console.log(subscriptions);
+      // console.log(subscriptions)
       e.preventDefault();
       App.cable.subscriptions.subscriptions[0].load(channelId);
     }
@@ -1005,8 +1005,7 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
     value: function loadChat(e, channelId) {
       e.preventDefault();
       console.log(channelId);
-      App.cable.subscriptions.subscriptions[0].load(+channelId);
-      console.log(App.cable.subscriptions);
+      App.cable.subscriptions.subscriptions[0].load(+channelId); // console.log(App.cable.subscriptions)
     }
   }, {
     key: "componentDidUpdate",

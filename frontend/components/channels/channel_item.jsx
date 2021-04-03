@@ -10,15 +10,13 @@ class ChannelItem extends React.Component{
         this.state = {
             channel: this.props.channel
         }
-
-
     }
 
     loadChat(e, channelId) {
         e.preventDefault();
         console.log(channelId)
         App.cable.subscriptions.subscriptions[0].load(+channelId);
-        console.log(App.cable.subscriptions)
+        // console.log(App.cable.subscriptions)
     }
     
     componentDidUpdate(prevProps) {
