@@ -235,9 +235,26 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
   !*** ./frontend/ChatRoom_container.jsx ***!
   \*****************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/jhilesy/hideout/hideout/frontend/ChatRoom_container.jsx: Unexpected token (8:6)\n\n\u001b[0m \u001b[90m  6 | \u001b[39m    \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m  7 | \u001b[39m        channelId\u001b[33m:\u001b[39m \u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  8 | \u001b[39m      }\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  9 | \u001b[39m}\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 11 | \u001b[39m\u001b[36mconst\u001b[39m mDTP \u001b[33m=\u001b[39m (dispatch) \u001b[33m=>\u001b[39m {\u001b[0m\n    at Object._raise (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:790:17)\n    at Object.raiseWithData (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:783:17)\n    at Object.raise (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:777:17)\n    at Object.unexpected (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:9095:16)\n    at Object.parseExprAtom (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:10529:20)\n    at Object.parseExprAtom (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:4759:20)\n    at Object.parseExprSubscripts (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:10094:23)\n    at Object.parseUpdate (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:10074:21)\n    at Object.parseMaybeUnary (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:10063:17)\n    at Object.parseExprOps (/Users/jhilesy/hideout/hideout/node_modules/@babel/parser/lib/index.js:9933:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatRoom */ "./frontend/ChatRoom.js");
+
+ // import { login, logout } from '../../actions/session_actions'
+
+var mSTP = function mSTP(_ref) {
+  var state = _ref.state;
+  return {// channelId: 
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {};
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_ChatRoom__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
