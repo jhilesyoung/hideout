@@ -36,7 +36,7 @@ class ChatRoom extends React.Component {
   }
   
   loadChat(e, channelId) {
-    console.log(subscriptions)
+    // console.log(subscriptions)
     e.preventDefault();
     App.cable.subscriptions.subscriptions[0].load(channelId);
   }

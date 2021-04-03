@@ -180,7 +180,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "loadChat",
     value: function loadChat(e, channelId) {
-      console.log(subscriptions);
+      // console.log(subscriptions)
       e.preventDefault();
       App.cable.subscriptions.subscriptions[0].load(channelId);
     }
@@ -724,16 +724,24 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      title: ''
+      title: '',
+      channels: _this.props.channels
     };
     return _this;
-  }
+  } // 
+
 
   _createClass(ChannelBar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       // debugger
-      this.props.getChannels(this.props.serverId);
+      this.props.getChannels(this.props.serverId).then(function (res) {
+        _this2.setState({
+          channels: Object.values(res.channels)
+        });
+      });
     }
   }, {
     key: "componentDidUpdate",
@@ -745,20 +753,28 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var loadChat = this.props.loadChat;
-      var _this$props = this.props,
-          channels = _this$props.channels,
-          createChannel = _this$props.createChannel;
+      var _this3 = this;
+
+      // const { loadChat } = this.props
+      var channels = this.state.channels; // console.log(channels);
+
+      var createChannel = this.props.createChannel;
       var channelItems = channels.map(function (channel) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channel_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           channel: channel,
+          serverId: _this3.props.serverId,
           key: channel.id,
           createChannel: createChannel
         });
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "channel-container"
-      }, channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return (
+        /*#__PURE__*/
+        // if we have a channelitem, render that item
+        // else render first server
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "channel-container"
+        }, channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))
+      );
     }
   }]);
 
@@ -789,7 +805,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  var serverId = parseInt(ownProps.match.params.serverId);
+  var serverId = parseInt(ownProps.match.params.serverId); // debugger
+
   return {
     serverId: ownProps.match.params.serverId,
     channels: Object.values(state.entities.channels).filter(function (channel) {
@@ -937,8 +954,9 @@ var ChannelForm = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -964,15 +982,22 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ChannelItem = /*#__PURE__*/function (_React$Component) {
   _inherits(ChannelItem, _React$Component);
 
   var _super = _createSuper(ChannelItem);
 
   function ChannelItem(props) {
+    var _this;
+
     _classCallCheck(this, ChannelItem);
 
-    return _super.call(this, props); //    const {channel} = this.props;
+    _this = _super.call(this, props);
+    _this.state = {
+      channel: _this.props.channel
+    };
+    return _this;
   }
 
   _createClass(ChannelItem, [{
@@ -980,25 +1005,47 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
     value: function loadChat(e, channelId) {
       e.preventDefault();
       console.log(channelId);
-      App.cable.subscriptions.subscriptions[0].load(channelId);
-      console.log(App.cable.subscriptions);
+      App.cable.subscriptions.subscriptions[0].load(+channelId); // console.log(App.cable.subscriptions)
     }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      // console.log("test", prevProps, this.props);
+      if (prevProps.channel != this.props.channel) {
+        // debugger
+        this.setState({
+          channel: this.props.channel
+        });
+      }
+    } // componentDidMount() {
+    //     this.props.getChannels();
+    // }
+
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
-      var channel = this.props.channel;
+      var channel = this.state.channel;
+      console.log(channel);
+      var serverId = this.props.serverId;
+
+      if (!channel) {
+        return null;
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "channel-items"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/servers/".concat(serverId, "/channels/").concat(channel.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-title",
         onClick: function onClick(e) {
-          _this.loadChat(e, channel.id);
+          _this2.loadChat(e, +channel.id);
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-hashtag"
-      }), " ", channel.title));
+      }), " ", channel.title)));
     }
   }]);
 
@@ -1401,8 +1448,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    formType: 'Change Icon',
-    username: state.entities.users[state.session.id].username
+    formType: 'Change Icon' //   username: state.entities.users[state.session.id].username
+
   };
 };
 
@@ -2758,7 +2805,7 @@ var UserHome = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_server_server_index_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/servers/:serverId/channels",
         component: _channels_channel_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_online_online_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_8__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_video_VideoCall__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_online_online_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
