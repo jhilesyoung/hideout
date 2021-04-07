@@ -16,6 +16,8 @@ class ChatChannel < ApplicationCable::Channel
   end
   def unsubscribed; end
 end
+
+#stream from specific channel, get rid of load function and use controller to create instance 
 #messages = Message.find_by(params)
 
 #define a method called speak. 
