@@ -3,9 +3,13 @@ import React from "react";
 class MessageForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: "" };
-  }
-  
+    this.state = { 
+      body: "",
+      authorId: this.props.authorId,
+      channelId: this.props.channelId
+    };
+  };
+
   update(field) {
     return e =>
       this.setState({ [field]: e.currentTarget.value });

@@ -15,6 +15,8 @@ class ServerIndexItem extends React.Component {
         this.props.deleteServer(this.props.server.id)
     }
 
+    // comp
+
     render() {
         const { server } = this.props;
     return (

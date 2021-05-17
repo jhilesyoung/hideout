@@ -196,30 +196,30 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var username = this.props.username; // let messageList = <div ref={this.bottom} />
-      // debugger
 
       var messageList = this.state.messages.map(function (message, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "chat-messages",
-          key: message.id
+          key: idx
         }, message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
         }));
-      }); // debugger
+      });
 
       if (messageList.length === 0) {
-        // debugger
         messageList = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: this.bottom
-        }); // debugger
-      } // debugger
-
+        });
+      }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
-      }, username, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageForm_js__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }, username, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageForm_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        authorId: this.props.authorId,
+        channelId: this.props.channelId
+      }));
     }
   }]);
 
@@ -245,8 +245,14 @@ __webpack_require__.r(__webpack_exports__);
  // import { login, logout } from '../../actions/session_actions'
 
 var mSTP = function mSTP(_ref) {
-  var state = _ref.state;
-  return {// channelId: 
+  var state = _ref.state,
+      ownProps = _ref.ownProps;
+  // const channelId = parseInt(ownProps.match.params.channelId)
+  console.log(state);
+  return {//     authorId: state.entities.users.id,
+    //     channels: Object.values(state.entities.channels).filter(channel => {
+    //         return channel.channelId === channelId
+    //   })
   };
 };
 
@@ -307,7 +313,9 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      body: ""
+      body: "",
+      authorId: _this.props.authorId,
+      channelId: _this.props.channelId
     };
     return _this;
   }
@@ -725,11 +733,12 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       title: '',
-      channels: _this.props.channels
+      channels: _this.props.channels,
+      serverId: _this.props.serverId,
+      "boolean": false
     };
     return _this;
-  } // 
-
+  }
 
   _createClass(ChannelBar, [{
     key: "componentDidMount",
@@ -738,43 +747,50 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
 
       // debugger
       this.props.getChannels(this.props.serverId).then(function (res) {
+        var channelVals = Object.values(res.channels); // console.log(channelVals[0].serverId)
+
         _this2.setState({
-          channels: Object.values(res.channels)
+          channels: channelVals,
+          serverId: channelVals[0].serverId,
+          "boolean": true
         });
       });
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevprops) {
-      if (this.props.serverId !== prevprops.serverId) {
-        this.props.getChannels(this.props.serverId);
+      var _this3 = this;
+
+      if (this.state.serverId !== this.props.serverId) {
+        // console.log("anyth")
+        // debugger
+        this.props.getChannels(this.props.serverId).then(function (res) {
+          _this3.setState({
+            channels: Object.values(res.channels),
+            serverId: prevprops.serverId
+          });
+        });
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
-      // const { loadChat } = this.props
       var channels = this.state.channels; // console.log(channels);
 
       var createChannel = this.props.createChannel;
       var channelItems = channels.map(function (channel) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channel_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           channel: channel,
-          serverId: _this3.props.serverId,
+          serverId: _this4.props.serverId,
           key: channel.id,
           createChannel: createChannel
         });
       });
-      return (
-        /*#__PURE__*/
-        // if we have a channelitem, render that item
-        // else render first server
-        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "channel-container"
-        }, channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null))
-      );
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-container"
+      }, channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -911,7 +927,7 @@ var ChannelForm = /*#__PURE__*/function (_React$Component) {
       this.setState({
         title: ''
       });
-      this.props.getChannels(serverId); // .then(() => this.props.getServers())
+      this.props.getChannels(this.props.channel.serverId); // .then(() => this.props.getServers())
     }
   }, {
     key: "update",
@@ -1026,8 +1042,8 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var channel = this.state.channel;
-      console.log(channel);
+      var channel = this.state.channel; // console.log(channel.id)
+
       var serverId = this.props.serverId;
 
       if (!channel) {
@@ -1036,13 +1052,14 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "channel-items"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/servers/".concat(serverId, "/channels/").concat(channel.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "channel-title",
+        className: "channel-button",
         onClick: function onClick(e) {
           _this2.loadChat(e, channel);
         }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "channel-title",
+        to: "/servers/".concat(serverId, "/channels/").concat(channel.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-hashtag"
       }), " ", channel.title)));
@@ -1118,19 +1135,9 @@ var mDTP = function mDTP(dispatch) {
     createChannel: function createChannel(channel, serverId) {
       return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["createChannel"])(channel, serverId));
     },
-    getChannels: function (_getChannels) {
-      function getChannels(_x) {
-        return _getChannels.apply(this, arguments);
-      }
-
-      getChannels.toString = function () {
-        return _getChannels.toString();
-      };
-
-      return getChannels;
-    }(function (serverId) {
-      return dispatch(getChannels(serverId));
-    })
+    getChannels: function getChannels(serverId) {
+      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["getChannels"])(serverId));
+    }
   };
 };
 
@@ -2099,7 +2106,8 @@ var ServerIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function handleDelete(e) {
       e.preventDefault();
       this.props.deleteServer(this.props.server.id);
-    }
+    } // comp
+
   }, {
     key: "render",
     value: function render() {
@@ -2805,7 +2813,7 @@ var UserHome = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_server_server_index_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/servers/:serverId/channels",
         component: _channels_channel_bar_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_video_VideoCall__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_online_online_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_8__["default"], null));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ChatRoom_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_profile_profile_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_online_online_container__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
@@ -3530,7 +3538,7 @@ var getChannels = function getChannels(serverId) {
 var createChannel = function createChannel(channel, serverId) {
   return $.ajax({
     method: "POST",
-    url: "api/servers/".concat(serverId, "/channels/").concat(channelId),
+    url: "api/servers/".concat(serverId, "/channels/"),
     data: {
       channel: channel
     }

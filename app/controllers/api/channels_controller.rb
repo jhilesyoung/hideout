@@ -14,7 +14,6 @@ class Api::ChannelsController < ApplicationController
         # @channel = current_user.server.Channel.create(channel_params)
         
         if @channel.save!
-            
             render :show
         else
             render json: @channel.errors.full_messages, status: 401
@@ -23,6 +22,7 @@ class Api::ChannelsController < ApplicationController
 
     def show
         @channel = Server.find(params[:server_id]).channels
+        render :show
     end
 
     def destroy

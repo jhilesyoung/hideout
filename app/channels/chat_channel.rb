@@ -1,9 +1,10 @@
 class ChatChannel < ApplicationCable::Channel
+  # helper_method :current_user
   def subscribed
     stream_for 'chat_channel'
   end
   def speak(data)
-    message = Message.new(body: data['message'])
+    message = Message.new(body: data['message'], channel_id: data["id"], author_id: data["authorId"]) 
     if message.save!
       socket = { message: message.body, type: 'message' }
       ChatChannel.broadcast_to('chat_channel', socket)

@@ -1,4 +1,21 @@
 .channel-title {
+    outline: none;
+    background: transparent;
+    border: none;
+    color: rgb(137,141,146);
+    text-decoration: none; 
+}
+
+.channel-title:link {
+    text-decoration: none;
+}
+
+.channel-button {
+    outline: none;
+    background: transparent;
+    border: none;
+    /* color: rgb(137,141,146); */
+    text-decoration: none;
 }
 
 .channel-container {
@@ -11,7 +28,7 @@
     overflow: scroll;
     flex-direction: column;
     background-color: rgb(47,49,54);
-    color: rgb(137,141,146);
+    color: rgb(95,98,102);
     top: 39px;
     font-size: 16px;
     font-weight: 700;
@@ -33,4 +50,5 @@
 
 .channel-items {
     list-style: none;
+    text-decoration: none;
 }

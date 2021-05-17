@@ -11,8 +11,8 @@ class ChatRoom extends React.Component {
       username: ''
      };
     this.bottom = React.createRef();
-  }
-  
+  };
+
   componentDidMount() {
     App.cable.subscriptions.create(
       { channel: "ChatChannel" },
@@ -49,22 +49,21 @@ class ChatRoom extends React.Component {
   render() {
     const { username } = this.props;
     // let messageList = <div ref={this.bottom} />
-    // debugger
+   
     let messageList = this.state.messages.map((message, idx) => {
       return (
-        <li className="chat-messages" key={message.id}>
+        <li className="chat-messages" key={idx}> 
+        {/* OR key ={message.id} */}
           {message} 
           <div ref={this.bottom} />
         </li>
       );
     });
-    // debugger
+  
     if (messageList.length === 0) {
-      // debugger
       messageList = <div ref={this.bottom} />
-      // debugger
     }
-    // debugger
+   
     return (
       <div className="chatroom-container">
         <div>ChatRoom</div>
@@ -73,7 +72,10 @@ class ChatRoom extends React.Component {
           Launch Hideout
         </button> */}
         <div className="message-list">{username}{messageList}</div>
-        <MessageForm />
+        <MessageForm
+          authorId = {this.props.authorId}
+          channelId = {this.props.channelId}
+         />
       </div>
     );
   }

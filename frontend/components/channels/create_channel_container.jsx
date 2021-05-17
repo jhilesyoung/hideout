@@ -1,5 +1,5 @@
 import React from 'react';
-import { createChannel } from '../../actions/channel_actions';
+import { createChannel, getChannels } from '../../actions/channel_actions';
 import ChannelForm from './channel_form';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';

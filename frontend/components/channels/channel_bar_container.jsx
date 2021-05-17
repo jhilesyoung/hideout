@@ -18,7 +18,7 @@ const mDTP = (dispatch) => {
     return {
         getChannels: (serverId) => dispatch(getChannels(serverId)),
         createChannel: (channel, serverId) => dispatch(createChannel(channel, serverId))
-    }
-}
+    };
+};
 
 export default connect(mSTP, mDTP)(ChannelBar)

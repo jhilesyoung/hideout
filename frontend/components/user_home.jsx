@@ -22,8 +22,9 @@ class UserHome extends React.Component {
                 <ServerIndexContainer />
                 <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
                 <ChatRoomContainer />
+                {/* <Route path="/servers/:serverId/channels/channelId" component={ChatRoomContainer} /> */}
                 <ProfileFormContainer />
-                <VideoCall />
+                {/* <VideoCall /> */}
                 <OnlineContainer />
                 <SearchBarContainer />
                 {/* <OnlineList /> */}

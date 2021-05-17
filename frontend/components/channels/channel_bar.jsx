@@ -11,29 +11,36 @@ class ChannelBar extends React.Component {
 
         this.state = {
             title: '',
-            channels: this.props.channels
+            channels: this.props.channels,
+            serverId: this.props.serverId,
+            boolean: false
         }
-        
     }
-
-    // 
 
     componentDidMount() {
         // debugger
-        
         this.props.getChannels(this.props.serverId).then((res) => {
-            this.setState({channels: Object.values(res.channels)})
+            let channelVals = Object.values(res.channels) 
+            // console.log(channelVals[0].serverId)
+            this.setState({channels: channelVals, serverId: channelVals[0].serverId, boolean: true})
         })
     }
 
     componentDidUpdate(prevprops) {
-        if (this.props.serverId !== prevprops.serverId) {
-            this.props.getChannels(this.props.serverId)
+       
+        if (this.state.serverId !== this.props.serverId) {
+            // console.log("anyth")
+            // debugger
+            this.props.getChannels(this.props.serverId).then((res) => {
+                this.setState({
+                    channels: Object.values(res.channels),
+                    serverId: prevprops.serverId
+                })
+            })
         }
     }
 
     render() {
-        // const { loadChat } = this.props
         const {channels} = this.state;
         // console.log(channels);
         const {createChannel} = this.props;
@@ -42,8 +49,7 @@ class ChannelBar extends React.Component {
         })
         
         return (
-            // if we have a channelitem, render that item
-            // else render first server
+           
             <div className="channel-container">
                         {channelItems}
                     <CreateChannelContainer />

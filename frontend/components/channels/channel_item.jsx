@@ -32,18 +32,18 @@ class ChannelItem extends React.Component{
 
     render() {
         const {channel} = this.state;
-        console.log(channel)
+        // console.log(channel.id)
         const {serverId} = this.props;
         if (!channel ) {
             return null
         }
         return (
             <li className="channel-items">
-                <Link to={`/servers/${serverId}/channels/${channel.id}`}>
-                    <button className="channel-title" onClick={(e) => {this.loadChat(e, channel)}}>
+                    <button className="channel-button" onClick={(e) => {this.loadChat(e, channel)}}>
+                        <Link className="channel-title" to={`/servers/${serverId}/channels/${channel.id}`}>
                         <i className="fas fa-hashtag"></i> {channel.title}
-                    </button>
-                </Link>
+                    </Link>
+                </button>
             </li>
         )
     }
