@@ -47,7 +47,7 @@ class ChatRoom extends React.Component {
   }
   
   render() {
-    const { username } = this.props;
+    const  username  = this.state.session.username ? this.state.session.username : ''
     // let messageList = <div ref={this.bottom} />
    
     let messageList = this.state.messages.map((message, idx) => {
@@ -71,7 +71,8 @@ class ChatRoom extends React.Component {
           onClick={this.loadChat.bind(this)}>
           Launch Hideout
         </button> */}
-        <div className="message-list">{username}{messageList}</div>
+        <div className="username">{username}</div>
+        <div className="message-list">{messageList}</div>
         <MessageForm
           authorId = {this.props.authorId}
           channelId = {this.props.channelId}

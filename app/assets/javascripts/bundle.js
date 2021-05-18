@@ -195,7 +195,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var username = this.props.username; // let messageList = <div ref={this.bottom} />
+      var username = this.state.session.username ? this.state.session.username : ''; // let messageList = <div ref={this.bottom} />
 
       var messageList = this.state.messages.map(function (message, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -215,8 +215,10 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "username"
+      }, username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
-      }, username, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageForm_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageForm_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         authorId: this.props.authorId,
         channelId: this.props.channelId
       }));
@@ -242,25 +244,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatRoom */ "./frontend/ChatRoom.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
  // import { login, logout } from '../../actions/session_actions'
 
 var mSTP = function mSTP(state, ownProps) {
-  var channelId = parseInt(ownProps.match.params.channelId);
-  return {
-    authorId: state.entities.users.id,
-    channels: Object.values(state.entities.channels).filter(function (channel) {
+  var _ref;
+
+  var channelId = parseInt(ownProps.match.params.channelId); // debugger
+
+  return _ref = {
+    authorId: state.session.id,
+    channelId: Object.values(state.entities.channels).filter(function (channel) {
       return channel.id === channelId;
     })
-  };
+  }, _defineProperty(_ref, "channelId", channelId), _defineProperty(_ref, "username", state.session.username), _ref;
 };
 
 var mDTP = function mDTP(dispatch) {
   return {};
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(_ChatRoom__WEBPACK_IMPORTED_MODULE_1__["default"])));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_ChatRoom__WEBPACK_IMPORTED_MODULE_1__["default"])));
 
 /***/ }),
 
@@ -335,8 +342,8 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       App.cable.subscriptions.subscriptions[0].speak({
         message: this.state.body,
-        authorId: this.state.authorId,
-        channelId: this.state.channelId
+        authorId: this.props.authorId,
+        channelId: this.props.channelId
       });
       this.setState({
         body: ""
@@ -3443,7 +3450,8 @@ var sessionReducer = function sessionReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return {
-        id: action.currentUser.id
+        id: action.currentUser.id,
+        username: action.currentUser.username
       };
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
