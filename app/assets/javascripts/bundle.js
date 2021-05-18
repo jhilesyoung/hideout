@@ -241,18 +241,18 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatRoom */ "./frontend/ChatRoom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
  // import { login, logout } from '../../actions/session_actions'
 
-var mSTP = function mSTP(_ref) {
-  var state = _ref.state,
-      ownProps = _ref.ownProps;
-  // const channelId = parseInt(ownProps.match.params.channelId)
-  console.log(state);
-  return {//     authorId: state.entities.users.id,
-    //     channels: Object.values(state.entities.channels).filter(channel => {
-    //         return channel.channelId === channelId
-    //   })
+var mSTP = function mSTP(state, ownProps) {
+  var channelId = parseInt(ownProps.match.params.channelId);
+  return {
+    authorId: state.entities.users.id,
+    channels: Object.values(state.entities.channels).filter(function (channel) {
+      return channel.id === channelId;
+    })
   };
 };
 
@@ -260,7 +260,7 @@ var mDTP = function mDTP(dispatch) {
   return {};
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_ChatRoom__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(_ChatRoom__WEBPACK_IMPORTED_MODULE_1__["default"])));
 
 /***/ }),
 
@@ -334,7 +334,9 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       App.cable.subscriptions.subscriptions[0].speak({
-        message: this.state.body
+        message: this.state.body,
+        authorId: this.state.authorId,
+        channelId: this.state.channelId
       });
       this.setState({
         body: ""

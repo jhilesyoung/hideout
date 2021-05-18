@@ -8,13 +8,13 @@
 
 .channel-title:link {
     text-decoration: none;
+    font-size: medium;
 }
 
 .channel-button {
     outline: none;
     background: transparent;
     border: none;
-    /* color: rgb(137,141,146); */
     text-decoration: none;
 }
 
@@ -24,7 +24,7 @@
     left: 122px;
     align-items: baseline;
     width: 248px;
-    height: 58vh;
+    height: 82vh;
     overflow: scroll;
     flex-direction: column;
     background-color: rgb(47,49,54);
