@@ -134,7 +134,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ChatRoom);
 
     _this = _super.call(this, props);
-    var channelId = parseInt(channelId);
+    var channelId = channelId;
     _this.state = {
       messages: [],
       channelId: _this.props.channelId,
@@ -195,8 +195,8 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var username = this.state.session.username ? this.state.session.username : ''; // let messageList = <div ref={this.bottom} />
-
+      // const  username  = this.state.session.username ? this.state.session.username : ''
+      // let messageList = <div ref={this.bottom} />
       var messageList = this.state.messages.map(function (message, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "chat-messages",
@@ -215,8 +215,6 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatroom-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "ChatRoom"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "username"
-      }, username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-list"
       }, messageList), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MessageForm_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         authorId: this.props.authorId,
@@ -244,23 +242,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChatRoom */ "./frontend/ChatRoom.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
- // import { login, logout } from '../../actions/session_actions'
 
 var mSTP = function mSTP(state, ownProps) {
-  var _ref;
-
-  var channelId = parseInt(ownProps.match.params.channelId); // debugger
-
-  return _ref = {
+  var channelLocation = ownProps.location.pathname.split("/");
+  var id = channelLocation[channelLocation.length - 1];
+  var channelId = parseInt(id);
+  debugger;
+  return {
     authorId: state.session.id,
-    channelId: Object.values(state.entities.channels).filter(function (channel) {
-      return channel.id === channelId;
-    })
-  }, _defineProperty(_ref, "channelId", channelId), _defineProperty(_ref, "username", state.session.username), _ref;
+    // channelId: ownProps.match.params.channelId,
+    channelId: channelId // channels: Object.values(state.entities.channels).filter(channel => {
+    //     return channel.id === channelId
+    // }),
+    // username: state.session.username
+
+  };
 };
 
 var mDTP = function mDTP(dispatch) {
@@ -339,7 +338,8 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
+      e.preventDefault(); // debugger
+
       App.cable.subscriptions.subscriptions[0].speak({
         message: this.state.body,
         authorId: this.props.authorId,

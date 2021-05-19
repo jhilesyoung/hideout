@@ -1,18 +1,21 @@
 import { connect } from 'react-redux';
 import  ChatRoom  from './ChatRoom';
 import { withRouter } from 'react-router-dom'
-// import { login, logout } from '../../actions/session_actions'
+
 
 const mSTP = ( state, ownProps ) => {
-    const channelId = parseInt(ownProps.match.params.channelId)
-    // debugger
+    let channelLocation = ownProps.location.pathname.split("/")
+    let id = channelLocation[channelLocation.length-1]
+    const channelId = parseInt(id)
+    debugger
     return {
         authorId: state.session.id,
-        channelId: Object.values(state.entities.channels).filter(channel => {
-            return channel.id === channelId
-        }),
-        channelId: channelId,
-        username: state.session.username
+        // channelId: ownProps.match.params.channelId,
+        channelId: channelId
+        // channels: Object.values(state.entities.channels).filter(channel => {
+        //     return channel.id === channelId
+        // }),
+        // username: state.session.username
       };
 };
 

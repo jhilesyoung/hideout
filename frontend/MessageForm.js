@@ -6,7 +6,7 @@ class MessageForm extends React.Component {
     this.state = { 
       body: "",
       authorId: this.props.authorId,
-      channelId: this.props.channelId
+      channelId:  this.props.channelId
     };
   };
 
@@ -17,6 +17,7 @@ class MessageForm extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
+    // debugger
     
     App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body, 
                                                      authorId: this.props.authorId, 

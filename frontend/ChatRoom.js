@@ -4,7 +4,7 @@ import MessageForm from "./MessageForm.js";
 class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
-    let channelId = parseInt(channelId)
+    let channelId = channelId
     this.state = { 
       messages: [],
       channelId: this.props.channelId,
@@ -47,7 +47,7 @@ class ChatRoom extends React.Component {
   }
   
   render() {
-    const  username  = this.state.session.username ? this.state.session.username : ''
+    // const  username  = this.state.session.username ? this.state.session.username : ''
     // let messageList = <div ref={this.bottom} />
    
     let messageList = this.state.messages.map((message, idx) => {
@@ -71,7 +71,7 @@ class ChatRoom extends React.Component {
           onClick={this.loadChat.bind(this)}>
           Launch Hideout
         </button> */}
-        <div className="username">{username}</div>
+        {/* <div className="username-in-chat">{username}</div> */}
         <div className="message-list">{messageList}</div>
         <MessageForm
           authorId = {this.props.authorId}
