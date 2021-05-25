@@ -4,9 +4,10 @@ class ChatChannel < ApplicationCable::Channel
     stream_for 'chat_channel'
   end
   def speak(data)
-    message = Message.new(body: data['message'], channel_id: data["id"], author_id: data["authorId"]) 
+    message = Message.new(body: data['message'], channel_id: data["channelId"], author_id: data["authorId"]) 
     if message.save!
-      socket = { message: message.body, type: 'message' }
+      debugger
+      socket = { message: message.body, type: 'message' } #, username: message.username => passed as 3rd argument
       ChatChannel.broadcast_to('chat_channel', socket)
     end
   end

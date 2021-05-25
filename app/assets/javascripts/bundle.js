@@ -196,12 +196,15 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       // const  username  = this.state.session.username ? this.state.session.username : ''
-      // let messageList = <div ref={this.bottom} />
+      var username = this.props.username; // let messageList = <div ref={this.bottom} />
+
       var messageList = this.state.messages.map(function (message, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "chat-messages",
           key: idx
-        }, message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "username-in-chat"
+        }, username), message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
         }));
       });
@@ -249,16 +252,16 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   var channelLocation = ownProps.location.pathname.split("/");
   var id = channelLocation[channelLocation.length - 1];
-  var channelId = parseInt(id);
-  debugger;
+  var channelId = parseInt(id); // debugger
+
   return {
     authorId: state.session.id,
     // channelId: ownProps.match.params.channelId,
-    channelId: channelId // channels: Object.values(state.entities.channels).filter(channel => {
+    channelId: channelId,
+    // channels: Object.values(state.entities.channels).filter(channel => {
     //     return channel.id === channelId
     // }),
-    // username: state.session.username
-
+    username: state.entities.users[id.username]
   };
 };
 

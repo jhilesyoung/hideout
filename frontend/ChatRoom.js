@@ -48,12 +48,14 @@ class ChatRoom extends React.Component {
   
   render() {
     // const  username  = this.state.session.username ? this.state.session.username : ''
+    const username = this.props.username
     // let messageList = <div ref={this.bottom} />
    
     let messageList = this.state.messages.map((message, idx) => {
       return (
         <li className="chat-messages" key={idx}> 
         {/* OR key ={message.id} */}
+        <div className="username-in-chat">{username}</div>
           {message} 
           <div ref={this.bottom} />
         </li>
@@ -71,7 +73,7 @@ class ChatRoom extends React.Component {
           onClick={this.loadChat.bind(this)}>
           Launch Hideout
         </button> */}
-        {/* <div className="username-in-chat">{username}</div> */}
+        
         <div className="message-list">{messageList}</div>
         <MessageForm
           authorId = {this.props.authorId}
