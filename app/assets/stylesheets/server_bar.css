@@ -4,12 +4,11 @@
     left: -8px;
     top: -8px;
     align-items: baseline;
-    width: 145px;
+    width: 86px;
     height: 103vh;
     overflow: scroll;
     flex-direction: column;
     background-color: rgb(33,36,39);
-    /* color: rgb(137,141,146); */
     font-family: serif;
 }
 
@@ -56,9 +55,9 @@
     border-radius: 50%;
     display: flex;
     transition: all 0.3s ease 0s;
-    width: 81px;
+    width: 48px;
     justify-content: center;
-    height: 70px;
+    height: 47px;
     align-items: center;
     font-size: x-small;
 }
@@ -66,25 +65,21 @@
 .server-li {
     text-decoration: none;
 }
-/*ok*/
+
 .server-button:hover {
     color: #494949 !important;
     border-radius: 50px;
     border-color: #494949 !important;
     transition: all 0.3s ease 0s;
 }
-/*keep the same*/
+
 .server-container ul {
     overflow: hidden;
     overflow-y: scroll;
     width: 112px;
     position: relative;
-    left: 10px;
+    left: -15px;
 }
-
-/* not needed .add-server-input {
-    width: 86px;
-} */
 
 .add-server-button {
     width: 85px;
@@ -99,9 +94,9 @@
     justify-content: center;
     align-items: center;
     bottom: 10px;
-    left: 43px;
+    left: 14px;
     width: 45px;
-    height: 100px;
+    height: 63px;
     background-color: rgb(47,49,54);
     color: springgreen;
     border-radius: 50%;

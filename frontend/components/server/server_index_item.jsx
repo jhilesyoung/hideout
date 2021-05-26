@@ -30,7 +30,7 @@ class ServerIndexItem extends React.Component {
                 
                 </button> */}
             </li>
-    )
+        )
     }
 
 }
