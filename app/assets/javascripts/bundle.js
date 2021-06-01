@@ -2124,12 +2124,13 @@ var ServerIndexItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var server = this.props.server;
+      var shortenedTitle = server.title.slice(0, 3);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "server-li",
         to: "/servers/".concat(server.id, "/channels")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "server-button"
-      }, server.title)));
+      }, shortenedTitle)));
     }
   }]);
 
