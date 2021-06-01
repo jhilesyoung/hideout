@@ -1,13 +1,15 @@
 .online {
     display: flex;
     position: absolute;
+    position: -webkit-sticky;
     flex-direction: column;
-    right: -655px;
+    left: 166.8%;
     color: rgb(137,141,146);
     background-color: rgb(47,49,53);
-    height: 93.9vh;
-    bottom: -15px;
-    width: 23.6vw;
+    height: 94.8vh;
+    /* bottom: -15px; */
+    top: 39px;
+    width: 18vw;
 }
 
 .online > li {
