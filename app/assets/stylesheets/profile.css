@@ -2,9 +2,9 @@
     display: flex;
     position: absolute;
     align-items: center;
-    bottom: -15px;
-    left: 122px;
-    height: 12vh;
+    bottom: -14px;
+    left: 63px;
+    height: 57px;
     width: 248px;
     background-color: rgb(41,44,48);
 }
@@ -15,4 +15,19 @@
 
 .icon-form {
     
+}
+
+.profile-pic {
+    position: relative;
+    display: flex;
+    height: 66px;
+    width: 70px;
+    /* left: 5px; */
+    right: 5px;
+}
+
+.welcome-message {
+    display: flex;
+    position: relative;
+    right: -24px;
 }

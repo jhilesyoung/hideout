@@ -22,7 +22,6 @@ class ServerIndex extends React.Component {
             return <ServerIndexItem server={server} deleteServer={deleteServer} key={server.id} />
         });
     
-    
         return (
             <div className="server-container">
                 <ul className="server-icon">
@@ -37,10 +36,7 @@ class ServerIndex extends React.Component {
                 {/* Use a fontAwesome plus icon for the create action */}
             </div>
         )
-    
     }
 }
 
 export default ServerIndex;
-
-

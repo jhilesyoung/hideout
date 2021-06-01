@@ -5,7 +5,7 @@ import ProfileForm from './profile_form';
 const mSTP = (state) => {
   return {
       formType: 'Change Icon',
-    //   username: state.entities.users[state.session.id].username
+      username: state.entities.users[state.session.id].username
    
   }
 

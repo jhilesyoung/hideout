@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    left: 370px;
+    left: 311px;
     background-color: rgb(55,58,63);
     height: 90.1vh;
     top: 68px;
@@ -47,9 +47,8 @@
     height: 1px;
 }
 
-
 .message-box {
-    height: 7vh;
+    height: 6vh;
     width: 618px;
     font-size: inherit;
     position: relative;
@@ -58,10 +57,11 @@
     background-color: rgb(65,69,75);
     border-radius: 14px;
     border: 0px;
+    top: -18px;
 }
 
 .message-submit {
-    height: 7.5vh;
+    height: 6.5vh;
     width: 4vw;
     font-size: x-large;
     position: relative;
@@ -71,5 +71,6 @@
     border: rgb(65,69,75);
     border-radius: 14px;
     left: -7px;
+    top: -20px;
 }
 

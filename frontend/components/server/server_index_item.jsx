@@ -15,13 +15,13 @@ class ServerIndexItem extends React.Component {
         this.props.deleteServer(this.props.server.id)
     }
 
-    // comp
-
     render() {
         const { server } = this.props;
         let shortenedTitle = server.title.slice(0,3)
 
     return (
+        <div>
+            {/* <div> <img src={window.logourl} className="logo" width="125px"/></div> */}
             <li>
                 <Link className="server-li"to={`/servers/${server.id}/channels`}>
                     {/* <img src ={window.servericonurl} className="server-icon" width="75px"/> */}
@@ -32,6 +32,7 @@ class ServerIndexItem extends React.Component {
                 
                 </button> */}
             </li>
+        </div>
         )
     }
 

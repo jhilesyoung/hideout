@@ -21,10 +21,10 @@
 .channel-container {
     display: flex;
     position: absolute;
-    left: 122px;
+    left: 63px;
     align-items: baseline;
     width: 248px;
-    height: 82vh;
+    height: 88vh;
     overflow: scroll;
     flex-direction: column;
     background-color: rgb(47,49,54);

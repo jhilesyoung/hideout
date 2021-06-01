@@ -800,9 +800,10 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
           createChannel: createChannel
         });
       });
+      var serverTitle = this.props.serverTitle;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-container"
-      }, channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, serverTitle), channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -839,7 +840,10 @@ var mSTP = function mSTP(state, ownProps) {
     serverId: ownProps.match.params.serverId,
     channels: Object.values(state.entities.channels).filter(function (channel) {
       return channel.serverId === serverId;
-    })
+    }) // servers: Object.values(state.entities.servers).filter(server => {
+    //     return server.title === serverTitle
+    // })
+
   };
 };
 
@@ -1467,8 +1471,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state) {
   return {
-    formType: 'Change Icon' //   username: state.entities.users[state.session.id].username
-
+    formType: 'Change Icon',
+    username: state.entities.users[state.session.id].username
   };
 };
 
@@ -1594,16 +1598,12 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
       }) : null;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "icon-change"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "icon-form",
-        onSubmit: this.handleSubmit.bind(this)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "preview"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "file",
-        onChange: this.handleFile.bind(this)
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, username), preview, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "icon-submit",
-        value: this.props.formType
-      }, "Change Icon")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "profile-pic",
+        src: window.servericonurl
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "welcome-message"
+      }, "Welcome, ", username, "!"));
     }
   }]);
 
@@ -2118,19 +2118,18 @@ var ServerIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function handleDelete(e) {
       e.preventDefault();
       this.props.deleteServer(this.props.server.id);
-    } // comp
-
+    }
   }, {
     key: "render",
     value: function render() {
       var server = this.props.server;
       var shortenedTitle = server.title.slice(0, 3);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "server-li",
         to: "/servers/".concat(server.id, "/channels")
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "server-button"
-      }, shortenedTitle)));
+      }, shortenedTitle))));
     }
   }]);
 

@@ -57,22 +57,23 @@ class ProfileForm extends React.Component {
        
         return (
         <div className="icon-change">
-          <form className="icon-form" onSubmit={this.handleSubmit.bind(this)}>
-              <label>preview</label>
-                  <input type="file"
+              <label><img className="profile-pic" src={window.servericonurl} /></label>
+              <div className="welcome-message">Welcome, {username}!</div>
+          {/* <form className="icon-form" onSubmit={this.handleSubmit.bind(this)}> */}
+                  {/* <input type="file"
                       onChange={this.handleFile.bind(this)}/>
                       <div>
                         {username}
                       </div>
-                        {preview}
+                        {preview} */}
                       
                     
                       {/* <Modal /> */}
-              <button className="icon-submit" value={this.props.formType}> 
+              {/* <button className="icon-submit" value={this.props.formType}>  */}
               {/* /* onClick={() => this.props.openModal('Change Icon')} */}
-                Change Icon
-              </button>
-          </form>
+                {/* Change Icon
+              </button> */}
+          {/* </form> */}
         </div>
       );
     }
