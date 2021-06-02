@@ -12,27 +12,21 @@ class SearchBar extends React.Component {
         return (
             
             <div className="search-container">
-                <div className="channel-name">
-                    Channels
+
+                <div className="userhome-links">
+                    <i class="fab fa-linkedin fa-3x"></i>
+                    <i class="fab fa-angellist fa-3x"></i>
+                    <i class="far fa-file fa-3x"></i>
+                    <i class="fab fa-github fa-3x"></i>
                 </div>
 
-                <div className="search-icons">
-                    Icons
-                </div>
-
-                <div className="search-bar">
-                    Bar goes here
-                </div>
-
-                <div className="users-list">
-                    
-                    Online Users
+                <div className="chatname">
+                    # general
                 </div>
                 
             </div>
         )
     }
-
 }
 
 export default SearchBar

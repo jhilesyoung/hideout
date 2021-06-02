@@ -3,15 +3,39 @@
     position: absolute;
     position: -webkit-sticky;
     flex-direction: column;
-    left: 166.8%;
-    color: rgb(137,141,146);
+    left: 998px;
+    color: pink;
     background-color: rgb(47,49,53);
     height: 94.8vh;
     /* bottom: -15px; */
     top: 39px;
-    width: 18vw;
+    width: 30.2vw;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Catamaran', sans-serif;
+}
+
+.members-list {
+    display: flex;
+    position: relative;
+    align-content: center;
+    left: 86px;
+    font-size: larger;
 }
 
 .online > li {
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: -42px;
+}
+
+.profile1 {
+    color: pink;
+}
+
+.profile2 {
+    color: purple;
 }

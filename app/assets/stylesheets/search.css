@@ -4,7 +4,29 @@
     background-color: rgb(55,58,63);
     justify-content: space-evenly;
     width: 95.4vw;
-    left: 9%;
+    left: 63px;
     height: 47px;
     top: -8px;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+}
+
+.userhome-links {
+    display: flex;
+    position: relative;
+    flex: auto;
+    justify-content: flex-start;
+    left: 37px;
+    background-size: 100px 100px;
+}
+
+.chatname {
+    display: flex;
+    position: relative;
+    align-items: center;
+    right: 893px;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Catamaran', sans-serif;
+    color: white;
 }

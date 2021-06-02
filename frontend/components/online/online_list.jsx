@@ -11,23 +11,36 @@ class OnlineList extends React.Component {
         return (
             
             <div className="online">
+                <p className="members-list" >Hideout Members</p>
                 <li >
-                pic - user089789
+                <img className="profile1" width ="60px" src={window.profile1} /> - JayHeezy
                 </li>
                 <li>
-                pic - user87654567
+                <img className="profile2" width ="55px" src={window.profile2} /> - TahMaestro
                 </li>
                 <li>
-                pic - user87654
+                <img className="profile2" width ="55px" src={window.profile3} /> - MiniMimi
                 </li>
                 <li>
-                pic - user876545
+                <img className="profile1" width ="55px" src={window.profile4} /> - ChrisBeezy
                 </li>
                 <li>
-                pic - user1234567
+                <img className="profile2" width ="55px" src={window.profile5} /> - JasLeezy
                 </li>
                 <li>
-                pic - user4567
+                <img className="profile1" width ="55px" src={window.profile6} /> - RayMeezy
+                </li>
+                <li>
+                <img className="profile1" width ="55px" src={window.profile7} /> - AverTeezy
+                </li>
+                <li>
+                <img className="profile2" width ="55px" src={window.profile8} /> - AlexanDreezy
+                </li>
+                <li>
+                <img className="profile1" width ="55px" src={window.profile9} /> - WishIBoughtAMC
+                </li>
+                <li>
+                <img className="profile1" width ="55px" src={window.profile10} /> - ILost$2500
                 </li>
             </div>
         )
