@@ -5,10 +5,14 @@ class ChatRoom extends React.Component {
   constructor(props) {
     super(props);
     let channelId = channelId
+    var today = new Date(),
+
+    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     this.state = { 
       messages: [],
       channelId: this.props.channelId,
-      username: ''
+      username: '',
+      currentDate: date
      };
     this.bottom = React.createRef();
   };
@@ -55,8 +59,10 @@ class ChatRoom extends React.Component {
       return (
         <li className="chat-messages" key={idx}> 
         {/* OR key ={message.id} */}
-        <div className="username-in-chat">{username}</div>
-          {message} 
+        <img className="profile-in-chat" src={window.servericonurl} />
+        <div className="username-in-chat">{username}</div>: <p></p> 
+          <div className="message-in-chat">{message}</div>
+          <div className="date-in-chat">{this.state.currentDate}</div>
           <div ref={this.bottom} />
         </li>
       );

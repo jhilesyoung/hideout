@@ -12,10 +12,9 @@ const mSTP = ( state, ownProps ) => {
         authorId: state.session.id,
         // channelId: ownProps.match.params.channelId,
         channelId: channelId,
-        // channels: Object.values(state.entities.channels).filter(channel => {
-        //     return channel.id === channelId
-        // }),
-        username: state.entities.users[id.username]
+        username: Object.values(state.entities.users)[0].username
+        
+       
       };
 };
 

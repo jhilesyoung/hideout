@@ -51,4 +51,11 @@
 .channel-items {
     list-style: none;
     text-decoration: none;
+    display: flex;
+    position: relative;
+    left: 6px;
+}
+
+.channel-button:hover {
+   background-color: rgb(222, 225, 228);
 }

@@ -38,6 +38,22 @@
 
 .chat-messages {
     list-style: none;
+    display: flex;
+}
+
+.profile-in-chat {
+    display: flex;
+    width: 45px;
+}
+
+.date-in-chat {
+    display: flex;
+    position: relative;
+    flex-direction: column-reverse;
+    left: -128px;
+    color: pink;
+    font-size: x-small;
+    top: -4px;
 }
 
 .chat-submit {

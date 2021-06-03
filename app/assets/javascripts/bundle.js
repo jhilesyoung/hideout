@@ -135,10 +135,13 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     var channelId = channelId;
+    var today = new Date(),
+        date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     _this.state = {
       messages: [],
       channelId: _this.props.channelId,
-      username: ''
+      username: '',
+      currentDate: date
     };
     _this.bottom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     return _this;
@@ -202,9 +205,16 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "chat-messages",
           key: idx
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "profile-in-chat",
+          src: window.servericonurl
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "username-in-chat"
-        }, username), message, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, username), ": ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "message-in-chat"
+        }, message), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "date-in-chat"
+        }, _this3.state.currentDate), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
         }));
       });
@@ -258,10 +268,7 @@ var mSTP = function mSTP(state, ownProps) {
     authorId: state.session.id,
     // channelId: ownProps.match.params.channelId,
     channelId: channelId,
-    // channels: Object.values(state.entities.channels).filter(channel => {
-    //     return channel.id === channelId
-    // }),
-    username: state.entities.users[id.username]
+    username: Object.values(state.entities.users)[0].username
   };
 };
 
