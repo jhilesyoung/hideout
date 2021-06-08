@@ -35,16 +35,17 @@ class ChannelForm extends React.Component{
     render() {
         
         return(
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Add Channel
+            <form onSubmit={this.handleSubmit} className="create-channel-form">
+                <label className="channel-form-title">
+                    Create A New Channel
                     <input
+                        className="channel-form-input"
                         type="text"
                         value={this.state.title}
                         onChange={this.update("title")}
                         >
                     </input>
-                    <button>Submit</button>
+                    <button className="channel-form-submit">Submit</button>
                 </label>
             </form>
            

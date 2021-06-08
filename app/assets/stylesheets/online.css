@@ -20,17 +20,17 @@
     display: flex;
     position: relative;
     align-content: center;
-    left: 86px;
-    font-size: larger;
+    left: 13px;
+    font-size: smaller;
 }
 
 .online > li {
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     position: relative;
-    left: -42px;
+    left: 12px;
 }
 
 .online > li:hover {

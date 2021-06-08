@@ -16,6 +16,7 @@
     background: transparent;
     border: none;
     text-decoration: none;
+    padding-bottom: 14px;
 }
 
 .channel-container {
@@ -58,4 +59,26 @@
 
 .channel-button:hover {
    background-color: rgb(222, 225, 228);
+}
+
+.create-channel-form {
+    
+    display: flex;
+    position: relative;
+    left: 45px;
+
+}
+
+.channel-form-title {
+    color: pink;
+    display: grid;
+    position: relative;
+}
+
+.channel-form-input {
+    border-radius: 15px;
+}
+
+.channel-form-submit {
+    border-radius: 15px;
 }

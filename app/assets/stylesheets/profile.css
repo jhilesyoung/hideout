@@ -22,8 +22,8 @@
     display: flex;
     height: 66px;
     width: 70px;
-    /* left: 5px; */
-    right: 5px;
+    right: -9px;
+    bottom: 11px;
 }
 
 .welcome-message {

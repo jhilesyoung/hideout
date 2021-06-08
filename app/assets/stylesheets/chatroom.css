@@ -1,5 +1,3 @@
-
-
 .chatroom-container {
     display: flex;
     flex-direction: column;
@@ -41,19 +39,28 @@
     display: flex;
 }
 
+.username-in-chat {
+    position: relative;
+    left: 15px;
+}
+
 .profile-in-chat {
     display: flex;
     width: 45px;
 }
 
 .date-in-chat {
+    color: pink;
+    font-size: x-small;
+    display: inline-block;
+}
+
+.message-in-chat {
     display: flex;
     position: relative;
     flex-direction: column-reverse;
-    left: -128px;
+    justify-content: flex-start;
     color: pink;
-    font-size: x-small;
-    top: -4px;
 }
 
 .chat-submit {

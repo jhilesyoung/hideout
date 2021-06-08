@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
                 </div>
 
                 <div className="chatname">
-                    # general
+                    
                 </div>
                 
             </div>
