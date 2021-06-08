@@ -37,6 +37,7 @@
 .chat-messages {
     list-style: none;
     display: flex;
+    padding-bottom: 10px;
 }
 
 .username-in-chat {
