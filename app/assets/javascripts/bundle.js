@@ -753,6 +753,7 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       channels: _this.props.channels,
+      // channelTitle: this.props.channels.title,
       serverId: _this.props.serverId,
       "boolean": false
     };
@@ -796,7 +797,8 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      var channels = this.state.channels; // console.log(channels);
+      var channels = this.state.channels; // const {channelTitle} = this.props;
+      // console.log(channels);
 
       var createChannel = this.props.createChannel;
       var channelItems = channels.map(function (channel) {
@@ -806,11 +808,11 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
           key: channel.id,
           createChannel: createChannel
         });
-      });
-      var serverTitle = this.props.serverTitle;
+      }); // const serverTitle = this.props.serverTitle;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, serverTitle), channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -847,7 +849,10 @@ var mSTP = function mSTP(state, ownProps) {
     serverId: ownProps.match.params.serverId,
     channels: Object.values(state.entities.channels).filter(function (channel) {
       return channel.serverId === serverId;
-    }) // servers: Object.values(state.entities.servers).filter(server => {
+    }) // channelTitle: Object.values(state.entities.channels).filter(channel => {
+    //     return channel.title
+    // })
+    // servers: Object.values(state.entities.servers).filter(server => {
     //     return server.title === serverTitle
     // })
 
@@ -1048,8 +1053,8 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ChannelItem, [{
     key: "loadChat",
     value: function loadChat(e, channel) {
-      e.preventDefault();
-      console.log(channel);
+      e.preventDefault(); // console.log(channel)
+
       App.cable.subscriptions.subscriptions[0].load(channel); // console.log(App.cable.subscriptions)
     }
   }, {
@@ -2091,8 +2096,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
+  // ownProps
   return {
-    servers: Object.values(state.entities.servers)
+    servers: Object.values(state.entities.servers) // serverTitle: 
+
   };
 };
 
@@ -3019,14 +3026,14 @@ var VideoCall = /*#__PURE__*/function (_React$Component) {
         channel: "CallChannel"
       }, {
         connected: function connected() {
-          console.log('CONNECTED');
+          //   console.log('CONNECTED');
           Object(_util_video_util__WEBPACK_IMPORTED_MODULE_2__["broadcastData"])({
             type: _util_video_util__WEBPACK_IMPORTED_MODULE_2__["JOIN_CALL"],
             from: _this3.userId
           });
         },
         received: function received(data) {
-          console.log("RECEIVED: ", data);
+          //   console.log("RECEIVED: ", data);
           if (data.from === _this3.userId) return;
 
           switch (data.type) {

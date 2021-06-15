@@ -5,8 +5,10 @@ import { createServer } from '../../util/server_api_util';
 import { openModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
+    // ownProps
     return {
-        servers: Object.values(state.entities.servers)
+        servers: Object.values(state.entities.servers),
+        // serverTitle: 
     };
 };
 

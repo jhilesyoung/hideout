@@ -5,7 +5,7 @@
     position: relative;
     left: 311px;
     background-color: rgb(55,58,63);
-    height: 88.5vh;
+    height: 89.6vh;
     top: 68px;
 }
 
@@ -81,7 +81,7 @@
     background-color: rgb(65,69,75);
     border-radius: 14px;
     border: 0px;
-    top: -18px;
+    top: -40px;
 }
 
 .message-submit {
@@ -89,12 +89,11 @@
     width: 4vw;
     font-size: x-large;
     position: relative;
-    /* right: -33px; */
     background-color: rgb(65,69,75);
     color: springgreen;
     border: rgb(65,69,75);
     border-radius: 14px;
     left: -7px;
-    top: -20px;
+    top: -40px;
 }
 

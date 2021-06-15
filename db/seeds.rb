@@ -15,12 +15,12 @@ demo = User.create(
     session_token: SecureRandom.base64
 )
 
-# User.create(username: "TatteredRug", email: "kimberley@gmail.com", password: "day1")
-# User.create(username: "BrokenTable", email: "brokentable@gmail.com", password: "day3")
-# User.create(username: "WaterTastesSoGood", email: "waterTastesSogood@gmail.com", password: "day4")
-# User.create(username: "ABadMemory", email: "memoriesfade@gmail.com", password: "day4")
-# User.create(username: "GrassyAss", email: "rememberwhenyoufell@gmail.com", password: "day5")
-# User.create(username: "PinkPalmTree", email: "wherethepalmsat@yahoo.com", password: "day6")
+User.create(username: "TatteredRug", email: "kimberley@gmail.com", password: "day1")
+User.create(username: "BrokenTable", email: "brokentable@gmail.com", password: "day3")
+User.create(username: "WaterTastesSoGood", email: "waterTastesSogood@gmail.com", password: "day4")
+User.create(username: "ABadMemory", email: "memoriesfade@gmail.com", password: "day4")
+User.create(username: "GrassyAss", email: "rememberwhenyoufell@gmail.com", password: "day5")
+User.create(username: "PinkPalmTree", email: "wherethepalmsat@yahoo.com", password: "day6")
 
 # Channel.create(id: 1, title: "whaexitts up", server_id: 16, author_id: 13)
 # Channel.create(id: 2, title: "New Channel", server_id: 16, author_id: 13)

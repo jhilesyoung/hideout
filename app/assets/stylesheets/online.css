@@ -6,10 +6,9 @@
     left: 998px;
     color: pink;
     background-color: rgb(47,49,53);
-    height: 94.8vh;
-    /* bottom: -15px; */
-    top: 39px;
-    width: 30.2vw;
+    height: 95.5vh;
+    top: 40px;
+    width: 32vw;
     font-size: 16px;
     font-weight: 700;
     font-family: 'Catamaran', sans-serif;
@@ -28,9 +27,22 @@
     list-style: none;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     position: relative;
     left: 12px;
+}
+
+img.profile1 {
+    width: 32px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+img.profile2 {
+    width: 32px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .online > li:hover {

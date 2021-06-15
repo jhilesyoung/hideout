@@ -14,11 +14,11 @@ class ChannelItem extends React.Component{
 
     loadChat(e, channel) {
         e.preventDefault();
-        console.log(channel)
+        // console.log(channel)
         App.cable.subscriptions.subscriptions[0].load(channel);
         // console.log(App.cable.subscriptions)
     }
-    
+   
     componentDidUpdate(prevProps) {
         // console.log("test", prevProps, this.props);
         if (prevProps.channel != this.props.channel) {
@@ -39,8 +39,8 @@ class ChannelItem extends React.Component{
         }
         return (
             <li className="channel-items">
-                    <button className="channel-button" onClick={(e) => {this.loadChat(e, channel)}}>
-                        <Link className="channel-title" to={`/servers/${serverId}/channels/${channel.id}`}>
+                <button className="channel-button" onClick={(e) => {this.loadChat(e, channel)}}>
+                    <Link className="channel-title" to={`/servers/${serverId}/channels/${channel.id}`}>
                         <i className="fas fa-hashtag"></i> {channel.title}
                     </Link>
                 </button>

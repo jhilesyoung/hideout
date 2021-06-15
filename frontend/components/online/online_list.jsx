@@ -7,9 +7,7 @@ class OnlineList extends React.Component {
     }
 
     render() {
-
         return (
-            
             <div className="online">
                 <p className="members-list" >HIDEOUT MEMBERS</p>
                 <li >

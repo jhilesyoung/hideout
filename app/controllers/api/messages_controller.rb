@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     require 'byebug'
 
     def create
-        debugger
+        # debugger
         @message = Message.new(message_params)
         @message.channel_id = params[:channel_id]
         @message.user_id = params[:author_id]

@@ -12,6 +12,7 @@ class ChannelBar extends React.Component {
         this.state = {
             title: '',
             channels: this.props.channels,
+            // channelTitle: this.props.channels.title,
             serverId: this.props.serverId,
             boolean: false
         }
@@ -42,17 +43,18 @@ class ChannelBar extends React.Component {
 
     render() {
         const {channels} = this.state;
+        // const {channelTitle} = this.props;
         // console.log(channels);
         const {createChannel} = this.props;
         const channelItems = channels.map((channel) => {
            return <ChannelItem channel={channel} serverId={this.props.serverId} key={channel.id} createChannel={createChannel}/>
         })
-        const serverTitle = this.props.serverTitle;
+        // const serverTitle = this.props.serverTitle;
         
         return (
            
             <div className="channel-container">
-                <div>{serverTitle}</div>
+                {/* <div>{channelTitle}</div> */}
                         {channelItems}
                     <CreateChannelContainer />
             </div>
