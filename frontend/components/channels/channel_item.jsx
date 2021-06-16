@@ -22,7 +22,7 @@ class ChannelItem extends React.Component{
     componentDidUpdate(prevProps) {
         // console.log("test", prevProps, this.props);
         if (prevProps.channel != this.props.channel) {
-            // debugger
+            
             this.setState({channel: this.props.channel})
         }
     }

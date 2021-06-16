@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 const mSTP = (state, ownProps) => {
     let serverId = ownProps.match.params
-    // debugger
+  
     return {
         servers: Object.values(state.entities.servers),
         channels: Object.values(state.entities.channels),

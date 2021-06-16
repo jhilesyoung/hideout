@@ -46,7 +46,7 @@ class ChatRoom extends React.Component {
   }
   
   componentDidUpdate() {
-    // debugger
+  
     this.bottom.current.scrollIntoView();
   }
   
