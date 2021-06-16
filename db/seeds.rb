@@ -58,7 +58,6 @@ user6 = User.create(
 
 server1 = Server.create(title: "App", author_id: user1.id)
 server2 = Server.create(title: "Fun", author_id: user1.id)
-server3 = Server.create(title: "HI", author_id: user2.id)
 server4 = Server.create(title: "SHHHHH", author_id: demo.id)
 
 
