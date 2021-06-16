@@ -14,5 +14,3 @@ demo = User.create(
     password_digest: BCrypt::Password.create('password'),
     session_token: SecureRandom.base64
 )
-
-# 
