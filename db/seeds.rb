@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-Server.destroy_all
-Channel.destroy_all
 Message.destroy_all
+Channel.destroy_all
+Server.destroy_all
+User.destroy_all
 
 require 'bcrypt'
 
