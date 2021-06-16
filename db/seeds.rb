@@ -23,32 +23,38 @@ demo = User.create(
 user1 = User.create(
     username: "TatteredRug", 
     email: "kimberley@gmail.com", 
-    password: "day1")
+    password_digest: BCrypt::Password.create('password'),
+    session_token: SecureRandom.base64)
 
 user2 = User.create(
     username: "BrokenTable", 
     email: "brokentable@gmail.com", 
-    password: "day3")
+    password_digest: BCrypt::Password.create('password'),
+    session_token: SecureRandom.base64)
 
 user3 = User.create(
     username: "WaterTastesSoGood", 
     email: "waterTastesSogood@gmail.com", 
-    password: "day4")
+    password_digest: BCrypt::Password.create('password'),
+    session_token: SecureRandom.base64)
 
 user4 = User.create(
     username: "ABadMemory", 
     email: "memoriesfade@gmail.com", 
-    password: "day4")
+    password_digest: BCrypt::Password.create('password'),
+    session_token: SecureRandom.base64)
 
 user5 = User.create(
     username: "GrassyAss", 
     email: "rememberwhenyoufell@gmail.com", 
-    password: "day5")
+    password_digest: BCrypt::Password.create('password'),
+    session_token: SecureRandom.base64)
 
 user6 = User.create(
     username: "PinkPalmTree", 
     email: "wherethepalmsat@yahoo.com", 
-    password: "day6")
+    password_digest: BCrypt::Password.create('password'),
+    session_token: SecureRandom.base64)
 
 server1 = Server.create(title: "App", author_id: user1.id)
 server2 = Server.create(title: "Fun", author_id: user1.id)
