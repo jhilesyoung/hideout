@@ -1328,7 +1328,7 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "nav-login",
         to: "/login"
-      }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
         className: "nav-logout",
         onClick: function onClick() {
@@ -1467,42 +1467,52 @@ var OnlineList = /*#__PURE__*/function (_React$Component) {
       }, "HIDEOUT MEMBERS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile1",
         width: "60px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile1
       }), "  JayHeezy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile2",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile2
       }), "  Tahmikachu"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile2",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile3
       }), "  MiniMimi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile1",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile4
       }), "  ChrisBeezy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile2",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile5
       }), "  JasLeezy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile1",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile6
       }), "  RayMeezy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile1",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile7
       }), "  AverTeezy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile2",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile8
       }), "  AlexanDreezy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile1",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile9
       }), "  WishIBoughtAMC"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile1",
         width: "55px",
+        title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile10
       }), "  ILost$2500"));
     }

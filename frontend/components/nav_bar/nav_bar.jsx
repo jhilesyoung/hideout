@@ -15,10 +15,10 @@ class NavBar extends React.Component {
          return null }
 
         return (
-
+           
             <div>
             <div className="auth-buttons">
-
+              
                 <div>
                     <Link to="/" className="nav-left">
                         <img src={window.logourl} className="logo" width="125px"/>
@@ -44,11 +44,11 @@ class NavBar extends React.Component {
 
                 <div className="nav-right">
                     <Link className="nav-login"to="/login">
-                        Login
+                        Home
                     </Link>
 
                     <Link to="/" className="nav-logout" onClick={()=> logout()}>
-                            Logout
+                        Logout
                     </Link>
                 </div>
 

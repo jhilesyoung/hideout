@@ -47,6 +47,7 @@ img.profile2 {
 
 .online > li:hover {
     background-color: rgb(137,141,146);
+    cursor: pointer; 
 }
 
 .profile1 {

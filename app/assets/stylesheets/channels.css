@@ -16,7 +16,8 @@
     background: transparent;
     border: none;
     text-decoration: none;
-    padding-bottom: 14px;
+    padding-bottom: 7px;
+    padding-top: 7px;
 }
 
 .channel-container {
