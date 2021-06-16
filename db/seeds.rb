@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Server.destroy_all
+Channel.destroy_all
+Message.destroy_all
+
 require 'bcrypt'
 
 demo = User.create(
@@ -15,42 +20,30 @@ demo = User.create(
     session_token: SecureRandom.base64
 )
 
-User.create(username: "TatteredRug", email: "kimberley@gmail.com", password: "day1",
-password_digest: BCrypt::Password.create('password'),
-session_token: SecureRandom.base64)
-User.create(username: "BrokenTable", email: "brokentable@gmail.com", password: "day3",
-password_digest: BCrypt::Password.create('password'),
-session_token: SecureRandom.base64)
-User.create(username: "WaterTastesSoGood", email: "waterTastesSogood@gmail.com", password: "day4",
-password_digest: BCrypt::Password.create('password'),
-session_token: SecureRandom.base64)
-User.create(username: "ABadMemory", email: "memoriesfade@gmail.com", password: "day4",
-password_digest: BCrypt::Password.create('password'),
-session_token: SecureRandom.base64)
-User.create(username: "GrassyAss", email: "rememberwhenyoufell@gmail.com", password: "day5",
-password_digest: BCrypt::Password.create('password'),
-session_token: SecureRandom.base64)
-User.create(username: "PinkPalmTree", email: "wherethepalmsat@yahoo.com", password: "day6",
-password_digest: BCrypt::Password.create('password'),
-session_token: SecureRandom.base64)
+user1 = User.create(username: "TatteredRug", email: "kimberley@gmail.com", password: "day1")
+user2 = User.create(username: "BrokenTable", email: "brokentable@gmail.com", password: "day3")
+user3 = User.create(username: "WaterTastesSoGood", email: "waterTastesSogood@gmail.com", password: "day4")
+user4 = User.create(username: "ABadMemory", email: "memoriesfade@gmail.com", password: "day4")
+user5 = User.create(username: "GrassyAss", email: "rememberwhenyoufell@gmail.com", password: "day5")
+user6 = User.create(username: "PinkPalmTree", email: "wherethepalmsat@yahoo.com", password: "day6")
 
-# # Channel.create(id: 1, title: "whaexitts up", server_id: 16, author_id: 13)
-# # Channel.create(id: 2, title: "New Channel", server_id: 16, author_id: 13)
-# # Channel.create(id: 3, title: "Even better", server_id: 16, author_id: 13)
-# # Channel.create(id: 4, title: "Too Many bugs!", server_id: 16, author_id: 13)
-# # Channel.create(id: 5, title: "Right away!", server_id: 16, author_id: 13)
-# # Channel.create(id: 6, title: "Fullstack is BRREAKING ME!", server_id: 22, author_id: 13)
-# # Channel.create(id: 7, title: "Where are my channels!!!!!!!", server_id: 21, author_id: 13)
 
-# # Server.create(id: 16, title: "Hey dudes", author_id: 13)
-# # Server.create(id: 20, title: "Where are yall!", author_id: 13)
-# # Server.create(id: 21, title: "Howdy", author_id: 13)
-# # Server.create(id: 22, title: "Demon Slayer", author_id: 13)
-# # Server.create(id: 23, title: "Sports Things", author_id: 13)
-# # Server.create(id: 24, title: "Fashion Time", author_id: 13)
-# # Server.create(id: 26, title: "How's it going?", author_id: 13)
-# # Server.create(id: 27, title: "App Academy", author_id: 13)
-# # Server.create(id: 28, title: "WTF", author_id: 13)
-# # Server.create(id: 29, title: "CSS & HTML Tips", author_id: 13)
-# # Server.create(id: 30, title: "Python", author_id: 13)
-# # Server.create(id: 35, title: "Graduation Day", author_id: 13)
+# set the seed instances to a variable
+
+server1 = Server.create(title: "App", author_id: user1.id)
+server2 = Server.create(title: "Fun", author_id: user1.id)
+server3 = Server.create(title: "HI", author_id: user2.id)
+server4 = Server.create(title: "SHHHHH", author_id: demo.id)
+
+
+channel1 = Channel.create(title: "Class Notes", server_id: server1.id, author_id: user1.id)
+channel2 = Channel.create(title: "Spring Break Ideas", server_id: server1.id, author_id: user1.id)
+channel3 = Channel.create(title: "RANT", server_id: server2.id, author_id: user2.id)
+channel4 = Channel.create(title: "Secret channel, server_id: server4.id", author_id: demo.id)
+
+message1 = Message.create(body: "Did anyone catch what Anna said at the end of class?", channel_id: channel1.id, author_id: user1.id)
+message2 = Message.create(body: "Yeah, she told us to review the homework from last night for tomorrow's quiz", channel1.id, author_id: user2.id)
+message3 = Message.create(body: "Why is EVERYBODY going to Tulum nowadays? Guess that means we should go to ;-)", channel_id: channel2.id, author_id: user1.id)
+message4 = Message.create(body: "Why did this person spill coffee on me this morning....", channel_id: channel3.id, author_id: user2.id)
+message5 = Message.create(body: "No way!!! LMAO I hope you brought a change of clothes to work xD", channel_id: channel3.id, author_id: user3.id)
+message6 = Message.create(body: "Welcome to the secret hideout channel, you made it!", channel_id: channel4.id, author_id: demo.id)

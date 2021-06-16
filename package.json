@@ -5,7 +5,6 @@
   "scripts": {
     "webpack": "webpack --watch --mode=development",
     "postinstall": "webpack",
-    "start": "node entry.jsx"
   },
   "engines": {
     "node": "10.13.0",
