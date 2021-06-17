@@ -1,7 +1,5 @@
 class MessagesController < ApplicationController
 
-    require 'byebug'
-
     def create
       
         @message = Message.new(message_params)
