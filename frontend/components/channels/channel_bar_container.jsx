@@ -10,13 +10,7 @@ const mSTP = (state, ownProps) => {
         serverId: ownProps.match.params.serverId,
         channels: Object.values(state.entities.channels).filter(channel => {
             return channel.serverId === serverId
-        }),
-        // channelTitle: Object.values(state.entities.channels).filter(channel => {
-        //     return channel.title
-        // })
-        // servers: Object.values(state.entities.servers).filter(server => {
-        //     return server.title === serverTitle
-        // })
+        })
     };
 };
 
