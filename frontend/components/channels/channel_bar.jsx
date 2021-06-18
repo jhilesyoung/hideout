@@ -19,10 +19,10 @@ class ChannelBar extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
+        
         this.props.getChannels(this.props.serverId).then((res) => {
             let channelVals = Object.values(res.channels) 
-            // console.log(channelVals[0].serverId)
+            
             this.setState({channels: channelVals, serverId: channelVals[0].serverId, boolean: true})
         })
     }
@@ -30,8 +30,8 @@ class ChannelBar extends React.Component {
     componentDidUpdate(prevprops) {
        
         if (this.state.serverId !== this.props.serverId) {
-            // console.log("anyth")
-            // debugger
+           
+           
             this.props.getChannels(this.props.serverId).then((res) => {
                 this.setState({
                     channels: Object.values(res.channels),
@@ -44,7 +44,7 @@ class ChannelBar extends React.Component {
     render() {
         const {channels} = this.state;
         // const {channelTitle} = this.props;
-        // console.log(channels);
+       
         const {createChannel} = this.props;
         const channelItems = channels.map((channel) => {
            return <ChannelItem channel={channel} serverId={this.props.serverId} key={channel.id} createChannel={createChannel}/>

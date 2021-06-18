@@ -7,13 +7,12 @@ const mSTP = ( state, ownProps ) => {
     let channelLocation = ownProps.location.pathname.split("/")
     let id = channelLocation[channelLocation.length-1]
     const channelId = parseInt(id)
-    // debugger
+ 
     return {
         authorId: state.session.id,
         // channelId: ownProps.match.params.channelId,
         channelId: channelId,
         username: Object.values(state.entities.users)[0].username
-        
        
       };
 };

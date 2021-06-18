@@ -261,8 +261,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   var channelLocation = ownProps.location.pathname.split("/");
   var id = channelLocation[channelLocation.length - 1];
-  var channelId = parseInt(id); // debugger
-
+  var channelId = parseInt(id);
   return {
     authorId: state.session.id,
     // channelId: ownProps.match.params.channelId,
@@ -763,9 +762,8 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      // debugger
       this.props.getChannels(this.props.serverId).then(function (res) {
-        var channelVals = Object.values(res.channels); // console.log(channelVals[0].serverId)
+        var channelVals = Object.values(res.channels);
 
         _this2.setState({
           channels: channelVals,
@@ -780,8 +778,6 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       if (this.state.serverId !== this.props.serverId) {
-        // console.log("anyth")
-        // debugger
         this.props.getChannels(this.props.serverId).then(function (res) {
           _this3.setState({
             channels: Object.values(res.channels),
@@ -796,7 +792,6 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
       var _this4 = this;
 
       var channels = this.state.channels; // const {channelTitle} = this.props;
-      // console.log(channels);
 
       var createChannel = this.props.createChannel;
       var channelItems = channels.map(function (channel) {
