@@ -6,15 +6,19 @@ class ChatChannel < ApplicationCable::Channel
   def speak(data)
     message = Message.new(body: data['message'], channel_id: data["channelId"], author_id: data["authorId"]) 
     if message.save!
-    
-      socket = { message: message.body, type: 'message' } #, username: message.username => passed as 3rd argument
+      user = message.user
+      messageResponse = { body: message.body, username: user.username }
+      socket = { message: messageResponse, type: 'message'} 
       ChatChannel.broadcast_to('chat_channel', socket)
     end
   end
   def load(data)
     puts data[:id]
-    messages = Message.where(channel_id: data["id"]).collect(&:body)
-    socket = { messages: messages, type: 'messages' }
+    messages = Message.where(channel_id: data["id"])
+    messageResponse = messages.map do |message|
+                      {body: message.body, username: message.user.username}
+    end
+    socket = { messages: messageResponse, type: 'messages' }
     ChatChannel.broadcast_to('chat_channel', socket)
   end
   def unsubscribed; end

@@ -13,6 +13,7 @@ const mSTP = ( state, ownProps ) => {
         // channelId: ownProps.match.params.channelId,
         channelId: channelId,
         username: Object.values(state.entities.users)[0].username
+        // messageUsername
        
       };
 };

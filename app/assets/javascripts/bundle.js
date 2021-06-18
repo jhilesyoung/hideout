@@ -191,6 +191,7 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
       this.bottom.current.scrollIntoView();
+      this.bottom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     }
   }, {
     key: "render",
@@ -209,11 +210,11 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
           src: window.servericonurl
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "username-in-chat"
-        }, username, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, message.username, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "date-in-chat"
         }, _this3.state.currentDate), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "message-in-chat"
-        }, message)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, message.body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           ref: _this3.bottom
         }));
       });
@@ -266,7 +267,8 @@ var mSTP = function mSTP(state, ownProps) {
     authorId: state.session.id,
     // channelId: ownProps.match.params.channelId,
     channelId: channelId,
-    username: Object.values(state.entities.users)[0].username
+    username: Object.values(state.entities.users)[0].username // messageUsername
+
   };
 };
 
