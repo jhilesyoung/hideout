@@ -12,7 +12,7 @@ const mSTP = ( state, ownProps ) => {
         authorId: state.session.id,
         // channelId: ownProps.match.params.channelId,
         channelId: channelId,
-        username: Object.values(state.entities.users)[0].username
+        username: state.session.username
         // messageUsername
        
       };

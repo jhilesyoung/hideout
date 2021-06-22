@@ -16,6 +16,14 @@ class UserHome extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        this.forceUpdate()
+    }
+
+    componentDidUpdate() {
+
+    }
+
     render() {
         return(
             <div className="user-home">

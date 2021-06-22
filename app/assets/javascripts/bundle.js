@@ -198,9 +198,6 @@ var ChatRoom = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      // const  username  = this.state.session.username ? this.state.session.username : ''
-      var username = this.props.username; // let messageList = <div ref={this.bottom} />
-
       var messageList = this.state.messages.map(function (message, idx) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "chat-messages",
@@ -267,7 +264,7 @@ var mSTP = function mSTP(state, ownProps) {
     authorId: state.session.id,
     // channelId: ownProps.match.params.channelId,
     channelId: channelId,
-    username: Object.values(state.entities.users)[0].username // messageUsername
+    username: state.session.username // messageUsername
 
   };
 };
@@ -1529,7 +1526,7 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state) {
   return {
     formType: 'Change Icon',
-    username: state.entities.users[state.session.id].username
+    username: state.session.username
   };
 };
 
@@ -1595,7 +1592,8 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       photoFile: null,
-      photoUrl: null
+      photoUrl: null,
+      username: ''
     };
     return _this;
   }
@@ -1647,9 +1645,7 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.props)
-      var username = this.props.username; // const { currentUser } = this.props
-
+      var username = this.props.username;
       var preview = this.state.photoUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.photoUrl
       }) : null;
@@ -2881,6 +2877,14 @@ var UserHome = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(UserHome, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.forceUpdate();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {}
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
@@ -3241,7 +3245,8 @@ document.addEventListener("DOMContentLoaded", function () {
         users: _defineProperty({}, window.currentUser.id, window.currentUser)
       },
       session: {
-        id: window.currentUser.id
+        id: window.currentUser.id,
+        username: window.currentUser.username
       }
     };
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(preloadedState);
@@ -3505,7 +3510,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _nullUser = Object.freeze({
-  id: null
+  id: null,
+  username: null
 });
 
 var sessionReducer = function sessionReducer() {

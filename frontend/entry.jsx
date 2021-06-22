@@ -4,7 +4,6 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { login, logout, signup } from './actions/session_actions'
 
-
 document.addEventListener("DOMContentLoaded", () => {
   let store;
 if (window.currentUser) {
@@ -12,7 +11,7 @@ if (window.currentUser) {
     entities: {
       users: { [window.currentUser.id]: window.currentUser }
     },
-    session: { id: window.currentUser.id }
+    session: { id: window.currentUser.id, username: window.currentUser.username }
   };
   store = configureStore(preloadedState);
   delete window.currentUser;

@@ -51,9 +51,7 @@ class ChatRoom extends React.Component {
   }
   
   render() {
-    // const  username  = this.state.session.username ? this.state.session.username : ''
-    const username = this.props.username
-    // let messageList = <div ref={this.bottom} />
+  
    
     let messageList = this.state.messages.map((message, idx) => {
       return (

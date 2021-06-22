@@ -9,6 +9,7 @@ class ProfileForm extends React.Component {
         this.state = {
             photoFile: null,
             photoUrl: null,
+            username: ''
         };
     }
 
@@ -50,9 +51,9 @@ class ProfileForm extends React.Component {
       }
 
       render() {
-        // console.log(this.props)
+      
         const { username } = this.props
-        // const { currentUser } = this.props
+       
         const  preview  = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
        
         return (
