@@ -30,13 +30,12 @@ class UserHome extends React.Component {
                 <ServerIndexContainer />
                 <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
                 <ChatRoomContainer />
-                {/* <Route path="/servers/:serverId/channels/channelId" component={ChatRoomContainer} /> */}
                 <ProfileFormContainer />
                 {/* <VideoCall /> */}
                 <OnlineContainer />
                 <SearchBarContainer />
-                {/* <OnlineList /> */}
-                {/* <ChannelMessageContainer /> */}
+                
+                <div className="background-user-home"></div>
             </div>
         )
     }

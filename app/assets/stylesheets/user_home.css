@@ -9,3 +9,12 @@
     display: flex;
 }
 
+.background-user-home {
+    height: 1000px;
+    width: 1000px;
+    top: 21px;
+    left: 0px;
+    background-color: rgb(47,49,53);
+    position: absolute;
+    z-index: -1;
+}
