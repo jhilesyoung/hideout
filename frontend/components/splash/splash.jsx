@@ -43,9 +43,6 @@ class Splash extends React.Component{
                         ReadME
                     </Link> */}
                     <a href="https://github.com/jhilesyoung/hideout" className="github" target="_blank">ReadME</a>
-                    {/* <Link className="other-splash-link" to="https://github.com/jhilesyoung">
-                        Important Link
-                    </Link> */}
                     <a href="https://jhilesyoung.github.io" className="other-splash-link" target="_blank">Portfolio</a>
                     </div>
                     </div>

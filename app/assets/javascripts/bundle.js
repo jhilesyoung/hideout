@@ -769,6 +769,12 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
           serverId: channelVals[0].serverId,
           "boolean": true
         });
+
+        if (channelVals === null) {
+          return null;
+        } else {
+          _this2.props.getChannels(serverId);
+        }
       });
     }
   }, {
@@ -940,7 +946,8 @@ var ChannelForm = /*#__PURE__*/function (_React$Component) {
       this.setState({
         title: ''
       });
-      this.props.getChannels(this.props.channel.serverId); // .then(() => this.props.getServers())
+      this.props.getChannels(this.props.channel.serverId);
+      window.location.reload(false); // .then(() => this.props.getServers())
     }
   }, {
     key: "update",

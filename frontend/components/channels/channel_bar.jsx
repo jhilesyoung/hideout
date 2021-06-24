@@ -22,8 +22,12 @@ class ChannelBar extends React.Component {
         
         this.props.getChannels(this.props.serverId).then((res) => {
             let channelVals = Object.values(res.channels) 
-            
             this.setState({channels: channelVals, serverId: channelVals[0].serverId, boolean: true})
+            if (channelVals === null)  {
+                return null
+            } else {
+                this.props.getChannels(serverId)
+            }
         })
     }
 
@@ -38,7 +42,8 @@ class ChannelBar extends React.Component {
                     serverId: prevprops.serverId
                 })
             })
-        }
+        } 
+        
     }
 
     render() {

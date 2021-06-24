@@ -24,6 +24,7 @@ class ChannelForm extends React.Component{
         // this.props.createChannel(serverId);
         this.setState({ title: '' });
         this.props.getChannels(this.props.channel.serverId);
+        window.location.reload(false);
             // .then(() => this.props.getServers())
     };
 
