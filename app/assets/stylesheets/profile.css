@@ -26,6 +26,11 @@
     bottom: 11px;
 }
 
+.profile-text {
+    display: flex;
+    flex-flow: column;
+}
+
 .welcome-message {
     display: flex;
     position: relative;

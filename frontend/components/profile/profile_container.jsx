@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ProfileForm from './profile_form';
+import { logout } from '../../actions/session_actions'
 // import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mSTP = (state) => {
@@ -14,12 +15,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return {
-        // otherForm: (
-        //     <button onClick={() => dispatch(openModal('Change Icon'))}>
-        //       Submit
-        //     </button>
-        //   ),
-        //   closeModal: () => dispatch(closeModal()),
+        logout: () => dispatch(logout())
     }
 }
 

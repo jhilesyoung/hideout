@@ -16,11 +16,11 @@
 
 .auth-background {
     position: absolute;
-    height: 129vh;
-    width: 110vw;
-    margin-left: -.75%;
+    height: 100vh;
+    width: 100vw;
+    /* margin-left: -.75%; */
     left: -1px;
-    margin-top: -8.5%;
+    /* margin-top: 0.5%; 
 }
 
 .blob-background {

@@ -14,7 +14,7 @@
 body {
     max-width: 100%;
     overflow-x: hidden;
-    background-color: rgb(64,78,236);
+    background-color: rgb(88,101,242);
 }
 
 .splash-description {
@@ -79,6 +79,16 @@ body {
     justify-content: space-between;
     flex-direction: row;
     margin-top: 15%;
+}
+
+.background-pic-main {
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    height: 352px;
+    /* left: 100px; */
+    right: -66px;
+    bottom: 0px;
 }
 
 .background-pic-left {

@@ -18,12 +18,14 @@
 
 .nav-logout {
     border-radius: 40px;
+    position: relative;
     background-color: white;
-    margin: 0px 16px 0px 0px;
-    padding: 7px 16px;
+    /* margin: 0px 0px 0px 0px; */
+    padding: 0px 4px;
     text-decoration: none;
     color: black;
     font-size: 14px;
+    left: 60px;
 }
 
 .nav-right {

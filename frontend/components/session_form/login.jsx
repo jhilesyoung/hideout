@@ -51,7 +51,7 @@ class Login extends React.Component {
     return (
       <div className="login-form">
           <img className="auth-background" src={window.loginurl}/>
-          <img className="blob-background" src={window.bloburl}/>
+          {/* <img className="blob-background" src={window.bloburl}/> */}
           <div className="login-form-box">
         <h2 className="welcome-text">Welcome back!</h2>
         <h3 className="excited-text">We're so excited to see you again!</h3>

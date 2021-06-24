@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class ProfileForm extends React.Component {
@@ -52,14 +53,19 @@ class ProfileForm extends React.Component {
 
       render() {
       
-        const { username } = this.props
+        const { username, logout } = this.props
        
         const  preview  = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
        
         return (
         <div className="icon-change">
               <label><img className="profile-pic" src={window.servericonurl} /></label>
-              <div className="welcome-message">Welcome, {username}!</div>
+              <div className="profile text"> 
+                <div className="welcome-message">Welcome, {username}!</div>
+                  <Link to="/" className="nav-logout" onClick={()=> logout()}>
+                            Logout
+                  </Link>
+              </div>
           {/* <form className="icon-form" onSubmit={this.handleSubmit.bind(this)}> */}
                   {/* <input type="file"
                       onChange={this.handleFile.bind(this)}/>

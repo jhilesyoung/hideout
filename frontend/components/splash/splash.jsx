@@ -1,6 +1,5 @@
 import React from 'react'
 import NavBarContainer from '../nav_bar/nav_bar_container'
-import { Link } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/js/all.js'
 
 
@@ -43,13 +42,14 @@ class Splash extends React.Component{
                     {/* <Link target="_blank" className="github" to="https://github.com/jhilesyoung">
                         ReadME
                     </Link> */}
-                    <a href="https://github.com/jhilesyoung/hideout/wiki" className="github" target="_blank">ReadME</a>
+                    <a href="https://github.com/jhilesyoung/hideout" className="github" target="_blank">ReadME</a>
                     {/* <Link className="other-splash-link" to="https://github.com/jhilesyoung">
                         Important Link
                     </Link> */}
                     <a href="https://jhilesyoung.github.io" className="other-splash-link" target="_blank">Portfolio</a>
                     </div>
                     </div>
+                    <img className="background-pic-main" src={window.background} />
                     <img className="background-pic-left" src={window.backlefturl} width="500px"/>
                     <img className="background-pic-right" src={window.backrightlurl} width="500px"/>
                 </div>
