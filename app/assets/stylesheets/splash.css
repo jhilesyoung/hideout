@@ -14,7 +14,7 @@
 body {
     max-width: 100%;
     overflow-x: hidden;
-    background-color: rgb(41,95,231);
+    background-color: rgb(64,78,236);
 }
 
 .splash-description {
@@ -29,11 +29,11 @@ body {
     font-weight: 100;
     font-size: 19px;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Seymour+One&display=swap');
 .description-title {
     font-size: 54px;
     margin: 1px;
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Seymour One', sans-serif;
     font-weight: 700;
 }
 

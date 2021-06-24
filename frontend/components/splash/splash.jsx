@@ -30,7 +30,7 @@ class Splash extends React.Component{
                 
                 <div className="background-pics" >
                 <div className="splash-description">
-                    <h1 className="description-title">Your place to talk</h1>
+                    <h1 className="description-title">IMAGINE A PLACE...</h1>
                     <br/>
                         Whether you’re part of a school club, gaming group, worldwide art community, 
                         or just a handful of friends that want to spend time together, hideout makes it 
