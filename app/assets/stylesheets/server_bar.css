@@ -1,12 +1,12 @@
 .server-container {
     display: flex;
     position: absolute;
-    left: -8px;
+    left: -23px;
     top: -8px;
     align-items: baseline;
     width: 86px;
     height: 103vh;
-    overflow: scroll;
+    /* overflow: scroll; */
     flex-direction: column;
     background-color: rgb(33,36,39);
     font-family: serif;
@@ -79,7 +79,7 @@
     overflow-y: scroll;
     width: 112px;
     position: relative;
-    left: -15px;
+    left: 2px;
 }
 
 .add-server-button {
@@ -94,10 +94,10 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    bottom: 10px;
-    left: 14px;
-    width: 45px;
-    height: 63px;
+    bottom: 22px;
+    left: 28px;
+    width: 48px;
+    height: 47px;
     background-color: rgb(47,49,54);
     color: springgreen;
     border-radius: 50%;
