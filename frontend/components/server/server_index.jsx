@@ -32,8 +32,6 @@ class ServerIndex extends React.Component {
                 <button className="server-additional" onClick={() => this.props.openModal('Add Server')}>
                     <i className="fas fa-plus"></i>
                 </button>
-                {/* <CreateServerContainer /> */}
-                {/* Use a fontAwesome plus icon for the create action */}
             </div>
         )
     }

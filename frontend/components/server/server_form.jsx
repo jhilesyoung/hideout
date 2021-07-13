@@ -23,7 +23,6 @@ class ServerForm extends React.Component {
     render() {
         return (
             <div>
-                {/* <h1><i class="fas fa-plus"></i></h1> */}
                     <form onSubmit={this.handleSubmit}>
                     <div onClick={this.props.closeModal} className="close-x"><i className="fas fa-times-circle"></i></div>
                         <label className="modal-title"> Server Title
