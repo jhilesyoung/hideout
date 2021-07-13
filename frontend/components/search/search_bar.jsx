@@ -14,10 +14,10 @@ class SearchBar extends React.Component {
             <div className="search-container">
 
                 <div className="userhome-links">
-                    <i class="fab fa-linkedin fa-3x"></i>
-                    <i class="fab fa-angellist fa-3x"></i>
-                    <i class="far fa-file fa-3x"></i>
-                    <i class="fab fa-github fa-3x"></i>
+                    <i className="fab fa-linkedin fa-3x"></i>
+                    <i className="fab fa-angellist fa-3x"></i>
+                    <i className="far fa-file fa-3x"></i>
+                    <i className="fab fa-github fa-3x"></i>
                 </div>
 
                 <div className="chatname">

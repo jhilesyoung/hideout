@@ -707,7 +707,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _channel_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./channel_item */ "./frontend/components/channels/channel_item.jsx");
 /* harmony import */ var _create_channel_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./create_channel_container */ "./frontend/components/channels/create_channel_container.jsx");
-/* harmony import */ var _ChatRoom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ChatRoom */ "./frontend/ChatRoom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -734,7 +733,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var ChannelBar = /*#__PURE__*/function (_React$Component) {
   _inherits(ChannelBar, _React$Component);
 
@@ -749,7 +747,6 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       title: '',
       channels: _this.props.channels,
-      // channelTitle: this.props.channels.title,
       serverId: _this.props.serverId,
       "boolean": false
     };
@@ -763,6 +760,7 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
 
       this.props.getChannels(this.props.serverId).then(function (res) {
         var channelVals = Object.values(res.channels);
+        var serverId = _this2.props.servedId;
 
         _this2.setState({
           channels: channelVals,
@@ -790,6 +788,8 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
           });
         });
       }
+
+      ;
     }
   }, {
     key: "render",
@@ -841,7 +841,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  var serverId = parseInt(ownProps.match.params.serverId);
+  var oldserverId = ownProps.match.params.serverId;
+  var serverId = parseInt(oldserverId);
+  debugger;
   return {
     serverId: ownProps.match.params.serverId,
     channels: Object.values(state.entities.channels).filter(function (channel) {
@@ -1058,17 +1060,13 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
           channel: this.props.channel
         });
       }
-    } // componentDidMount() {
-    //     this.props.getChannels();
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var channel = this.state.channel; // console.log(channel.id)
-
+      var channel = this.state.channel;
       var serverId = this.props.serverId;
 
       if (!channel) {
@@ -1094,32 +1092,7 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   return ChannelItem;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (ChannelItem); // import React from 'react';
-// import '@fortawesome/fontawesome-free/js/all.js'
-// import { Link } from 'react-router-dom';
-// import ChatRoom from '../../ChatRoom'
-// class ChannelItem extends React.Component{
-//     constructor(props) {
-//         super(props)
-//     }
-//     loadChat(e) {
-//         e.preventDefault();
-//         App.cable.subscriptions.subscriptions[0].load();
-//     }
-//     render() {
-//         const {channels, servers} = this.props;
-//         return (
-//             <Link to={`/servers/${servers.id}/channels/${channels.id}`}>
-//                 <li className="channel-items">
-//                     <button className="channel-title" onClick={this.loadChat}>
-//                         <i className="fas fa-hashtag"></i> {channel.title}
-//                     </button>
-//                 </li>
-//             </Link>
-//         )
-//     }
-// }
-// export default ChannelItem
+/* harmony default export */ __webpack_exports__["default"] = (ChannelItem);
 
 /***/ }),
 
@@ -1149,7 +1122,6 @@ var mSTP = function mSTP(state, ownProps) {
     channel: {
       title: '',
       serverId: ownProps.match.params.serverId,
-      //    authorId: ownProps.match.params.authorId
       authorId: state.session.id
     }
   };
@@ -1767,13 +1739,13 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "userhome-links"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fab fa-linkedin fa-3x"
+        className: "fab fa-linkedin fa-3x"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fab fa-angellist fa-3x"
+        className: "fab fa-angellist fa-3x"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "far fa-file fa-3x"
+        className: "far fa-file fa-3x"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fab fa-github fa-3x"
+        className: "fab fa-github fa-3x"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chatname"
       }));

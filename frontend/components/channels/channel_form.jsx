@@ -4,7 +4,6 @@ class ChannelForm extends React.Component{
 
     constructor(props) {
         super(props)
-
         this.state = {
             title: '',
             serverId: this.props.channel.serverId,

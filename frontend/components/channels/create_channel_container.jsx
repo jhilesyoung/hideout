@@ -8,10 +8,9 @@ import { withRouter } from 'react-router-dom';
 const mSTP = (state, ownProps) => {
    return { 
        channel: {
-           title: '',
-           serverId: ownProps.match.params.serverId,
-        //    authorId: ownProps.match.params.authorId
-            authorId: state.session.id
+        title: '',
+        serverId: ownProps.match.params.serverId,
+        authorId: state.session.id
        }
     }
 }

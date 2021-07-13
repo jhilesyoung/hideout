@@ -1,7 +1,6 @@
 import React from 'react';
 import ChannelItem from './channel_item';
-import CreateChannelContainer from './create_channel_container'
-import { loadChat } from '../../ChatRoom';
+import CreateChannelContainer from './create_channel_container';
 
 
 class ChannelBar extends React.Component {
@@ -12,24 +11,24 @@ class ChannelBar extends React.Component {
         this.state = {
             title: '',
             channels: this.props.channels,
-            // channelTitle: this.props.channels.title,
             serverId: this.props.serverId,
             boolean: false
         }
     }
 
     componentDidMount() {
-        
         this.props.getChannels(this.props.serverId).then((res) => {
             let channelVals = Object.values(res.channels) 
-            this.setState({channels: channelVals, serverId: channelVals[0].serverId, boolean: true})
+            let serverId = this.props.servedId
+            this.setState({channels: channelVals, serverId: channelVals[0].serverId, boolean: true}) 
+          
             if (channelVals === null)  {
                 return null
             } else {
                 this.props.getChannels(serverId)
-            }
-        })
-    }
+            } 
+        });
+    };
 
     componentDidUpdate(prevprops) {
        
@@ -40,10 +39,9 @@ class ChannelBar extends React.Component {
                 this.setState({
                     channels: Object.values(res.channels),
                     serverId: prevprops.serverId
-                })
-            })
-        } 
-        
+                });
+            });
+        };
     }
 
     render() {
@@ -57,16 +55,13 @@ class ChannelBar extends React.Component {
         // const serverTitle = this.props.serverTitle;
         
         return (
-           
             <div className="channel-container">
                 {/* <div>{channelTitle}</div> */}
                         {channelItems}
                     <CreateChannelContainer />
             </div>
-
         )
-    }
-
+    };
 }
 
 export default ChannelBar;
