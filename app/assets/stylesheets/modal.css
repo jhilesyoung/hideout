@@ -15,9 +15,9 @@
     transform: translate(-50%, -50%);
     border: solid;
     border-radius: 13px;
-    height: 133px;
-    width: 200px;
-    color: rgb(114,137,218);
+    height: 147px;
+    width: 290px;
+    color: rgb(66,70,75);
   }
 
   .fas fa-plus {
@@ -29,10 +29,12 @@
     align-items: center;
     font-size: x-large;
     flex-direction: column;
+    color: rgb(64,78,236);
   }
 
   .add-server-input {
     width: 124px;
+    background-color: rgb(66,70,75);
   }
 
   .add-server-modal {
@@ -41,7 +43,7 @@
     align-self: center;
     margin-left: 3%;
     color: white;
-    background-color: rgb(114,137,218);
+    background-color: rgb(64,78,236);
     border-radius: 7px;
     height: 42px;
   }

@@ -974,7 +974,7 @@ var ChannelForm = /*#__PURE__*/function (_React$Component) {
         onChange: this.update("title")
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-form-submit"
-      }, "Submit")));
+      }, "Create")));
     }
   }]);
 

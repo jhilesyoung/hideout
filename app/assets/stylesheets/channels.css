@@ -78,8 +78,10 @@
 
 .channel-form-input {
     border-radius: 15px;
+    background-color: rgb(66,70,75);
 }
 
 .channel-form-submit {
     border-radius: 15px;
+    background-color: rgb(66,70,75);
 }

@@ -45,7 +45,7 @@ class ChannelForm extends React.Component{
                         onChange={this.update("title")}
                         >
                     </input>
-                    <button className="channel-form-submit">Submit</button>
+                    <button className="channel-form-submit">Create</button>
                 </label>
             </form>
            
