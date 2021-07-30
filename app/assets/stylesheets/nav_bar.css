@@ -13,19 +13,18 @@
     text-decoration: none;
     color: black;
     font-size: 14px;
-
+    font-family: 'Seymour One', sans-serif;
 }
 
 .nav-logout {
     border-radius: 40px;
-    position: relative;
     background-color: white;
-    /* margin: 0px 0px 0px 0px; */
-    padding: 0px 4px;
+    margin: 0px 16px 0px 0px;
+    padding: 7px 16px;
     text-decoration: none;
     color: black;
     font-size: 14px;
-    left: 60px;
+    font-family: 'Seymour One', sans-serif;
 }
 
 .nav-right {
@@ -47,7 +46,7 @@
     /* text-decoration: none; */
     top: 26px;
     left: -69px;
-
+    font-family: 'Seymour One', sans-serif;
 }
 
 .nav-middle > a {

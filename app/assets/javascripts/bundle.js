@@ -1047,14 +1047,12 @@ var ChannelItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ChannelItem, [{
     key: "loadChat",
     value: function loadChat(e, channel) {
-      e.preventDefault(); // console.log(channel)
-
-      App.cable.subscriptions.subscriptions[0].load(channel); // console.log(App.cable.subscriptions)
+      e.preventDefault();
+      App.cable.subscriptions.subscriptions[0].load(channel);
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      // console.log("test", prevProps, this.props);
       if (prevProps.channel != this.props.channel) {
         this.setState({
           channel: this.props.channel
@@ -1291,7 +1289,10 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "nav-login",
         to: "/login"
-      }, "Login"))));
+      }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "nav-logout",
+        to: "/"
+      }, "Logout"))));
     }
   }]);
 
