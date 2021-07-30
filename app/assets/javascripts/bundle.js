@@ -843,7 +843,6 @@ __webpack_require__.r(__webpack_exports__);
 var mSTP = function mSTP(state, ownProps) {
   var oldserverId = ownProps.match.params.serverId;
   var serverId = parseInt(oldserverId);
-  debugger;
   return {
     serverId: ownProps.match.params.serverId,
     channels: Object.values(state.entities.channels).filter(function (channel) {
@@ -1638,7 +1637,7 @@ var ProfileForm = /*#__PURE__*/function (_React$Component) {
         className: "welcome-message"
       }, "Welcome, ", username, "!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/",
-        className: "nav-logout",
+        className: "user-home-logout",
         onClick: function onClick() {
           return logout();
         }

@@ -40,9 +40,19 @@
     padding-bottom: 10px;
 }
 
+
+li.chat-messages:hover {
+    background-color: rgb(55,58,63)
+ }
+
 .username-in-chat {
     position: relative;
     left: 15px;
+    color: pink;
+}
+
+.username-in-chat:hover {
+    background-color: rgb(47,49,53);
 }
 
 .profile-in-chat {
@@ -51,7 +61,7 @@
 }
 
 .date-in-chat {
-    color: pink;
+    color: lightslategray;
     font-size: x-small;
     display: inline-block;
 }
@@ -61,7 +71,7 @@
     position: relative;
     flex-direction: column-reverse;
     justify-content: flex-start;
-    color: pink;
+    color: white;
 }
 
 .chat-submit {

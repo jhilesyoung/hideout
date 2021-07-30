@@ -35,4 +35,19 @@
     display: flex;
     position: relative;
     right: -24px;
+    color: darkgrey;
+}
+
+.user-home-logout {
+    border-radius: 40px;
+    left: 41px;
+    display: flex;
+    position: relative;
+    background-color: white;
+    margin: 0px 30px 0px 0px;
+    padding: 3px 17px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-family: 'Seymour One', sans-serif;
 }

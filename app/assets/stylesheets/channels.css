@@ -2,8 +2,8 @@
     outline: none;
     background: transparent;
     border: none;
-    color: rgb(137,141,146);
-    text-decoration: none; 
+    color: darkgrey;
+    text-decoration: none;
 }
 
 .channel-title:link {
@@ -59,7 +59,7 @@
 }
 
 .channel-button:hover {
-   background-color: rgb(222, 225, 228);
+   background-color: rgb(55,58,63)
 }
 
 .create-channel-form {
@@ -71,7 +71,7 @@
 }
 
 .channel-form-title {
-    color: pink;
+    color: rgb(64,78,236);
     display: grid;
     position: relative;
 }

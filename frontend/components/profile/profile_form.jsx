@@ -62,7 +62,7 @@ class ProfileForm extends React.Component {
               <label><img className="profile-pic" src={window.servericonurl} /></label>
               <div className="profile text"> 
                 <div className="welcome-message">Welcome, {username}!</div>
-                  <Link to="/" className="nav-logout" onClick={()=> logout()}>
+                  <Link to="/" className="user-home-logout" onClick={()=> logout()}>
                             Logout
                   </Link>
               </div>
