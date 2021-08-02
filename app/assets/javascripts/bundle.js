@@ -1418,10 +1418,12 @@ var OnlineList = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "online"
+        className: "online-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "members-list"
-      }, "HIDEOUT MEMBERS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, "HIDEOUT MEMBERS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "online-list"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "profile1",
         width: "60px",
         title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
@@ -1471,7 +1473,7 @@ var OnlineList = /*#__PURE__*/function (_React$Component) {
         width: "55px",
         title: "*UNDER CONSTRUCTION* USER SHOW PAGE COMING SOON",
         src: window.profile10
-      }), "  ILost$2500"));
+      }), "  ILost$2500")));
     }
   }]);
 
@@ -1935,11 +1937,13 @@ var ServerForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.server,
         onChange: this.update('title')
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-server-modal-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "add-server-modal",
         type: "submit",
         value: this.props.formType
-      }, "Add Server")));
+      }, "Add Server"))));
     }
   }]);
 

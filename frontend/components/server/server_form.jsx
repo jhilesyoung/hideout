@@ -33,7 +33,9 @@ class ServerForm extends React.Component {
                             />
                         </label>
                         <br/>
-                    <button className="add-server-modal"type="submit" value={this.props.formType}>Add Server</button>
+                    <div className="add-server-modal-container">
+                        <button className="add-server-modal"type="submit" value={this.props.formType}>Add Server</button>
+                    </div>
                 </form>
             </div>
         );

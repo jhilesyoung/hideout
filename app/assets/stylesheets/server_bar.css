@@ -21,7 +21,7 @@
 }
   
 .server-icon::-webkit-scrollbar-thumb {
-    background-color: rgb(66,69,75);    /* color of the scroll thumb */
+    background-color: rgb(47,49,53);    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */  /* creates padding around scroll thumb */
 }
 

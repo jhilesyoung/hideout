@@ -1,4 +1,4 @@
-.online {
+.online-container {
     display: flex;
     position: absolute;
     position: -webkit-sticky;
@@ -23,33 +23,33 @@
     font-size: smaller;
 }
 
-.online > li {
+.online-list {
     list-style: none;
-    display: flex;
-    align-items: center;
-    position: relative;
-    left: 12px;
+    padding: 0px 5px;
+}
+
+.online-list li {
+}
+
+
+.online-list li:hover {
+    background-color: rgb(57 59 64);
+    cursor: pointer; 
 }
 
 img.profile1 {
     width: 32px;
-    padding-right: 15px;
+    /* padding-right: 15px;
     padding-bottom: 5px;
-    padding-top: 5px;
+    padding-top: 5px; */
 }
 
 img.profile2 {
     width: 32px;
-    padding-right: 15px;
+    /* padding-right: 15px;
     padding-bottom: 5px;
-    padding-top: 5px;
+    padding-top: 5px; */
 }
-
-.online > li:hover {
-    background-color: rgb(55,58,63);
-    cursor: pointer; 
-}
-
 .profile1 {
     color: pink;
 }

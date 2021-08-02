@@ -6,8 +6,8 @@
     left: 0;
     background: rgba(0, 0, 0, 0.7);
     z-index: 10;
-  }
-  
+}
+
   .modal-child {
     position: absolute;
     top: 50%;
@@ -18,11 +18,7 @@
     height: 147px;
     width: 290px;
     color: rgb(66,70,75);
-  }
-
-  .fas fa-plus {
-      
-  }
+}
 
   .modal-title {
     display: flex;
@@ -30,7 +26,7 @@
     font-size: x-large;
     flex-direction: column;
     color: rgb(64,78,236);
-  }
+}
 
   .add-server-input {
     width: 124px;
@@ -46,4 +42,9 @@
     background-color: rgb(64,78,236);
     border-radius: 7px;
     height: 42px;
-  }
+}
+
+  .add-server-modal-container {
+    display: flex;
+    justify-content: center;
+}
