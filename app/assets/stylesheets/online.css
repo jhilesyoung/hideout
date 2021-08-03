@@ -1,14 +1,11 @@
 .online-container {
     display: flex;
-    position: absolute;
     position: -webkit-sticky;
     flex-direction: column;
-    left: 998px;
     color: pink;
     background-color: rgb(47,49,53);
-    height: 95.5vh;
-    top: 40px;
-    width: 32vw;
+    height: calc;
+    width: 204px;
     font-size: 16px;
     font-weight: 700;
     font-family: 'Catamaran', sans-serif;

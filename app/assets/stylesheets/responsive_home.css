@@ -1,0 +1,17 @@
+.responsive-home {
+    width: calc(100% - 86px);
+}
+
+
+.channel-and-profile {
+  
+    height: calc(100% - 47px);
+    width: 248px;
+
+}
+
+.row-components {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}

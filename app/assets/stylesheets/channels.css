@@ -22,16 +22,16 @@
 
 .channel-container {
     display: flex;
-    position: absolute;
-    left: 63px;
+    /* position: absolute; */
+    /* left: 63px; */
     align-items: baseline;
     width: 248px;
-    height: 88vh;
+    height: calc(100% - 57px);
     overflow: scroll;
     flex-direction: column;
     background-color: rgb(47,49,54);
     color: rgb(95,98,102);
-    top: 39px;
+    /* top: 39px; */
     font-size: 16px;
     font-weight: 700;
     font-family: 'Catamaran', sans-serif;

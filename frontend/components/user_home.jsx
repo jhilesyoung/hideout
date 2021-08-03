@@ -28,13 +28,18 @@ class UserHome extends React.Component {
         return(
             <div className="user-home">
                 <ServerIndexContainer />
-                <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
-                <ChatRoomContainer />
-                <ProfileFormContainer />
-                {/* <VideoCall /> */}
-                <OnlineContainer />
-                <SearchBarContainer />
-                
+                    <div className="responsive-home">
+                        <SearchBarContainer />
+                        <div className="row-components">
+                            <div className="channel-and-profile">
+                                <Route path="/servers/:serverId/channels" component={ChannelBarContainer}/>
+                                <ProfileFormContainer />
+                            </div>
+                            <ChatRoomContainer />
+                            {/* <VideoCall /> */}
+                            <OnlineContainer />
+                        </div>
+                    </div>
                 <div className="background-user-home"></div>
             </div>
         )

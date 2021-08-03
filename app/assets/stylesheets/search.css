@@ -1,12 +1,12 @@
 .search-container {
-    display: flex;
-    position: absolute;
+        /* display: flex; */
+    /* position: absolute; */
     background-color: rgb(55,58,63);
     justify-content: space-evenly;
-    width: 95.4vw;
-    left: 63px;
+    width: 100%;
+    /* left: 63px; */
     height: 47px;
-    top: -8px;
+    /* top: -8px; */
     border-bottom-width: thin;
     border-bottom-style: solid;
 }

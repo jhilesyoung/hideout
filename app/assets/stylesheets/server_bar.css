@@ -1,11 +1,11 @@
 .server-container {
     display: flex;
-    position: absolute;
-    left: -23px;
-    top: -8px;
+    /* position: absolute; */
+    /* left: -23px; */
+    /* top: -8px; */
     align-items: baseline;
-    width: 86px;
-    height: 103vh;
+    width: 195px;
+    height: 100%;
     /* overflow: scroll; */
     flex-direction: column;
     background-color: rgb(33,36,39);

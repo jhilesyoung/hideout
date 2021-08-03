@@ -1,24 +1,18 @@
 .chatroom-container {
     display: flex;
+    width: calc(100% - 204px);
+    height: calc(100% - 47px);
     flex-direction: column;
     align-items: center;
     position: relative;
-    left: 311px;
     background-color: rgb(55,58,63);
-    height: 89.6vh;
-    top: 68px;
 }
 
   .message-list {
     border-left-style: none;
     overflow-y: scroll;
-    height: 88.9vh;
-    width: 701px;
-    left: 0px;
     border: solid black 1px;
     background-color: rgb(55,58,63);
-    position: relative;
-    bottom: 47px;
     color: white;
     font-size: large;
     border-bottom-style: none;

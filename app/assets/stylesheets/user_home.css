@@ -1,10 +1,11 @@
-.html {
+/* .html {
     background-color: #202225;
-}
+} */
 
 .user-home {
     position: fixed;
-    height: 97vh;
+    height: 100%;
+    width: 100%;
     flex-direction: row;
     display: flex;
 }
@@ -18,3 +19,4 @@
     position: absolute;
     z-index: -1;
 }
+
