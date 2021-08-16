@@ -73,7 +73,7 @@ class ChatRoom extends React.Component {
    
     return (
       <div className="chatroom-container">
-        <div>ChatRoom</div>
+        
         {/* <button className="load-button" 
           onClick={this.loadChat.bind(this)}>
           Launch Hideout
