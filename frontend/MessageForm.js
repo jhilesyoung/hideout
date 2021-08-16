@@ -27,7 +27,7 @@ class MessageForm extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="message-form">
         <form 
         className="chat-submit"
         onSubmit={this.handleSubmit.bind(this)}>
