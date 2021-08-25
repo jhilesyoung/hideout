@@ -56,8 +56,10 @@ class ChannelBar extends React.Component {
         
         return (
             <div className="channel-container">
+                <ul className="channel-items-container">
                 {/* <div>{channelTitle}</div> */}
                         {channelItems}
+                </ul>
                     <CreateChannelContainer />
             </div>
         )

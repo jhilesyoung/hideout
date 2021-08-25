@@ -31,6 +31,7 @@ class ChannelItem extends React.Component{
             return null
         }
         return (
+           
             <li className="channel-items">
                 <button className="channel-button" onClick={(e) => {this.loadChat(e, channel)}}>
                     <Link className="channel-title" to={`/servers/${serverId}/channels/${channel.id}`}>

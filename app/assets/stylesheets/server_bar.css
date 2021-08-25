@@ -1,5 +1,7 @@
 .server-container {
     display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
     height: 100%;
     flex-direction: column;
     background-color: rgb(33,36,39);
@@ -11,11 +13,11 @@
 }
 
 .server-icon::-webkit-scrollbar-track {
-    background: #272626;        /* color of the tracking area */
+    background: transparent;        /* color of the tracking area */
 }
   
 .server-icon::-webkit-scrollbar-thumb {
-    background-color: #232222;    /* color of the scroll thumb */
+    background-color: transparent;    /* color of the scroll thumb */
     /* border-radius: 20px;       roundness of the scroll thumb  creates padding around scroll thumb */
 }
 

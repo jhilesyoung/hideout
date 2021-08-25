@@ -2,13 +2,18 @@
     outline: none;
     background: transparent;
     border: none;
-    color: darkgrey;
+    color: rgb(142,145,150);
+    display: flex;
     text-decoration: none;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .channel-title:link {
     text-decoration: none;
-    font-size: medium;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .channel-button {
@@ -18,6 +23,9 @@
     text-decoration: none;
     padding-bottom: 7px;
     padding-top: 7px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 3px;
 }
 
 .channel-container {
@@ -37,12 +45,23 @@
     font-family: 'Catamaran', sans-serif;
 }
 
+.channel-items-container {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
 .channel-container::-webkit-scrollbar {
     width: 6px;               /* width of the entire scrollbar */
 }
 
+.channel-container::-webkit-scrollbar-corner {
+    background: rgb(47,49,54);
+}
+
 .channel-container::-webkit-scrollbar-track {
     background: rgb(47,49,54);        /* color of the tracking area */
+    background-color: rgb(47,49,54);
 }
   
 .channel-container::-webkit-scrollbar-thumb {
@@ -56,10 +75,18 @@
     display: flex;
     position: relative;
     left: 6px;
+    width: calc(100% - 6px);
 }
 
 .channel-button:hover {
-   background-color: rgb(55,58,63)
+   background-color: rgb(52, 55, 60)
+}
+
+.fa-hashtag {
+    color: rgb(115,118,125);
+    margin-right: 7px;
+    font-weight: 300;
+    font-size: 16px;
 }
 
 .create-channel-form {

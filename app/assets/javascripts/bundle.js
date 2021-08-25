@@ -812,7 +812,9 @@ var ChannelBar = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-container"
-      }, channelItems, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "channel-items-container"
+      }, channelItems), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_create_channel_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 

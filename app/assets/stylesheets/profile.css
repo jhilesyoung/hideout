@@ -32,9 +32,10 @@
 }
 
 .welcome-message {
-    display: flex;
     position: relative;
-    right: -24px;
+    right: -39px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: darkgrey;
 }
 
