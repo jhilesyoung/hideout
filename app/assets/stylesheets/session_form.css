@@ -14,6 +14,12 @@
     border: solid black 2px;
 }
 
+.login-form-box form {
+    display: block;
+    position: relative;
+    bottom: -100px;
+}
+
 .auth-background {
     position: absolute;
     height: 100vh;
@@ -38,8 +44,8 @@
     color: white;
     display: flex;
     position: relative;
-    left: 93px;
-    top: 37px;
+    left: 111px;
+    top: 96px;
     font-family: 'Catamaran';
 }
 
@@ -47,10 +53,10 @@
     color: rgb(171,172,176);
     display: flex;
     /* justify-content: center; */
-    left: 36px;
+    left: 55px;
     position: relative;
     font-family: 'Catamaran';
-    bottom: 9px;
+    bottom: -50px;
 }
 
 .session-submit-button {
@@ -120,7 +126,7 @@
     left: 389px;
     height: 211px;
     font-size: xx-large;
-    bottom: 277px;
+    bottom: 209px;
 }
 
 .demo-button > button:hover {
@@ -139,7 +145,7 @@
     color: white;
     width: 350px;
     border-radius: 5px;
-    height: 350px;
+    height: 259px;
 }
 
 .create-text {
