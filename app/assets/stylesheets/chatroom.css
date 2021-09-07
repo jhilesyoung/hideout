@@ -19,6 +19,7 @@
     border-color: rgb(55,58,63);
     width: 100%;
     height: calc(100% - 40px);
+    padding-top: 15px;
 }
 
 .load-button {
@@ -27,28 +28,44 @@
     z-index: 1;
     right: 555px;
     border-radius: 10px;
-    background-color: #383B40;
+    background-color: #383b40;
+}
+
+.message-container {
+    padding-left: 15px;
+    padding-top: 5px;
 }
 
 .chat-messages {
     list-style: none;
     display: flex;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
+    padding: 0px 15px;
+    margin-bottom: 15px;
+    font-family: 'Catamaran', sans-serif;
+    font-size: medium;
+    font-weight: 400;
 }
 
 
-li.chat-messages:hover {
+.chat-messages:hover {
     background-color: rgb(55,58,63)
  }
 
 .username-in-chat {
-    position: relative;
-    left: 15px;
     color: pink;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .username-in-chat:hover {
     background-color: rgb(47,49,53);
+}
+
+.username-and-date-container {
+    display: flex;
+    padding-bottom: 5px;
+    align-items: flex-end;
 }
 
 .profile-in-chat {
@@ -60,8 +77,8 @@ li.chat-messages:hover {
 
 .date-in-chat {
     color: lightslategray;
-    font-size: x-small;
-    display: inline-block;
+    padding-left: 10px;
+    font-size: small;
 }
 
 .message-in-chat {
@@ -69,7 +86,8 @@ li.chat-messages:hover {
     position: relative;
     flex-direction: column-reverse;
     justify-content: flex-start;
-    color: white;
+    line-height: 1.3;
+    color: #dcddde;
 }
 
 .chat-submit {

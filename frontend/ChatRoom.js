@@ -58,9 +58,13 @@ class ChatRoom extends React.Component {
         <li className="chat-messages" key={idx}> 
         {/* OR key ={message.id} */}
         <img className="profile-in-chat" src={window.servericonurl} />
-              <div className="username-in-chat">{message.username} <div className="date-in-chat">{this.state.currentDate}</div>
-                <div className="message-in-chat">{message.body}</div>
-              </div> 
+            <div className="message-container">
+                <div className="username-and-date-container">
+                    <div className="username-in-chat">{message.username}</div>
+                    <div className="date-in-chat">{this.state.currentDate}</div>
+                </div>
+                  <div className="message-in-chat">{message.body}</div>
+              </div>
             
           <div ref={this.bottom} />
         </li>
