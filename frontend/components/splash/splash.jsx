@@ -8,6 +8,8 @@ class Splash extends React.Component{
             super(props)
         }
 
+
+
 // if user is logged_in, pressing login button will take them to their list of joined servers
 // if user is NOT logged_in, pressing login will render login and page to input
 
